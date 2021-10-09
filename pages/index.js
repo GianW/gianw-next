@@ -1,12 +1,20 @@
 import Header from '/src/Header'
 import { makeStyles } from "@mui/styles";
-import {AppBar, Container, Typography}  from '@mui/material'
+import {AppBar, Toolbar, Container, Typography}  from '@mui/material'
 
 const useStyles = makeStyles((theme) => {
   return {
     root: {
       marginTop: theme.spacing(4),
       marginBottom: theme.spacing(2),
+    },
+    toolBar: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      '& > :first-child': {
+        marginLeft: '90%',
+      },
     },
   }
 })
@@ -18,10 +26,12 @@ export default function Home() {
     <>
       <Header title={'Gian Winckler'} />
       <AppBar position="static">
-        <Typography variant='inherit'>Gian Winckler</Typography>
+        <Toolbar className={classes.toolBar}>
+          <Typography variant='inherit' component="div" >Gian Winckler</Typography>
+        </Toolbar>
       </AppBar>
       <Container maxWidth="xl" className={classes.root}>
-        <Typography>MATERIAL</Typography>
+        <Typography>Hi, there! </Typography>
       </Container>
     </>
   )
