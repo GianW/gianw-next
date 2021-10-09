@@ -1,6 +1,7 @@
+import * as React from 'react';
 import Header from '/src/Header'
 import { makeStyles } from "@mui/styles";
-import {AppBar, Toolbar, Container, Typography}  from '@mui/material'
+import {AppBar, Toolbar, Typography, Grid}  from '@mui/material'
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -14,7 +15,7 @@ const useStyles = makeStyles((theme) => {
       justifyContent: 'space-between',
       '& > :first-child': {
         marginLeft: '90%',
-      },
+      }
     },
   }
 })
@@ -27,12 +28,19 @@ export default function Home() {
       <Header title={'Gian Winckler'} />
       <AppBar position="static">
         <Toolbar className={classes.toolBar}>
-          <Typography variant='inherit' component="div" >Gian Winckler</Typography>
+          <Typography variant='h6' component="div" >Gian Winckler</Typography>
         </Toolbar>
       </AppBar>
-      <Container maxWidth="xl" className={classes.root}>
-        <Typography>Hi, there! </Typography>
-      </Container>
+      <Grid container spacing={2} className={classes.root}>
+        <Grid item xs={2}></Grid>
+        <Grid item xs={8}>
+          <Typography variant='h5'>Hi there! I'm Gian.</Typography>
+          <Typography variant='h6'>I'm a software engineer who loves to find new ways to solve real problems with technology.</Typography>
+          <Typography variant='h6'>This website is my digital laboratory where i try some things and share another.</Typography>
+          <Typography variant='body1'></Typography>
+        </Grid>
+        <Grid item xs={2}></Grid>
+      </Grid>
     </>
   )
 }
