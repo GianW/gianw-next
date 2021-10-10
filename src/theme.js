@@ -2,9 +2,9 @@ import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
 // Create a theme instance.
-export const theme = createTheme({
+export const theme = ({mode = 'dark'}) => createTheme({
   palette: {
-    mode: 'dark',
+    mode: mode,
     primary: {
       main: '#aa6cff',
     },
@@ -16,9 +16,9 @@ export const theme = createTheme({
     error: {
       main: red.A400,
     },
-    background: {
-      default: '#303030'
-    },
+    // background: {
+    //   default: '#303030'
+    // },
   },
 });
 

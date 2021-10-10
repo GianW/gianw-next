@@ -1,7 +1,10 @@
 import * as React from 'react';
 import Header from '/src/Header'
-import { makeStyles } from "@mui/styles";
-import {AppBar, Toolbar, Typography, Grid}  from '@mui/material'
+import { makeStyles, useTheme } from "@mui/styles";
+import {AppBar, Toolbar, Typography, Grid, IconButton}  from '@mui/material'
+import { Brightness3, Brightness7 } from '@mui/icons-material';
+
+import {useChangeTheme} from '/src/ThemeContext'
 
 const useStyles = makeStyles((theme) => {
   return {
@@ -14,7 +17,7 @@ const useStyles = makeStyles((theme) => {
       alignItems: 'center',
       justifyContent: 'space-between',
       '& > :first-child': {
-        marginLeft: '90%',
+        marginLeft: '85%',
       }
     },
   }
@@ -22,12 +25,21 @@ const useStyles = makeStyles((theme) => {
 
 export default function Home() {
   const classes = useStyles();
+  const theme = useTheme();
+  const changeTheme = useChangeTheme()
+
+  const colorMode = () => {
+    changeTheme.toggleColorMode()
+  }
 
   return (
     <>
       <Header title={'Gian Winckler'} />
       <AppBar position="static">
         <Toolbar className={classes.toolBar}>
+          <IconButton sx={{ ml: 1 }} onClick={colorMode} color="inherit">
+            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness3 />}
+          </IconButton>
           <Typography variant='h6' component="div" >Gian Winckler</Typography>
         </Toolbar>
       </AppBar>
