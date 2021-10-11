@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => {
       '& > :first-child': {
         marginLeft: '85%',
       }
-    },
+    }
   }
 })
 
@@ -37,10 +37,12 @@ export default function Home() {
       <Header title={'Gian Winckler'} />
       <AppBar position="static">
         <Toolbar className={classes.toolBar}>
-          <IconButton sx={{ ml: 1 }} onClick={colorMode} color="inherit">
-            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness3 />}
-          </IconButton>
-          <Typography variant='h6' component="div" >Gian Winckler</Typography>
+          <Typography variant='h6' component="div" >
+            <IconButton sx={{ ml: 1 }} onClick={colorMode} color="inherit">
+              {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness3 />}
+            </IconButton>
+            Gian Winckler
+          </Typography>
         </Toolbar>
       </AppBar>
       <Grid container spacing={2} className={classes.root}>
