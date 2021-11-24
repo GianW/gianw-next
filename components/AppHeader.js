@@ -20,7 +20,7 @@ import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion'
 import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 import LightIcon from '@mui/icons-material/Light'
 import { useChangeTheme } from '/src/ThemeContext'
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 export const AppHeader = () => {
   const classes = useStyles()
@@ -83,11 +83,6 @@ const itens = [
 ]
 
 const MenuItens = ({ toggleDrawer }) => {
-  const router = useRouter()
-
-  const goToPage = page => {
-    router.push(page)
-  }
   return (
     <Box
       sx={{ width: 250 }}
@@ -96,10 +91,12 @@ const MenuItens = ({ toggleDrawer }) => {
       onKeyDown={toggleDrawer}>
       <List>
         {itens.map(item => (
-          <ListItem button key={item.name} onClick={() => goToPage(item.page)}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.name} />
-          </ListItem>
+          <Link key={item.name} href={`/${item.page}`}>
+            <ListItem button>
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <ListItemText primary={item.name} />
+            </ListItem>
+          </Link>
         ))}
       </List>
     </Box>

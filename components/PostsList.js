@@ -28,8 +28,7 @@ export const PostsList = ({ posts }) => {
       {posts.map(post => (
         <Grid key={post.slug} item xs={3}>
           <Card>
-            <CardActionArea
-              href={`${process.env.NEXT_PUBLIC_SELF_URL}/posts/${post.slug}`}>
+            <CardActionArea href={`/posts/${post.slug}`}>
               <CardHeader subheader={post.Titulo} />
               <CardContent>{post.Titulo}</CardContent>
             </CardActionArea>
