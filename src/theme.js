@@ -20,5 +20,8 @@ export const theme = ({mode = 'dark'}) => createTheme({
     //   default: '#303030'
     // },
   },
+  MuiList: {
+    dense: true
+  }
 });
 

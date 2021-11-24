@@ -1,30 +1,32 @@
-import * as React from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import {theme} from './theme';
+import * as React from 'react'
+import PropTypes from 'prop-types'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from './theme'
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
+const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
 
-function ThemeContext(props){
-  const { children } = props
-  const [mode, setMode] = React.useState('dark');
+function ThemeContext({ children }) {
+  const [mode, setMode] = React.useState('dark')
 
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+        setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'))
       },
     }),
-    [],
-  );
-  const userTheme = theme({mode: mode})
+    []
+  )
+  const userTheme = theme({ mode: mode })
 
   return (
     <ColorModeContext.Provider value={colorMode}>
-      <ThemeProvider theme={userTheme}>
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={userTheme}>{children}</ThemeProvider>
     </ColorModeContext.Provider>
   )
+}
+
+ThemeContext.propTypes = {
+  children: PropTypes.object,
 }
 
 function useChangeTheme() {
@@ -35,4 +37,4 @@ function useChangeTheme() {
   return context
 }
 
-export {ThemeContext, useChangeTheme}
+export { ThemeContext, useChangeTheme }
