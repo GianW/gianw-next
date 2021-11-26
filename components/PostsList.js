@@ -13,10 +13,6 @@ import {
 export const PostsList = ({ posts }) => {
   const classes = useStyles()
 
-  // const cardClick = page => {
-  //   console.log(page)
-  // }
-
   return (
     <Grid
       container

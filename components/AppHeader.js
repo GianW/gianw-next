@@ -76,7 +76,7 @@ export const AppHeader = () => {
 }
 
 const itens = [
-  { name: 'Home', icon: <HomeIcon />, page: '/' },
+  { name: 'Home', icon: <HomeIcon />, page: '' },
   { name: 'Brain', icon: <LightIcon />, page: 'brain' },
   { name: 'Projects', icon: <AutoAwesomeMotionIcon />, page: 'projects' },
   { name: 'Posts', icon: <AutoStoriesIcon />, page: 'posts' },
