@@ -47,6 +47,7 @@ Post.propTypes = {
 export async function getStaticProps({ params }) {
   const data = await getPost(params.slug)
   const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
+  // const content = data?.blogPosts[0]?.post || ''
 
   return {
     props: {
