@@ -31,6 +31,8 @@ export default function Post({ post }) {
               <title>{post.Titulo}</title>
               <Seo keywords={[post.seo]} />
             </Head>
+            {post?.ini.toString()}
+            {post?.fim.toString()}
             <PostBody content={post?.content} />
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
@@ -45,15 +47,20 @@ Post.propTypes = {
 }
 
 export async function getStaticProps({ params }) {
+  const ini = new Date()
   const data = await getPost(params.slug)
   const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
   // const content = data?.blogPosts[0]?.post || ''
+
+  const fim = new Date()
 
   return {
     props: {
       post: {
         ...data?.blogPosts[0],
         content,
+        ini: ini.toString(),
+        fim: fim.toString(),
       },
     },
   }
