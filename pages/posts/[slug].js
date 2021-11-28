@@ -4,12 +4,15 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 // import Container from '@/components/container'
 import { Container } from '@mui/material'
-import { PostBody } from '/components/post-body'
+// import { PostBody } from '/components/post-body'
 import { getAllPostsWithSlug, getPost } from '/lib/api'
 import Head from 'next/head'
-import markdownToHtml from '/lib/markdownToHtml'
+// import markdownToHtml from '/lib/markdownToHtml'
 import { AppHeader } from '/components/AppHeader'
 import { Seo } from '/components/Seo'
+
+// import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/react-markdown.min'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -33,7 +36,8 @@ export default function Post({ post }) {
             </Head>
             {post?.ini.toString()}
             {post?.fim.toString()}
-            <PostBody content={post?.content} />
+            {/* <PostBody content={post?.content} /> */}
+            <ReactMarkdown>{post?.content}</ReactMarkdown>
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
         )}
@@ -49,8 +53,8 @@ Post.propTypes = {
 export async function getStaticProps({ params }) {
   const ini = new Date()
   const data = await getPost(params.slug)
-  const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
-  // const content = data?.blogPosts[0]?.post || ''
+  // const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
+  const content = data?.blogPosts[0]?.post || ''
 
   const fim = new Date()
 
