@@ -13,6 +13,9 @@ import { Seo } from '/components/Seo'
 
 // import ReactMarkdown from 'react-markdown'
 import ReactMarkdown from 'react-markdown/react-markdown.min'
+import remarkGfm from 'remark-gfm'
+
+import rehypePrism from '@mapbox/rehype-prism'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -20,6 +23,9 @@ export default function Post({ post }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+
+  let extracontent = `${post?.content} \n * [x] checked item`
+
   return (
     <>
       <AppHeader />
@@ -34,10 +40,13 @@ export default function Post({ post }) {
               <title>{post.Titulo}</title>
               <Seo keywords={[post.seo]} />
             </Head>
-            {post?.ini.toString()}
-            {post?.fim.toString()}
             {/* <PostBody content={post?.content} /> */}
-            <ReactMarkdown>{post?.content}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypePrism]}>
+              {/* {post?.content} */}
+              {extracontent}
+            </ReactMarkdown>
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
         )}
@@ -51,20 +60,15 @@ Post.propTypes = {
 }
 
 export async function getStaticProps({ params }) {
-  const ini = new Date()
   const data = await getPost(params.slug)
   // const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
   const content = data?.blogPosts[0]?.post || ''
-
-  const fim = new Date()
 
   return {
     props: {
       post: {
         ...data?.blogPosts[0],
         content,
-        ini: ini.toString(),
-        fim: fim.toString(),
       },
     },
   }
