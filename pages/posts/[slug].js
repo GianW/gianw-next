@@ -15,16 +15,12 @@ import { Seo } from '/components/Seo'
 import ReactMarkdown from 'react-markdown/react-markdown.min'
 import remarkGfm from 'remark-gfm'
 
-import rehypePrism from '@mapbox/rehype-prism'
-
 export default function Post({ post }) {
   const router = useRouter()
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
-
-  let extracontent = `${post?.content} \n * [x] checked item`
 
   return (
     <>
@@ -41,11 +37,8 @@ export default function Post({ post }) {
               <Seo keywords={[post.seo]} />
             </Head>
             {/* <PostBody content={post?.content} /> */}
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypePrism]}>
-              {/* {post?.content} */}
-              {extracontent}
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {post?.content}
             </ReactMarkdown>
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
