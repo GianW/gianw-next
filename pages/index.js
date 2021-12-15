@@ -4,6 +4,7 @@ import Header from '/src/Header'
 import { makeStyles } from '@mui/styles'
 import { Typography, Grid } from '@mui/material'
 import { getLastPostsForHome } from '/lib/api'
+import { getAllPostsForHomeContentFull } from '/lib/contentFullApi'
 import { MainLastPosts } from '/components/MainLastPosts'
 import { MainLastProjects } from '/components/MainLastProjects'
 import { MainLastBrains } from '/components/MainLastBrains'
@@ -19,7 +20,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export default function Home({ blogPosts }) {
+export default function Home({ blogPosts, allPosts }) {
   const classes = useStyles()
 
   return (
@@ -40,7 +41,7 @@ export default function Home({ blogPosts }) {
           <MainLastPosts blogPosts={blogPosts} />
         </Grid>
         <Grid item xs={3}>
-          <MainLastProjects />
+          <MainLastProjects projects={allPosts} />
         </Grid>
         <Grid item xs={3}>
           <MainLastBrains />
@@ -53,6 +54,7 @@ export default function Home({ blogPosts }) {
 }
 
 Home.propTypes = {
+  allPosts: PropTypes.array,
   blogPosts: PropTypes.array,
 }
 
@@ -73,7 +75,8 @@ const SelfPresentation = () => (
 
 export async function getStaticProps() {
   const blogPosts = (await getLastPostsForHome()) || []
+  const allPosts = (await getAllPostsForHomeContentFull(false)) ?? []
   return {
-    props: { blogPosts },
+    props: { blogPosts, allPosts },
   }
 }

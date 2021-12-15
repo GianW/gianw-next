@@ -11,7 +11,7 @@ export const MainLastProjects = ({ projects }) => {
         {projects &&
           projects.map(proj => (
             <p key={proj.slug}>
-              <Link href={`/projects/${proj.slug}`}>{proj.Titulo}</Link>
+              <Link href={`/projects/${proj.slug}`}>{proj.titulo}</Link>
             </p>
           ))}
       </CardContent>
