@@ -14,8 +14,8 @@ import { AppHeader } from '/components/AppHeader'
 import { Seo } from '/components/Seo'
 
 // import ReactMarkdown from 'react-markdown'
-import ReactMarkdown from 'react-markdown/react-markdown.min'
-import remarkGfm from 'remark-gfm'
+// import ReactMarkdown from 'react-markdown/react-markdown.min'
+// import remarkGfm from 'remark-gfm'
 // import remarkPrism from 'remark-prism/src/index'
 
 export default function Post({ post }) {
