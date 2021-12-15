@@ -5,17 +5,17 @@ import ErrorPage from 'next/error'
 // import Container from '@/components/container'
 import { Container } from '@mui/material'
 
-import { PostBody } from '/components/post-body'
-import markdownToHtml from '/lib/markdownToHtml'
+// import { PostBody } from '/components/post-body'
+// import markdownToHtml from '/lib/markdownToHtml'
 
 import { getAllPostsWithSlug, getPost } from '/lib/api'
 import Head from 'next/head'
 import { AppHeader } from '/components/AppHeader'
 import { Seo } from '/components/Seo'
 
-// import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown'
 // import ReactMarkdown from 'react-markdown/react-markdown.min'
-// import remarkGfm from 'remark-gfm'
+import remarkGfm from 'remark-gfm'
 // import remarkPrism from 'remark-prism/src/index'
 
 export default function Post({ post }) {
@@ -39,10 +39,11 @@ export default function Post({ post }) {
               <title>{post.Titulo}</title>
               <Seo keywords={[post.seo]} />
             </Head>
-            <PostBody content={post?.content} />
-            {/*<ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {/* <PostBody content={post?.content} /> */}
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
               {post?.content}
-        </ReactMarkdown>*/}
+            </ReactMarkdown>
+            {/* <pre>{JSON.stringify(post?.content, null, 2)}</pre> */}
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
         )}
@@ -57,8 +58,8 @@ Post.propTypes = {
 
 export async function getStaticProps({ params }) {
   const data = await getPost(params.slug)
-  const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
-  // const content = data?.blogPosts[0]?.post || ''
+  // const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
+  const content = data?.blogPosts[0]?.post || ''
 
   return {
     props: {
