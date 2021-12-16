@@ -9,8 +9,8 @@ import { Seo } from '/components/Seo'
 
 import { getAllPostsWithSlug, getPost } from '/lib/contentFullApi'
 
-import { PostBody } from '/components/post-body'
-import markdownToHtml from '/lib/markdownToHtml'
+// import { PostBody } from '/components/post-body'
+// import markdownToHtml from '/lib/markdownToHtml'
 
 export default function Post({ content, post }) {
   const router = useRouter()
@@ -33,7 +33,8 @@ export default function Post({ content, post }) {
               <title>{content.titulo}</title>
               <Seo keywords={content.seo} />
             </Head>
-            <PostBody content={post} />
+            {/* <PostBody content={post} /> */}
+            <>{post}</>
           </>
         )}
       </Container>
@@ -47,12 +48,13 @@ Post.propTypes = {
 
 export async function getStaticProps({ params, preview = false }) {
   const data = await getPost(params.slug, preview)
-  const buildedContent = await markdownToHtml(data?.post.post || '')
+  // const buildedContent = await markdownToHtml(data?.post.post || '')
+  const content = data?.post.post
 
   return {
     props: {
       preview,
-      post: buildedContent,
+      post: content,
       content: data?.post,
     },
   }
