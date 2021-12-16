@@ -12,6 +12,9 @@ import { getAllPostsWithSlug, getPost } from '/lib/contentFullApi'
 // import { PostBody } from '/components/post-body'
 // import markdownToHtml from '/lib/markdownToHtml'
 
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+
 export default function Post({ content, post }) {
   const router = useRouter()
 
@@ -34,7 +37,7 @@ export default function Post({ content, post }) {
               <Seo keywords={content.seo} />
             </Head>
             {/* <PostBody content={post} /> */}
-            <>{post}</>
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>{post}</ReactMarkdown>
           </>
         )}
       </Container>
