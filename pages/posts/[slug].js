@@ -6,7 +6,7 @@ import { Container } from '@mui/material'
 import { PostBody } from '/components/post-body'
 import { getAllPostsWithSlug, getPost } from '/lib/api'
 import Head from 'next/head'
-import markdownToHtml from '/lib/markdownToHtml'
+// import markdownToHtml from '/lib/markdownToHtml'
 import { AppHeader } from '/components/AppHeader'
 import { Seo } from '/components/Seo'
 
@@ -45,7 +45,8 @@ Post.propTypes = {
 
 export async function getStaticProps({ params }) {
   const data = await getPost(params.slug)
-  const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
+  // const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
+  const content = data?.blogPosts[0]?.post
 
   return {
     props: {
