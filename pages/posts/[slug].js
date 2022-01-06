@@ -70,6 +70,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const allPosts = await getAllPostSlugs()
+  console.log('=====================', allPosts)
   return {
     paths: allPosts?.map(post => `/posts/${post.slug}`) || [],
     fallback: true,
