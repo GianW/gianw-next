@@ -14,8 +14,6 @@ import { Seo } from '/components/Seo'
 export default function Post({ post }) {
   const router = useRouter()
 
-  console.log(post)
-
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -73,8 +71,7 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
   const allPosts = await getAllPostSlugs()
   return {
-    paths:
-      allPosts?.map(post => (post.slug ? `/posts/${post.slug}` : null)) || [],
+    paths: allPosts?.map(post => `/posts/${post.slug}`) || [],
     fallback: true,
   }
 }
