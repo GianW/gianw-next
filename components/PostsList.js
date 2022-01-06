@@ -25,7 +25,7 @@ export const PostsList = ({ posts }) => {
         <Grid key={post.slug} item xs={3}>
           <Card>
             <CardActionArea href={`/posts/${post.slug}`}>
-              <CardHeader subheader={post.Titulo} />
+              <CardHeader subheader={post.title} />
               <CardContent>{post.Titulo}</CardContent>
             </CardActionArea>
           </Card>

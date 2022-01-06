@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import Header from '/src/Header'
 import { makeStyles } from '@mui/styles'
 import { Typography, Grid } from '@mui/material'
-import { getLastPostsForHome } from '/lib/api'
+// import { getLastPostsForHome } from '/lib/api'
+import { getSortedPostsData } from '/lib/dataSource'
 import { MainLastPosts } from '/components/MainLastPosts'
 import { MainLastProjects } from '/components/MainLastProjects'
 import { MainLastBrains } from '/components/MainLastBrains'
@@ -21,7 +22,6 @@ const useStyles = makeStyles(theme => {
 
 export default function Home({ blogPosts }) {
   const classes = useStyles()
-
   return (
     <>
       <Header title={'Gian Winckler'} />
@@ -72,7 +72,8 @@ const SelfPresentation = () => (
 )
 
 export async function getStaticProps() {
-  const blogPosts = (await getLastPostsForHome()) || []
+  // const blogPosts = (await getLastPostsForHome()) || []
+  const blogPosts = (await getSortedPostsData()).slice(0, 5) || []
   return {
     props: { blogPosts },
   }

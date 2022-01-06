@@ -4,7 +4,8 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container } from '@mui/material'
 import { PostBody } from '/components/post-body'
-import { getAllPostsWithSlug, getPost } from '/lib/api'
+// import { getAllPostsWithSlug, getPost } from '/lib/api'
+import { getAllPostSlugs, getPostData } from '/lib/dataSource'
 import Head from 'next/head'
 // import markdownToHtml from '/lib/markdownToHtml'
 import { AppHeader } from '/components/AppHeader'
@@ -12,6 +13,8 @@ import { Seo } from '/components/Seo'
 
 export default function Post({ post }) {
   const router = useRouter()
+
+  console.log(post)
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -27,10 +30,11 @@ export default function Post({ post }) {
         ) : (
           <>
             <Head>
-              <title>{post.Titulo}</title>
+              <title>{post.title}</title>
               <Seo keywords={[post.seo]} />
             </Head>
-            <PostBody content={post?.content} />
+            {/* <div dangerouslySetInnerHTML={{ __html: post.contentHtml }} /> */}
+            <PostBody content={post?.contentHtml} />
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
         )}
@@ -43,23 +47,31 @@ Post.propTypes = {
   post: PropTypes.object,
 }
 
-export async function getStaticProps({ params }) {
-  const data = await getPost(params.slug)
-  // const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
-  const content = data?.blogPosts[0]?.post
+// export async function getStaticProps({ params }) {
+// const data = await getPost(params.slug)
+// // const content = await markdownToHtml(data?.blogPosts[0]?.post || '')
+// const content = data?.blogPosts[0]?.post
+// return {
+//   props: {
+//     post: {
+//       ...data?.blogPosts[0],
+//       content,
+//     },
+//   },
+// }
+// }
 
+export async function getStaticProps({ params }) {
+  const post = await getPostData(params.slug)
   return {
     props: {
-      post: {
-        ...data?.blogPosts[0],
-        content,
-      },
+      post,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const allPosts = await getAllPostSlugs()
   return {
     paths: allPosts?.map(post => `/posts/${post.slug}`) || [],
     fallback: true,

@@ -10,7 +10,7 @@ export const MainLastPosts = ({ blogPosts }) => {
       <CardContent>
         {blogPosts.map(post => (
           <p key={post.slug}>
-            <Link href={`/posts/${post.slug}`}>{post.Titulo}</Link>
+            <Link href={`/posts/${post.slug}`}>{post.title}</Link>
           </p>
         ))}
       </CardContent>
