@@ -1,6 +1,5 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
-// import { getAllPostsForHome } from '/lib/api'
 import { getSortedPostsData } from '/lib/dataSource'
 import { AppHeader } from '/components/AppHeader'
 import { PostsList } from '/components/PostsList'

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Header from '/src/Header'
 import { makeStyles } from '@mui/styles'
 import { Typography, Grid } from '@mui/material'
-// import { getLastPostsForHome } from '/lib/api'
 import { getSortedPostsData } from '/lib/dataSource'
 import { MainLastPosts } from '/components/MainLastPosts'
 import { MainLastProjects } from '/components/MainLastProjects'
@@ -72,7 +71,6 @@ const SelfPresentation = () => (
 )
 
 export async function getStaticProps() {
-  // const blogPosts = (await getLastPostsForHome()) || []
   const blogPosts = (await getSortedPostsData()).slice(0, 5) || []
   return {
     props: { blogPosts },
