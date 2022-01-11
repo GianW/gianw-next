@@ -24,27 +24,37 @@ export default function Home({ blogPosts }) {
     <>
       <Header title={'Gian Winckler'} />
       <AppHeader />
-      <Grid container spacing={2} className={classes.root} alignItems='center'>
-        <Grid item xs={1}></Grid>
-        <Grid item xs={10} alignItems='center'>
+      <Grid
+        container
+        spacing={2}
+        className={classes.root}
+        alignItems='flex-start'
+        direction='row'
+        justifyContent='center'>
+        <Grid item xs={9} alignItems='center'>
           <SelfPresentation />
           <SocialLinks />
         </Grid>
-        <Grid item xs={1}></Grid>
       </Grid>
-      <Grid container spacing={2} className={classes.root}>
-        <Grid item xs={1}></Grid>
-        <Grid item xs={3}>
+
+      <Grid
+        container
+        spacing={2}
+        direction='row'
+        justify='flex-start'
+        alignItems='flex-start'
+        justifyContent='center'
+        className={classes.root}>
+        <Grid item xs={10} sm={6} md={3}>
           <MainLastPosts blogPosts={blogPosts} />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={10} sm={6} md={3}>
           <MainLastProjects />
         </Grid>
-        <Grid item xs={3}>
+
+        <Grid item xs={10} sm={6} md={3}>
           <MainLastBrains />
         </Grid>
-
-        <Grid item xs={2}></Grid>
       </Grid>
     </>
   )
@@ -56,9 +66,9 @@ Home.propTypes = {
 
 const SelfPresentation = () => (
   <>
-    <Typography variant='h5'>Hi there! I`m Gian.</Typography>
+    <Typography variant='h5'>Hi there! I'm Gian.</Typography>
     <Typography variant='h6'>
-      I`m a software engineer who loves to find new ways to solve real problems
+      I'm a software engineer who loves to find new ways to solve real problems
       with code.
     </Typography>
     <Typography variant='h6'>

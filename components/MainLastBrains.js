@@ -5,7 +5,7 @@ import { Card, CardContent, Link, CardHeader } from '@mui/material'
 export const MainLastBrains = ({ brains }) => {
   return (
     <Card>
-      <CardHeader subheader='Last brains' />
+      <CardHeader subheader='Last in brain' />
       <CardContent>
         {brains &&
           brains.map(brain => (
