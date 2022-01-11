@@ -1,4 +1,3 @@
-import * as React from 'react'
 import PropTypes from 'prop-types'
 
 import { Card, CardContent, Link, CardHeader } from '@mui/material'

@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { makeStyles } from '@mui/styles'
 import EmailIcon from '@mui/icons-material/Email'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
