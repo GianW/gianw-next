@@ -66,10 +66,10 @@ Home.propTypes = {
 
 const SelfPresentation = () => (
   <>
-    <Typography variant='h5'>Hi there! I'm Gian.</Typography>
+    <Typography variant='h5'>Hi there! I&apos;m Gian.</Typography>
     <Typography variant='h6'>
-      I'm a software engineer who loves to find new ways to solve real problems
-      with code.
+      I&apos;m a software engineer who loves to find new ways to solve real
+      problems with code.
     </Typography>
     <Typography variant='h6'>
       This website is my digital laboratory where i try some things and share
