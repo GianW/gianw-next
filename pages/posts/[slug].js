@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import { Container } from '@mui/material'
+import { Container, Typography } from '@mui/material'
 import { PostBody } from '/components/post-body'
 import { getAllPostSlugs, getPostData } from '/lib/dataSource'
 import Head from 'next/head'
 import { AppHeader } from '/components/AppHeader'
 import { Seo } from '/components/Seo'
+import { dateFormatter } from '../../src/utils/dateFormatter'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -28,6 +29,13 @@ export default function Post({ post }) {
               <title>{post.title}</title>
               <Seo keywords={[post.seo]} />
             </Head>
+            <Typography variant='h3' style={{ marginTop: '2%' }}>
+              {post?.title}
+            </Typography>
+            <Typography variant='body2' style={{ marginBottom: '2%' }}>
+              {dateFormatter(post.date)}
+            </Typography>
+            <hr />
             <PostBody content={post?.contentHtml} />
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
@@ -40,6 +48,7 @@ export default function Post({ post }) {
 Post.propTypes = {
   post: PropTypes.object,
 }
+
 export async function getStaticProps({ params }) {
   const post = await getPostData(params.slug)
   return {

@@ -7,7 +7,9 @@ import {
   CardHeader,
   Grid,
   CardActionArea,
+  Typography,
 } from '@mui/material'
+import { dateFormatter } from '../src/utils/dateFormatter'
 
 export const PostsList = ({ posts }) => {
   const classes = useStyles()
@@ -25,7 +27,12 @@ export const PostsList = ({ posts }) => {
           <Card>
             <CardActionArea href={`/posts/${post.slug}`}>
               <CardHeader subheader={post.title} />
-              <CardContent>{post.Titulo}</CardContent>
+              <CardContent>
+                <Typography variant='caption'>
+                  {dateFormatter(post.date)}
+                </Typography>
+                <Typography variant='body2'>{post.description}</Typography>
+              </CardContent>
             </CardActionArea>
           </Card>
         </Grid>

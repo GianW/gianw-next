@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'
-import Header from '/src/Header'
 import { makeStyles } from '@mui/styles'
 import { Typography, Grid } from '@mui/material'
 import { getSortedPostsData } from '/lib/dataSource'
@@ -22,7 +21,6 @@ export default function Home({ blogPosts }) {
   const classes = useStyles()
   return (
     <>
-      <Header title={'Gian Winckler'} />
       <AppHeader />
       <Grid
         container
