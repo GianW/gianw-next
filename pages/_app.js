@@ -1,8 +1,8 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import CssBaseline from '@mui/material/CssBaseline'
-import { ThemeContext } from '../src/ThemeContext'
-import Header from '/src/Header'
+import { ThemeContext } from 'ThemeContext'
+import Header from 'Header'
 import NextNprogress from 'nextjs-progressbar'
 
 function MyApp({ Component, pageProps }) {

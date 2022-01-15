@@ -2,12 +2,12 @@ import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container, Typography } from '@mui/material'
-import { PostBody } from '/components/post-body'
-import { getAllPostSlugs, getPostData } from '/lib/dataSource'
+import { PostBody } from 'components/post-body'
+import { getAllPostSlugs, getPostData } from 'lib/dataSource'
 import Head from 'next/head'
-import { AppHeader } from '/components/AppHeader'
-import { Seo } from '/components/Seo'
-import { dateFormatter } from '../../src/utils/dateFormatter'
+import { AppHeader } from 'components/AppHeader'
+import { Seo } from 'components/Seo'
+import { dateFormatter } from 'utils/dateFormatter'
 
 export default function Post({ post }) {
   const router = useRouter()

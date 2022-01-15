@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types'
 import { makeStyles } from '@mui/styles'
 import { Typography, Grid } from '@mui/material'
-import { getSortedPostsData } from '/lib/dataSource'
-import { MainLastPosts } from '/components/MainLastPosts'
-import { MainLastProjects } from '/components/MainLastProjects'
-import { MainLastBrains } from '/components/MainLastBrains'
-import { SocialLinks } from '/components/SocialLinks'
-import { AppHeader } from '/components/AppHeader'
+import { getSortedPostsData } from 'lib/dataSource'
+import { MainLastPosts } from 'components/MainLastPosts'
+import { MainLastProjects } from 'components/MainLastProjects'
+import { MainLastBrains } from 'components/MainLastBrains'
+import { SocialLinks } from 'components/SocialLinks'
+import { AppHeader } from 'components/AppHeader'
 
 const useStyles = makeStyles(theme => {
   return {

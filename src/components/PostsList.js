@@ -9,7 +9,7 @@ import {
   CardActionArea,
   Typography,
 } from '@mui/material'
-import { dateFormatter } from '../src/utils/dateFormatter'
+import { dateFormatter } from 'utils/dateFormatter'
 
 export const PostsList = ({ posts }) => {
   const classes = useStyles()

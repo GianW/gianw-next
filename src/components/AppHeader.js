@@ -19,7 +19,7 @@ import HomeIcon from '@mui/icons-material/Home'
 import AutoAwesomeMotionIcon from '@mui/icons-material/AutoAwesomeMotion'
 import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 import LightIcon from '@mui/icons-material/Light'
-import { useChangeTheme } from '/src/ThemeContext'
+import { useChangeTheme } from 'ThemeContext'
 import Link from 'next/link'
 
 export const AppHeader = () => {
