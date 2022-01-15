@@ -20,6 +20,7 @@ module.exports = {
     'react/no-unused-prop-types': ['error'],
     'react/sort-prop-types': ['error'],
     'react/display-name': ['off'],
+    'react/react-in-jsx-scope': 'off',
     'linebreak-style': ['error', 'unix'],
     'prefer-template': 'error',
     'no-alert': 'warn',

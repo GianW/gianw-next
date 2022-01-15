@@ -1,4 +1,3 @@
-import * as React from 'react'
 import PropTypes from 'prop-types'
 
 import { makeStyles } from '@mui/styles'
@@ -8,7 +7,9 @@ import {
   CardHeader,
   Grid,
   CardActionArea,
+  Typography,
 } from '@mui/material'
+import { dateFormatter } from '../src/utils/dateFormatter'
 
 export const PostsList = ({ posts }) => {
   const classes = useStyles()
@@ -25,8 +26,13 @@ export const PostsList = ({ posts }) => {
         <Grid key={post.slug} item xs={3}>
           <Card>
             <CardActionArea href={`/posts/${post.slug}`}>
-              <CardHeader subheader={post.Titulo} />
-              <CardContent>{post.Titulo}</CardContent>
+              <CardHeader subheader={post.title} />
+              <CardContent>
+                <Typography variant='caption'>
+                  {dateFormatter(post.date)}
+                </Typography>
+                <Typography variant='body2'>{post.description}</Typography>
+              </CardContent>
             </CardActionArea>
           </Card>
         </Grid>
