@@ -10,7 +10,7 @@ export const MainLastBrains = ({ brains }) => {
         {brains &&
           brains.map(brain => (
             <p key={brain.slug}>
-              <Link href={`/brain/${brain.slug}`}>{brain.Titulo}</Link>
+              <Link href={`/brain/${brain.slug}`}>{brain.slug}</Link>
             </p>
           ))}
       </CardContent>
