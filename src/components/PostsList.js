@@ -9,7 +9,7 @@ import {
   CardActionArea,
   Typography,
 } from '@mui/material'
-import { dateFormatter } from '../src/utils/dateFormatter'
+import { dateFormatter } from 'utils/dateFormatter'
 
 export const PostsList = ({ posts }) => {
   const classes = useStyles()
@@ -18,12 +18,12 @@ export const PostsList = ({ posts }) => {
     <Grid
       container
       spacing={2}
-      className={classes.root}
       direction='row'
       justify='flex-start'
-      alignItems='flex-start'>
+      alignItems='flex-start'
+      className={classes.root}>
       {posts.map(post => (
-        <Grid key={post.slug} item xs={3}>
+        <Grid key={post.slug} item xs={12} md={3}>
           <Card>
             <CardActionArea href={`/posts/${post.slug}`}>
               <CardHeader subheader={post.title} />

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
-import { getSortedPostsData } from '/lib/dataSource'
-import { AppHeader } from '/components/AppHeader'
-import { PostsList } from '/components/PostsList'
+import { getSortedPostsData } from 'lib/dataSource'
+import { AppHeader } from 'components/AppHeader'
+import { PostsList } from 'components/PostsList'
 
 export default function Posts({ blogPosts }) {
   return (

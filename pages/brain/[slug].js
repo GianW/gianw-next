@@ -3,16 +3,15 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import { Container, Typography } from '@mui/material'
 import { PostBody } from 'components/post-body'
-import { getAllPostSlugs, getPostData } from 'lib/dataSource'
+import { getAllBrainSlugs, getBrainData } from 'lib/dataSource'
 import Head from 'next/head'
 import { AppHeader } from 'components/AppHeader'
 import { Seo } from 'components/Seo'
-import { dateFormatter } from 'utils/dateFormatter'
 
-export default function Post({ post }) {
+export default function Brain({ brain }) {
   const router = useRouter()
 
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !brain?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
@@ -26,17 +25,14 @@ export default function Post({ post }) {
         ) : (
           <>
             <Head>
-              <title>{post.title}</title>
-              <Seo keywords={[post.seo]} />
+              <title>{brain.title}</title>
+              <Seo keywords={[brain.seo]} />
             </Head>
             <Typography variant='h3' style={{ marginTop: '2%' }}>
-              {post?.title}
-            </Typography>
-            <Typography variant='body2' style={{ marginBottom: '2%' }}>
-              {dateFormatter(post.date)}
+              {brain?.title}
             </Typography>
             <hr />
-            <PostBody content={post?.contentHtml} />
+            <PostBody content={brain?.contentHtml} />
             <hr className='border-accent-2 mt-28 mb-24' />
           </>
         )}
@@ -45,23 +41,23 @@ export default function Post({ post }) {
   )
 }
 
-Post.propTypes = {
-  post: PropTypes.object,
+Brain.propTypes = {
+  brain: PropTypes.object,
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getPostData(params.slug)
+  const brain = await getBrainData(params.slug)
   return {
     props: {
-      post,
+      brain,
     },
   }
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostSlugs()
+  const allPosts = await getAllBrainSlugs()
   return {
-    paths: allPosts?.map(post => `/posts/${post.params.slug}`) || [],
+    paths: allPosts?.map(post => `/brain/${post.slug}`) || [],
     fallback: true,
   }
 }
