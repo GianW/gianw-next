@@ -24,19 +24,19 @@ function extractProjectsEntries(fetchResponse) {
   return fetchResponse?.data?.projectsCollection?.items
 }
 
-// export async function getPreviewPostBySlug(slug) {
-//   const entry = await fetchGraphQL(
-//     `query {
-//       postCollection(where: { slug: "${slug}" }, preview: true, limit: 1) {
-//         items {
-//           ${POST_GRAPHQL_FIELDS}
-//         }
-//       }
-//     }`,
-//     true
-//   )
-//   return extractPost(entry)
-// }
+export async function getProjectsForMain() {
+  const entries = await fetchGraphQL(
+    `query {
+      projectsCollection(limit: 5) {
+        items {
+          slug
+          nome
+        }
+      }
+    }`
+  )
+  return extractProjectsEntries(entries)
+}
 
 export async function getAllProjectWithSlug() {
   const entries = await fetchGraphQL(

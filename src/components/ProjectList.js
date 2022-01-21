@@ -10,13 +10,13 @@ import {
   Grid,
   CardActionArea,
   Typography,
+  Chip,
 } from '@mui/material'
 
 export const ProjectList = ({ projects }) => {
   const classes = useStyles()
 
   const defaultCover = '/static/default_cover.jpg'
-  console.log(projects)
   return (
     <Grid
       container
@@ -38,13 +38,16 @@ export const ProjectList = ({ projects }) => {
               <CardHeader subheader={proj.nome.toUpperCase()} />
               <CardContent>
                 <Typography variant='body2'>{proj.descricao}</Typography>
-                {/* <Image
-                  src={`/static/${brain.title}.png`}
-                  alt={brain.title}
-                  layout='intrinsic'
-                  width={50}
-                  height={60}
-                /> */}
+                <p>
+                  {proj.tags.map(tag => (
+                    <Chip
+                      label={tag}
+                      key={tag}
+                      color='primary'
+                      variant='outlined'
+                    />
+                  ))}
+                </p>
               </CardContent>
             </CardActionArea>
           </Card>

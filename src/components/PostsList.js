@@ -8,12 +8,12 @@ import {
   Grid,
   CardActionArea,
   Typography,
+  Chip,
 } from '@mui/material'
 import { dateFormatter } from 'utils/dateFormatter'
 
 export const PostsList = ({ posts }) => {
   const classes = useStyles()
-
   return (
     <Grid
       container
@@ -32,6 +32,16 @@ export const PostsList = ({ posts }) => {
                   {dateFormatter(post.date)}
                 </Typography>
                 <Typography variant='body2'>{post.description}</Typography>
+                <p>
+                  {post.tags.map(tag => (
+                    <Chip
+                      label={tag}
+                      key={tag}
+                      color='primary'
+                      variant='outlined'
+                    />
+                  ))}
+                </p>
               </CardContent>
             </CardActionArea>
           </Card>

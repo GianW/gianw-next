@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { makeStyles } from '@mui/styles'
 import { Typography, Grid } from '@mui/material'
 import { getSortedPostsData, getAllBrainSlugs } from 'lib/dataSource'
+import { getProjectsForMain } from 'lib/contentFullApi'
 import { MainLastPosts } from 'components/MainLastPosts'
 import { MainLastProjects } from 'components/MainLastProjects'
 import { MainLastBrains } from 'components/MainLastBrains'
@@ -17,7 +18,7 @@ const useStyles = makeStyles(theme => {
   }
 })
 
-export default function Home({ blogPosts, brainPosts }) {
+export default function Home({ blogPosts, brainPosts, projPosts }) {
   const classes = useStyles()
   return (
     <>
@@ -47,9 +48,8 @@ export default function Home({ blogPosts, brainPosts }) {
           <MainLastPosts blogPosts={blogPosts} />
         </Grid>
         <Grid item xs={10} sm={6} md={3}>
-          <MainLastProjects />
+          <MainLastProjects projects={projPosts} />
         </Grid>
-
         <Grid item xs={10} sm={6} md={3}>
           <MainLastBrains brains={brainPosts} />
         </Grid>
@@ -61,6 +61,7 @@ export default function Home({ blogPosts, brainPosts }) {
 Home.propTypes = {
   blogPosts: PropTypes.array,
   brainPosts: PropTypes.array,
+  projPosts: PropTypes.array,
 }
 
 const SelfPresentation = () => (
@@ -81,7 +82,8 @@ const SelfPresentation = () => (
 export async function getStaticProps() {
   const blogPosts = (await getSortedPostsData()).slice(0, 5) || []
   const brainPosts = (await getAllBrainSlugs()).slice(0, 5) || []
+  const projPosts = (await getProjectsForMain()) || []
   return {
-    props: { blogPosts, brainPosts },
+    props: { blogPosts, brainPosts, projPosts },
   }
 }
