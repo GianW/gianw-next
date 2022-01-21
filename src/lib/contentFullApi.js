@@ -84,6 +84,28 @@ export async function getProjectData(slug) {
           seo
           conteudo{
             json
+            links{
+              assets{
+                block{
+                  url
+                  title
+                  url
+                  fileName
+                  width
+                  sys{
+                    id
+                    spaceId
+                    environmentId
+                    publishedAt
+                  }
+                }
+                hyperlink{
+                  title
+                  fileName
+                  url
+                }
+              }
+            }
           }
         }
       }
