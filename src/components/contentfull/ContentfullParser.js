@@ -31,7 +31,7 @@ function renderOptions(links) {
     renderNode: {
       // other options...
 
-      [BLOCKS.EMBEDDED_ENTRY]: (node, children) => {
+      [BLOCKS.EMBEDDED_ENTRY]: node => {
         // find the entry in the entryBlockMap by ID
         const entry = entryBlockMap.get(node.data.target.sys.id)
 
@@ -52,10 +52,9 @@ function renderOptions(links) {
           )
         }
       },
-      [BLOCKS.EMBEDDED_ASSET]: (node, next) => {
+      [BLOCKS.EMBEDDED_ASSET]: node => {
         // find the asset in the assetBlockMap by ID
         const asset = assetBlockMap.get(node.data.target.sys.id)
-        console.log('11', asset, node.data)
 
         // render the asset accordingly
         return <img src={asset?.url} alt='My image alt text' />
@@ -65,7 +64,6 @@ function renderOptions(links) {
 }
 
 export const RichTextResponse = ({ richTextResponse }) => {
-  console.log('olha aqui', richTextResponse)
   return (
     <>
       {documentToReactComponents(
