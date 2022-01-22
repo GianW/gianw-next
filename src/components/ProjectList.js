@@ -1,39 +1,45 @@
 import PropTypes from 'prop-types'
 
+// import Image from 'next/image'
 import { makeStyles } from '@mui/styles'
 import {
   Card,
   CardContent,
   CardHeader,
+  CardMedia,
   Grid,
   CardActionArea,
   Typography,
   Chip,
 } from '@mui/material'
-import { dateFormatter } from 'utils/dateFormatter'
 
-export const PostsList = ({ posts }) => {
+export const ProjectList = ({ projects }) => {
   const classes = useStyles()
+
+  const defaultCover = '/static/default_cover.jpg'
   return (
     <Grid
       container
       spacing={2}
+      className={classes.root}
       direction='row'
       justify='flex-start'
-      alignItems='flex-start'
-      className={classes.root}>
-      {posts.map(post => (
-        <Grid key={post.slug} item xs={12} md={3}>
+      alignItems='flex-start'>
+      {projects?.map(proj => (
+        <Grid key={proj.slug} item xs={12} md={3} justifyContent='center'>
           <Card>
-            <CardActionArea href={`/posts/${post.slug}`}>
-              <CardHeader subheader={post.title} />
+            <CardActionArea href={`/projects/${proj.slug}`}>
+              <CardMedia
+                component='img'
+                height='140'
+                image={proj.capa ? proj.capa : defaultCover}
+                alt='Project cover image'
+              />
+              <CardHeader subheader={proj.nome.toUpperCase()} />
               <CardContent>
-                <Typography variant='caption'>
-                  {dateFormatter(post.date)}
-                </Typography>
-                <Typography variant='body2'>{post.description}</Typography>
+                <Typography variant='body2'>{proj.descricao}</Typography>
                 <p>
-                  {post.tags.map(tag => (
+                  {proj.tags.map(tag => (
                     <Chip
                       label={tag}
                       key={tag}
@@ -51,8 +57,8 @@ export const PostsList = ({ posts }) => {
   )
 }
 
-PostsList.propTypes = {
-  posts: PropTypes.array,
+ProjectList.propTypes = {
+  projects: PropTypes.array,
 }
 
 const useStyles = makeStyles(theme => {
