@@ -6,4 +6,6 @@ To run local
 
 **Posts** section use local data in `content/posts` folder and transforn it in pages.
 
-**Pages** under construction
+**Brain** use the same strategy of `Post`
+
+**Projects** Data from [Contentfull](https://www.contentful.com/)
