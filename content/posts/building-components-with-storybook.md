@@ -172,4 +172,4 @@ addParameters({
 
 <img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1643503396/Blog/print_storybook2_egvkhi.png" alt="sStorybook custom theme" style="width:100%;"/>
 
-that's all for while.
+that's all for now.
