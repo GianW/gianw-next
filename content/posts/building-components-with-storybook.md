@@ -109,7 +109,7 @@ addParameters({
 ```
 
 Now you should see something like:
-![Storybook dark theme](../../assets/print_storybook.PNG)
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1643502292/Blog/print_storybook_cvjkfo.png" alt="storybook print" style="width:100%;"/>
 
 # Custom
 
@@ -170,6 +170,6 @@ addParameters({
 })
 ```
 
-![Storybook custom theme](../assets/print_storybook2.PNG)
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1643503396/Blog/print_storybook2_egvkhi.png" alt="sStorybook custom theme" style="width:100%;"/>
 
 that's all for while.
