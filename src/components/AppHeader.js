@@ -78,7 +78,7 @@ export const AppHeader = ({ title = '' }) => {
   )
 }
 
-AppHeader.PropTypes = {
+AppHeader.propTypes = {
   title: PropTypes.string,
 }
 
