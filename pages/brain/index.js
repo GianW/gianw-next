@@ -6,7 +6,7 @@ import { getAllCompletesData } from 'lib/dataSource'
 export default function Brain({ brainPosts }) {
   return (
     <>
-      <AppHeader />
+      <AppHeader title='Brain' />
       <BrainList brains={brainPosts} />
     </>
   )

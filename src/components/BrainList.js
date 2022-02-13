@@ -32,8 +32,8 @@ export const BrainList = ({ brains }) => {
                   src={`/static/${brain.title}.png`}
                   alt={brain.title}
                   layout='intrinsic'
-                  width={50}
-                  height={60}
+                  width={38}
+                  height={40}
                 />
               </CardContent>
             </CardActionArea>

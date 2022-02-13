@@ -7,7 +7,7 @@ import { getAllProjectsForHome } from 'lib/contentFullApi'
 export default function Projects({ projectsList }) {
   return (
     <>
-      <AppHeader />
+      <AppHeader title='Projects' />
       <ProjectList projects={projectsList} />
     </>
   )

@@ -6,7 +6,7 @@ import { PostsList } from 'components/PostsList'
 export default function Posts({ blogPosts }) {
   return (
     <>
-      <AppHeader />
+      <AppHeader title='Posts' />
       <PostsList posts={blogPosts} />
     </>
   )

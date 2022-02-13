@@ -22,7 +22,7 @@ import LightIcon from '@mui/icons-material/Light'
 import { useChangeTheme } from 'ThemeContext'
 import Link from 'next/link'
 
-export const AppHeader = () => {
+export const AppHeader = ({ title = '' }) => {
   const classes = useStyles()
   const theme = useTheme()
   const changeTheme = useChangeTheme()
@@ -56,6 +56,9 @@ export const AppHeader = () => {
             sx={{ mr: 2 }}>
             <MenuIcon />
           </IconButton>
+          <Typography variant='h6' component='div' align='left'>
+            {title}
+          </Typography>
           <Typography variant='h6' component='div'>
             <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>
               {theme.palette.mode === 'dark' ? (
@@ -73,6 +76,10 @@ export const AppHeader = () => {
       </Drawer>
     </>
   )
+}
+
+AppHeader.PropTypes = {
+  title: PropTypes.string,
 }
 
 const itens = [
