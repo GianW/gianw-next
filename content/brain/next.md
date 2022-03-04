@@ -16,6 +16,6 @@ seo: ['next', 'nextjs']
 ## Criar projeto
 
 ```
-Criar novo projeto usando boilerplate (outro projeto)
+//Criar novo projeto usando boilerplate (outro projeto)
 yarn create next-app -e URL REPO PUBLICO GITHUB
 ```
