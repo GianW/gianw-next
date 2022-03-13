@@ -40,7 +40,7 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           </Fade>
         </Grid>
       </Grid>
-      <Fade delay={0.4}>
+      <Fade delay={0.3}>
         <Grid
           container
           spacing={2}
