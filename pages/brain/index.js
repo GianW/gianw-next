@@ -2,12 +2,15 @@ import PropTypes from 'prop-types'
 import { AppHeader } from 'components/AppHeader'
 import { BrainList } from 'components/BrainList'
 import { getAllCompletesData } from 'lib/dataSource'
+import { Fade } from 'components/Animation/Fade'
 
 export default function Brain({ brainPosts }) {
   return (
     <>
       <AppHeader title='Brain' />
-      <BrainList brains={brainPosts} />
+      <Fade delay={0}>
+        <BrainList brains={brainPosts} />
+      </Fade>
     </>
   )
 }

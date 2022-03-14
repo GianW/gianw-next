@@ -8,6 +8,7 @@ import { MainLastProjects } from 'components/MainLastProjects'
 import { MainLastBrains } from 'components/MainLastBrains'
 import { SocialLinks } from 'components/SocialLinks'
 import { AppHeader } from 'components/AppHeader'
+import { Fade } from 'components/Animation/Fade'
 
 const useStyles = makeStyles(theme => {
   return {
@@ -31,29 +32,34 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
         direction='row'
         justifyContent='center'>
         <Grid item xs={9} alignItems='center'>
-          <SelfPresentation />
-          <SocialLinks />
+          <Fade delay={0}>
+            <SelfPresentation />
+          </Fade>
+          <Fade delay={0.2}>
+            <SocialLinks />
+          </Fade>
         </Grid>
       </Grid>
-
-      <Grid
-        container
-        spacing={2}
-        direction='row'
-        justify='flex-start'
-        alignItems='flex-start'
-        justifyContent='center'
-        className={classes.root}>
-        <Grid item xs={10} sm={6} md={3}>
-          <MainLastPosts blogPosts={blogPosts} />
+      <Fade delay={0.3}>
+        <Grid
+          container
+          spacing={2}
+          direction='row'
+          justify='flex-start'
+          alignItems='flex-start'
+          justifyContent='center'
+          className={classes.root}>
+          <Grid item xs={10} sm={6} md={3}>
+            <MainLastPosts blogPosts={blogPosts} />
+          </Grid>
+          <Grid item xs={10} sm={6} md={3}>
+            <MainLastProjects projects={projPosts} />
+          </Grid>
+          <Grid item xs={10} sm={6} md={3}>
+            <MainLastBrains brains={brainPosts} />
+          </Grid>
         </Grid>
-        <Grid item xs={10} sm={6} md={3}>
-          <MainLastProjects projects={projPosts} />
-        </Grid>
-        <Grid item xs={10} sm={6} md={3}>
-          <MainLastBrains brains={brainPosts} />
-        </Grid>
-      </Grid>
+      </Fade>
     </>
   )
 }
