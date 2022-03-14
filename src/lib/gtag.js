@@ -1,4 +1,6 @@
-export const GA_TRACKING_ID = 'G-LL3KFW652K'
+export const GA_TRACKING_ID = window.location.host.startsWith('localhost')
+  ? ''
+  : 'G-LL3KFW652K'
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
 export const pageview = url => {
