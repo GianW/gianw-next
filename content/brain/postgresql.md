@@ -9,6 +9,7 @@ seo: ['sql', 'postgresql']
 
 - [Query datas](#query-datas)
 - [Query intervalos data e hora](#query-intervalo-data)
+- [Metricas de tamanho das tabelas](#metricas-tabelas)
 
 <hr>
 <a name="query-datas"></a>
@@ -52,5 +53,27 @@ WHERE
 ORDER BY medicoes_quinze_minutos.consumo_ativo DESC
 LIMIT 1   
   
+```
+<a name="metricas-tabelas"></a>
+
+## Metricas de tamanho das tabelas
+
+pg_total_relation_size = table_size + relacionamentos
+
+3 coluna para ordenar, sem a máscara de campo
+
+reltuples = número estimado de linhas, mais performatico que rodar o `COUNT` em cada tabela
+
+```sql
+SELECT 
+  table_name,
+  pg_size_pretty( pg_total_relation_size(table_name::varchar(255))) as "Relation + table size",
+  pg_size_pretty(pg_table_size(table_name::varchar(255))) as "Table size",
+  (pg_table_size(table_name::varchar(255))) as "Table size whithout mask",
+ (SELECT reltuples AS estimate FROM pg_class where relname = table_name) as "Estimate lines"
+FROM information_schema.tables
+WHERE table_schema = 'public'
+ORDER BY table_name;
+
 ```
 
