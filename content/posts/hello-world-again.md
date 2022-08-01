@@ -3,7 +3,7 @@ title: Hello World again
 date: '2021-10-00T00:10:03.284Z'
 description: The reasons why i re-built this page.
 tags: ['NextJS']
-seo: ['javascript', 'css', 'next', 'nextJS' 'study', 'tech']
+seo: ['javascript', 'css', 'next', 'nextJS', 'study', 'tech']
 lang: 'en'
 ---
 
