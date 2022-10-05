@@ -8,15 +8,29 @@ seo: ['algoritimos', 'programação']
 ## Table of Contents
 
 - [Notação Big O](#notacao-big-o)
+- [Pesquisa Binaria](#pesquisa_binaria)
 - [Gloassário](#glassario)
-  - [Logaritmo](@logaritimo)
+  - [Logaritmo](#logaritimo)
+
 
 <hr>
 <a name="notacao-big-o"></a>
 
 ## Notação BIG O
 
+A notação BIG O indica o quão rápido é um algorítimo, a velocidade do algorítimo é indicada pela quantidade de operações realizadas em relação à quantidade de itens lidos, não pelo tempo de execução, a notação tem a seguinte descrição:
+```javascript
+O(n) // n == Número de operações
+```
+A notação BIG O estabelece a velocidade de execução para o pior cenário.
 
+Tabela de referência de complexidades: https://www.bigocheatsheet.com/
+
+<a name="pesquisa_binaria"></a>
+
+## Pesquisa binaria
+
+<hr>
 <a name="glassario"></a>
 
 ## Glossário
