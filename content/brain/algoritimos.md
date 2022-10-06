@@ -18,13 +18,15 @@ seo: ['algoritimos', 'programação']
 
 ## Notação BIG O
 
-A notação BIG O indica o quão rápido é um algorítimo, a velocidade do algorítimo é indicada pela quantidade de operações realizadas em relação à quantidade de itens lidos, não pelo tempo de execução, a notação tem a seguinte descrição:
+A notação BIG O indica o quão rápido é um algorítimo, a velocidade do algorítimo é medida pela quantidade de operações necessárias em relação ao tananho da lista, e não pelo tempo de execução. 
+
+A notação tem a seguinte descrição:
 ```javascript
 O(n) // n == Número de operações
 ```
 A notação BIG O estabelece a velocidade de execução para o pior cenário.
 
-Tabela de referência de complexidades: https://www.bigocheatsheet.com/
+Tabela de referência de complexidades: <a href="https://www.bigocheatsheet.com/">https://www.bigocheatsheet.com/ </a>
 
 <a name="pesquisa_binaria"></a>
 
