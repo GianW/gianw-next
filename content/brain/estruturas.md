@@ -1,5 +1,5 @@
 ---
-title: estrutura de dados
+title: estruturas de dados
 type: brain
 tags: []
 seo: ['algoritimos', 'programação','estruturas de dados']
