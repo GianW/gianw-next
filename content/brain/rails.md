@@ -23,5 +23,7 @@ https://www.shortcutfoo.com/app/dojos/ruby-dates/cheatsheet
 ### Bundler
 
 `bundle outdated` -> Verifica quais pacotes tem atualizações disponíveis
+
 `bundle doctor` -> Verifica erros no gemfile e no ambiente
+
 `bundle gem <gem_name>` -> Cria uma nova gem com um scaffold 
