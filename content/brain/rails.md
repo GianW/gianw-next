@@ -8,7 +8,7 @@ seo: ['rails']
 ## Table of Contents
 
 - [Formatar e manipular datas](#formatar-manipular-data)
-- 
+- [Bundler](#bundler)
 
 <hr>
 <a name="formatar-manipular-data"></a>
