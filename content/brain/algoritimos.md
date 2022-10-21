@@ -42,7 +42,7 @@ Busca por um item por vez na lista e salva ordenadamente em outro espaço da mem
 
 Complexidade O(n²)
 
-JS: https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b
+JS: <a href="https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b">https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b</a>
 
 <hr>
 <a name="glassario"></a>
