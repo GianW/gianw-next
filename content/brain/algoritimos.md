@@ -9,6 +9,7 @@ seo: ['algoritimos', 'programação']
 
 - [Notação Big O](#notacao-big-o)
 - [Pesquisa Binaria](#pesquisa_binaria)
+- [Ordenação por seleção](#ordenacao_selecao)
 - [Gloassário](#glassario)
   - [Logaritmo](#logaritimo)
 
@@ -31,6 +32,17 @@ Tabela de referência de complexidades: <a href="https://www.bigocheatsheet.com/
 <a name="pesquisa_binaria"></a>
 
 ## Pesquisa binaria
+
+<hr>
+<a name="ordenacao_selecao"></a>
+
+## Ordenação por seleção - Selection sort
+
+Busca por um item por vez na lista e salva ordenadamente em outro espaço da memória (lista)
+
+Complexidade O(n²)
+
+JS: https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b
 
 <hr>
 <a name="glassario"></a>
