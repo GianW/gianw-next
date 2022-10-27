@@ -57,5 +57,6 @@ Enquanto o tally_by não entrar para o core, deve usar o map antes
 usando com o active record
 ```ruby
 ComponenteDashboard.all.map(&:nome).tally
+{"pld" => 1,"resumo" => 1,"resumo cotacoes linhas" => 1}
 ```
 
