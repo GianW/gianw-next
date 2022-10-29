@@ -10,6 +10,8 @@ seo: ['rails']
 - [Formatar e manipular datas](#formatar-manipular-data)
 - [Bundler](#bundler)
 - [Tally](#tally)
+- [Metodos](#metodos)
+- - [Chamada](#chamada)
 
 <hr>
 <a name="formatar-manipular-data"></a>
@@ -59,4 +61,38 @@ usando com o active record
 ComponenteDashboard.all.map(&:nome).tally
 {"pld" => 1,"resumo" => 1,"resumo cotacoes linhas" => 1}
 ```
+
+<hr>
+<a name="metodos"></a>
+
+### Metodos
+
+<a name="chamada"></a>
+
+## Chamada
+
+É possível definir um alias para a chamada de um método e eventualmente defiinir direfentes comportamentos conforme a chamada executada
+
+```ruby
+class Metodo
+  def ola
+    p 'Executando Ola'
+    return __method__, __callee__
+  end  
+  alias_method :oi, :ola
+end  
+
+teste = Metodo.new
+
+teste.ola
+# "Executando Ola"
+=> [[0] :ola, [1] :ola]
+
+teste.oi
+#"Executando Ola"
+=> [[0] :ola,[1] :oi]
+
+```
+
+
 
