@@ -12,6 +12,7 @@ seo: ['rails']
 - [Tally](#tally)
 - [Metodos](#metodos)
 - - [Chamada](#chamada)
+- [Credentials](#credentials)
 
 <hr>
 <a name="formatar-manipular-data"></a>
@@ -65,11 +66,11 @@ ComponenteDashboard.all.map(&:nome).tally
 <hr>
 <a name="metodos"></a>
 
-### Metodos
+## Metodos
 
 <a name="chamada"></a>
 
-## Chamada
+### Chamada
 
 É possível definir um alias para a chamada de um método e eventualmente defiinir direfentes comportamentos conforme a chamada executada
 
@@ -92,6 +93,12 @@ teste.oi
 #"Executando Ola"
 => [[0] :ola,[1] :oi]
 
+```
+<a name="credentials"></a>
+## Credentials
+
+```
+EDITOR=nano rails credentials:edit
 ```
 
 
