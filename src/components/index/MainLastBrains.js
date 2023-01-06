@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types'
 
 import { Card, CardContent, Link, CardHeader } from '@mui/material'
+import { useStyles } from './style'
 
 export const MainLastBrains = ({ brains }) => {
+  const classes = useStyles()
   return (
-    <Card>
+    <Card className={classes.card}>
       <CardHeader subheader='Last in brain' />
       <CardContent>
         {brains &&

@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types'
 
 import { Card, CardContent, Link, CardHeader } from '@mui/material'
+import { useStyles } from './style'
 
 export const MainLastPosts = ({ blogPosts }) => {
+  const classes = useStyles()
+
   return (
-    <Card>
+    <Card className={classes.card}>
       <CardHeader subheader='Last posts' />
       <CardContent>
         {blogPosts.map(post => (
