@@ -186,8 +186,8 @@ const HeaderMobile = ({ colorMode, title, theme }) => {
 
 HeaderMobile.propTypes = {
   colorMode: PropTypes.func,
-  title: PropTypes.string,
   theme: PropTypes.object,
+  title: PropTypes.string,
 }
 
 const isMobile = () => (window?.outerWidth < 900 ? true : false)
