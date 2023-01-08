@@ -26,7 +26,7 @@ function ThemeContext({ children }) {
 }
 
 ThemeContext.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.array,
 }
 
 function useChangeTheme() {
