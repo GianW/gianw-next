@@ -129,6 +129,11 @@ const Header = ({ colorMode, theme }) => {
   )
 }
 
+Header.propTypes = {
+  colorMode: PropTypes.func,
+  theme: PropTypes.object,
+}
+
 const HeaderMobile = ({ colorMode, title, theme }) => {
   const classes = useStyles()
   const [open, setOpen] = React.useState(false)
@@ -177,6 +182,12 @@ const HeaderMobile = ({ colorMode, title, theme }) => {
       </Drawer>
     </>
   )
+}
+
+HeaderMobile.propTypes = {
+  colorMode: PropTypes.func,
+  title: PropTypes.string,
+  theme: PropTypes.object,
 }
 
 const isMobile = () => (window?.outerWidth < 900 ? true : false)
