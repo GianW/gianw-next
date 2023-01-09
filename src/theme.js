@@ -6,13 +6,19 @@ export const theme = ({ mode = 'dark' }) =>
   createTheme({
     palette: {
       mode: mode,
+      background: {
+        default: mode == 'dark' ? '#252525' : '#eee',
+      },
       primary: {
-        main: '#aa6cff',
+        main: mode == 'dark' ? '#aa6cff' : '#3D1766',
       },
       secondary: {
         light: '#0066ff',
         dark: '#ff66ff',
         main: '#19857b',
+      },
+      colors: {
+        primary: mode == 'dark' ? '#eee' : '#252525',
       },
       error: {
         main: red.A400,
@@ -23,11 +29,15 @@ export const theme = ({ mode = 'dark' }) =>
     },
     typography: {
       fontFamily: [
-        'Google Sans',
-        '"Roboto"',
-        '"Helvetica"',
-        '"Arial"',
-        'sans-serif',
+        'Inter',
+        '-apple-system,BlinkMacSystemFont',
+        'Helvetica Neue',
+        'Arial,sans-serif',
+        // 'Google Sans',
+        // '"Roboto"',
+        // '"Helvetica"',
+        // '"Arial"',
+        // 'sans-serif',
       ].join(','),
     },
     MuiCard: {

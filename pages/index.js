@@ -3,9 +3,9 @@ import { makeStyles } from '@mui/styles'
 import { Typography, Grid } from '@mui/material'
 import { getSortedPostsData, getAllBrainSlugs } from 'lib/dataSource'
 import { getProjectsForMain } from 'lib/contentFullApi'
-import { MainLastPosts } from 'components/MainLastPosts'
-import { MainLastProjects } from 'components/MainLastProjects'
-import { MainLastBrains } from 'components/MainLastBrains'
+import { MainLastPosts } from 'components/index/MainLastPosts'
+import { MainLastProjects } from 'components/index/MainLastProjects'
+import { MainLastBrains } from 'components/index/MainLastBrains'
 import { SocialLinks } from 'components/SocialLinks'
 import { AppHeader } from 'components/AppHeader'
 import { Fade } from 'components/Animation/Fade'
@@ -78,8 +78,8 @@ const SelfPresentation = () => (
       problems with code.
     </Typography>
     <Typography variant='h6'>
-      This website is my digital laboratory where i try some things and share
-      another.
+      This website is my digital laboratory, where I do some experiments and
+      share others.
     </Typography>
     <Typography variant='body1'></Typography>
   </>
