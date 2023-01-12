@@ -33,9 +33,8 @@ export const MainLastBrains = ({ brains }) => {
         style={{ marginTop: 10 }}>
         {brains &&
           brains.map((brain, i) => (
-            <Grid item xs={3}>
+            <Grid item xs={3} key={brain.slug}>
               <Card
-                key={brain.slug}
                 className={classes.card}
                 onClick={() => Router.push(`/brain/${brain.slug}`)}>
                 <Icon color='primary'>{iconList[i] ?? iconList[0]}</Icon>
