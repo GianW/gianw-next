@@ -27,13 +27,14 @@ import Link from 'next/link'
 export const AppHeader = ({ title = '' }) => {
   const theme = useTheme()
   const changeTheme = useChangeTheme()
-  const [mobile, setMobile] = React.useState(false)
+  const [mobile, setMobile] = React.useState(true)
 
   const colorMode = () => {
     changeTheme.toggleColorMode()
   }
 
   React.useEffect(() => {
+    setMobile(isMobile)
     window.addEventListener('resize', handleResize)
   }, [])
 
@@ -166,6 +167,7 @@ const HeaderMobile = ({ colorMode, title, theme }) => {
             {title}
           </Typography>
           <Typography variant='h6' component='div'>
+            Gian Winckler
             <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>
               {theme.palette.mode === 'dark' ? (
                 <Brightness7 />
@@ -173,7 +175,6 @@ const HeaderMobile = ({ colorMode, title, theme }) => {
                 <Brightness3 />
               )}
             </IconButton>
-            Gian Winckler
           </Typography>
         </Toolbar>
       </AppBar>
@@ -190,7 +191,7 @@ HeaderMobile.propTypes = {
   title: PropTypes.string,
 }
 
-const isMobile = () => (window?.outerWidth < 900 ? true : false)
+const isMobile = () => (window?.outerWidth < 700 ? true : false)
 
 const useStyles = makeStyles(theme => {
   return {
