@@ -9,10 +9,10 @@ import { useStyles } from './style'
 import Router from 'next/router'
 
 const iconList = [
-  <PsychologyIcon />,
-  <AcUnitIcon />,
-  <SailingIcon />,
-  <AddchartIcon />,
+  <PsychologyIcon key={'PsychologyIcon'} />,
+  <AcUnitIcon key={'AcUnitIcon'} />,
+  <SailingIcon key={'SailingIcon'} />,
+  <AddchartIcon key={'AddchartIcon'} />,
 ]
 
 export const MainLastBrains = ({ brains }) => {
