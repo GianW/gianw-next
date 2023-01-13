@@ -16,5 +16,9 @@ export const useStyles = makeStyles(theme => {
     text: {
       fontSize: '17.6px',
     },
+    cardGrid: {
+      marginTop: 10,
+      marginBottom: 30,
+    },
   }
 })
