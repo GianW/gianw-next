@@ -49,13 +49,13 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           alignItems='flex-start'
           justifyContent='center'
           className={classes.root}>
-          <Grid item xs={10} sm={6} md={3}>
+          <Grid item xs={9}>
             <MainLastPosts blogPosts={blogPosts} />
           </Grid>
-          <Grid item xs={10} sm={6} md={3}>
+          <Grid item xs={9}>
             <MainLastProjects projects={projPosts} />
           </Grid>
-          <Grid item xs={10} sm={6} md={3}>
+          <Grid item xs={9}>
             <MainLastBrains brains={brainPosts} />
           </Grid>
         </Grid>

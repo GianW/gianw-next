@@ -30,7 +30,9 @@ export async function getProjectsForMain() {
       projectsCollection(limit: 5) {
         items {
           slug
-          nome
+          nome,
+          tags,
+          descricao
         }
       }
     }`
@@ -44,7 +46,8 @@ export async function getAllProjectWithSlug() {
       projectsCollection(where: { slug_exists: true }) {
         items {
           slug,
-          nome
+          nome,
+          tags,
         }
       }
     }`
