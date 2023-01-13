@@ -31,7 +31,8 @@ export async function getProjectsForMain() {
         items {
           slug
           nome,
-          tags
+          tags,
+          descricao
         }
       }
     }`
