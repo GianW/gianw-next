@@ -213,10 +213,13 @@ const useStyles = makeStyles(theme => {
     linkText: {
       // color: theme.palette.getContrastText(theme.palette.background.default),
       color: theme.palette.mode == 'dark' ? '#8a8a8a' : '#626161',
+      transition: '0.5s ease',
       '&:hover': {
+        color:
+          theme.palette.mode == 'dark'
+            ? '#fefefe'
+            : theme.palette.colors.primary,
         borderBottom: `1px solid ${theme.palette.colors.primary}`,
-        boxShadow:
-          '0 0 2rem #bc13fe, 0 0 0.8rem #bc13fe,0 0 2.8rem #bc13fe,inset 0 0 1.3rem #bc13fe; ',
       },
     },
   }

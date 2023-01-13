@@ -10,8 +10,8 @@ export const MainLastProjects = ({ projects }) => {
   return (
     <CardContainer title='Latest Projects'>
       {projects &&
-        projects.map((proj, i) => (
-          <Grid item xs={3} key={proj.slug}>
+        projects.map(proj => (
+          <Grid item sm={9} md={3} key={proj.slug}>
             <Card
               className={classes.card}
               onClick={() => Router.push(`/projects/${proj.slug}`)}>

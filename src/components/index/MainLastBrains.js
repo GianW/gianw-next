@@ -24,7 +24,7 @@ export const MainLastBrains = ({ brains }) => {
       subtitle='I use this section to take notes to myself'>
       {brains &&
         brains.map((brain, i) => (
-          <Grid item xs={3} key={brain.slug}>
+          <Grid item sm={9} md={3} key={brain.slug}>
             <Card
               className={classes.card}
               onClick={() => Router.push(`/brain/${brain.slug}`)}>
