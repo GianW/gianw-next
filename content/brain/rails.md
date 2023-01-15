@@ -10,6 +10,7 @@ seo: ['rails']
 - [Formatar e manipular datas](#formatar-manipular-data)
 - [Bundler](#bundler)
 - [Tally](#tally)
+- [Routes](#routes)
 - [Metodos](#metodos)
 - - [Chamada](#chamada)
 - [Credentials](#credentials)
@@ -30,7 +31,7 @@ https://www.shortcutfoo.com/app/dojos/ruby-dates/cheatsheet
 
 `bundle doctor` -> Verifica erros no gemfile e no ambiente
 
-`bundle gem <gem_name>` -> Cria uma nova gem com um scaffold 
+`bundle gem <gem_name>` -> Cria uma nova gem com um scaffold
 
 <hr>
 <a name="tally"></a>
@@ -44,7 +45,7 @@ Contar quantas vezes um item se repete em uma lsita
 # => { 1 => 1, 2 => 2, 3 => 1 }
 ```
 
-Sem nenhuma condição de filtro o Tally vai contar todos os elementos em um `Enumerable` 
+Sem nenhuma condição de filtro o Tally vai contar todos os elementos em um `Enumerable`
 
 ```ruby
 %w(foo foo bar foo baz foo).tally
@@ -52,15 +53,29 @@ Sem nenhuma condição de filtro o Tally vai contar todos os elementos em um `En
 ```
 
 Enquanto o tally_by não entrar para o core, deve usar o map antes
+
 ```ruby
 %w(foo foo bar foo baz foo).map { |s| s[0] }.tally
 => {“f” => 4, “b” => 2}
 ```
 
 usando com o active record
+
 ```ruby
 ComponenteDashboard.all.map(&:nome).tally
 {"pld" => 1,"resumo" => 1,"resumo cotacoes linhas" => 1}
+```
+
+<hr>
+<a name="routes"></a>
+
+### Routes
+
+Diferença entre collection e member:
+
+```
+member          /photos/1/preview   preview_photo_path(photo)   Acts on a specific resource so required id (preview specific photo)
+collection      /photos/search      search_photos_path          Acts on collection of resources(display all photos)
 ```
 
 <hr>
@@ -79,9 +94,9 @@ class Metodo
   def ola
     p 'Executando Ola'
     return __method__, __callee__
-  end  
+  end
   alias_method :oi, :ola
-end  
+end
 
 teste = Metodo.new
 
@@ -94,12 +109,11 @@ teste.oi
 => [[0] :ola,[1] :oi]
 
 ```
+
 <a name="credentials"></a>
+
 ## Credentials
 
 ```
 EDITOR=nano rails credentials:edit
 ```
-
-
-
