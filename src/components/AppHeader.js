@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@mui/styles'
 import {
   AppBar,
-  Container,
   Grid,
   Toolbar,
   Typography,
@@ -86,47 +85,37 @@ MenuItens.propTypes = {
 const Header = ({ colorMode, theme }) => {
   const classes = useStyles()
   return (
-    <Container className={classes.root}>
-      <Box>
-        <Grid
-          container
-          spacing={2}
-          alignItems='flex-start'
-          justifyContent='center'
-          direction='row'>
-          <Grid item xs={10}>
-            <Typography variant='h5' component='div' align='left'>
-              Gian Winckler
-            </Typography>
-          </Grid>
-          <Grid item xs={2}>
-            <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>
-              {theme.palette.mode === 'dark' ? (
-                <Brightness7 />
-              ) : (
-                <Brightness3 />
-              )}
-            </IconButton>
-          </Grid>
+    <Grid
+      container
+      spacing={2}
+      className={classes.root}
+      alignItems='flex-start'
+      direction='row'
+      justifyContent='center'>
+      <Grid item xs={9} alignItems='center' className={classes.inLineItens}>
+        <Grid item xs={10}>
+          <Typography variant='h5' component='div' align='left'>
+            Gian Winckler
+          </Typography>
         </Grid>
-        <Grid
-          container
-          spacing={2}
-          alignItems='flex-start'
-          direction='row'
-          maxWidth='sm'>
-          {itens.map(item => (
-            <Grid key={item.name} item xs={2}>
-              <Link key={item.name} href={`/${item.page}`}>
-                <Typography className={classes.menuLink}>
-                  <span className={classes.linkText}>{item.name}</span>
-                </Typography>
-              </Link>
-            </Grid>
-          ))}
+        <Grid item xs={2}>
+          <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>
+            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness3 />}
+          </IconButton>
         </Grid>
-      </Box>
-    </Container>
+      </Grid>
+      <Grid item xs={9} className={classes.inLineItens}>
+        {itens.map(item => (
+          <Grid key={item.name} item xs={2}>
+            <Link key={item.name} href={`/${item.page}`}>
+              <Typography className={classes.menuLink}>
+                <span className={classes.linkText}>{item.name}</span>
+              </Typography>
+            </Link>
+          </Grid>
+        ))}
+      </Grid>
+    </Grid>
   )
 }
 
@@ -206,6 +195,9 @@ const useStyles = makeStyles(theme => {
       '& > :second-child': {
         marginLeft: '85%',
       },
+    },
+    inLineItens: {
+      display: 'flex',
     },
     menuLink: {
       cursor: 'pointer',
