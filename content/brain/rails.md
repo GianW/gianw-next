@@ -14,6 +14,7 @@ seo: ['rails']
 - [Metodos](#metodos)
 - - [Chamada](#chamada)
 - [Credentials](#credentials)
+- [Random code](#random)
 
 <hr>
 <a name="formatar-manipular-data"></a>
@@ -117,3 +118,12 @@ teste.oi
 ```
 EDITOR=nano rails credentials:edit
 ```
+
+<a name="random"></a>
+
+## Random code
+
+```ruby
+("A".."Z").to_a.sample(6).join
+```
+
