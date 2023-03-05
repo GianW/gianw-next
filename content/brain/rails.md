@@ -15,6 +15,7 @@ seo: ['rails']
 - - [Chamada](#chamada)
 - [Credentials](#credentials)
 - [Random code](#random)
+- [splat](#splat)
 
 <hr>
 <a name="formatar-manipular-data"></a>
@@ -127,3 +128,19 @@ EDITOR=nano rails credentials:edit
 ("A".."Z").to_a.sample(6).join
 ```
 
+<a name="splat"></a>
+
+## Splat * 
+
+Destructuring
+```ruby
+ x, y, z = *[1,2,3]
+ puts y
+ # 2
+```
+
+```Ruby
+teste = *1,2,3
+puts teste
+# [1,2,3]
+```
