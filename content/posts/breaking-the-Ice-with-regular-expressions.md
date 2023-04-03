@@ -603,7 +603,7 @@ Code generated during this class
   <tr>
     <td><b>.</b></td>
     <td>-></td>
-    <td>Accepts any char, exceptnew line</td>
+    <td>Accepts any char, except new line</td>
   </tr>
   <tr>
     <td><b>\.</b></td>
@@ -618,7 +618,7 @@ Code generated during this class
   <tr>
     <td><b>\+</b></td>
     <td>-></td>
-    <td>Plus simble</td>
+    <td>Plus symbol</td>
   </tr>
   <tr>
     <td><b>?</b></td>
