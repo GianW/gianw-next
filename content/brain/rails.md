@@ -16,6 +16,7 @@ seo: ['rails']
 - [Credentials](#credentials)
 - [Random code](#random)
 - [splat](#splat)
+- [Method params](#method_params)
 
 <hr>
 <a name="formatar-manipular-data"></a>
@@ -144,3 +145,17 @@ teste = *1,2,3
 puts teste
 # [1,2,3]
 ```
+
+<a name="method_params"></a>
+
+## Method params * 
+
+```Ruby
+def teste(a,b,c)
+  args = method(__method__).parameters.map { |arg| arg[1].to_s }
+  args = args.map { |arg| "#{arg} = #{eval arg}" }.join(', ')
+  puts args
+end  
+teste(1,2,3)
+```
+
