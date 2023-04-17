@@ -13,6 +13,10 @@ export const useStyles = makeStyles(theme => {
       display: 'flex',
       gap: 10,
       minHeight: '100%',
+      transition: '0.2s ease-in-out',
+      '&:hover': {
+        backgroundColor: theme.palette.mode == 'dark' ? '#292929' : '#d7d7d7',
+      },
     },
     cardProj: {
       border:
@@ -24,6 +28,10 @@ export const useStyles = makeStyles(theme => {
       cursor: 'pointer',
       display: 'block',
       gap: 4,
+      transition: '0.35s ease-in-out',
+      '&:hover': {
+        backgroundColor: theme.palette.mode == 'dark' ? '#292929' : '#d7d7d7',
+      },
     },
     chip: {
       padding: 2,

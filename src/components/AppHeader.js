@@ -22,6 +22,7 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories'
 import LightIcon from '@mui/icons-material/Light'
 import { useChangeTheme } from 'ThemeContext'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 export const AppHeader = ({ title = '' }) => {
   const theme = useTheme()
@@ -84,6 +85,8 @@ MenuItens.propTypes = {
 
 const Header = ({ colorMode, theme }) => {
   const classes = useStyles()
+  const router = useRouter()
+  const path = router.pathname.replace('/', '')
   return (
     <Grid
       container
@@ -109,7 +112,14 @@ const Header = ({ colorMode, theme }) => {
           <Grid key={item.name} item xs={2}>
             <Link key={item.name} href={`/${item.page}`}>
               <Typography className={classes.menuLink}>
-                <span className={classes.linkText}>{item.name}</span>
+                <span
+                  className={
+                    path == item.page
+                      ? classes.selectedLinkText
+                      : classes.linkText
+                  }>
+                  {item.name}
+                </span>
               </Typography>
             </Link>
           </Grid>
@@ -213,6 +223,11 @@ const useStyles = makeStyles(theme => {
             : theme.palette.colors.primary,
         borderBottom: `1px solid ${theme.palette.colors.primary}`,
       },
+    },
+    selectedLinkText: {
+      color:
+        theme.palette.mode == 'dark' ? '#fefefe' : theme.palette.colors.primary,
+      borderBottom: `1px solid ${theme.palette.colors.primary}`,
     },
   }
 })
