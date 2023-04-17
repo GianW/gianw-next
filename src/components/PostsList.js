@@ -62,6 +62,8 @@ const useStyles = makeStyles(theme => {
       marginBottom: theme.spacing(2),
       boxSizing: 'border-box',
       padding: '10px',
+      width: '90%',
+      marginLeft: '5%',
     },
   }
 })

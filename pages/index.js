@@ -16,6 +16,14 @@ const useStyles = makeStyles(theme => {
       marginTop: theme.spacing(4),
       marginBottom: theme.spacing(2),
     },
+    presentTitle: {
+      marginBottom: theme.spacing(2),
+    },
+    divider: {
+      width: '70%',
+      marginTop: '5%',
+      marginBotton: '2%',
+    },
   }
 })
 
@@ -35,11 +43,9 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           <Fade delay={0}>
             <SelfPresentation />
           </Fade>
-          <Fade delay={0.2}>
-            <SocialLinks />
-          </Fade>
         </Grid>
       </Grid>
+      <hr className={classes.divider} />
       <Fade delay={0.3}>
         <Grid
           container
@@ -58,6 +64,11 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           <Grid item xs={9}>
             <MainLastBrains brains={brainPosts} />
           </Grid>
+          <Grid item xs={9}>
+            <Fade delay={0.2}>
+              <SocialLinks />
+            </Fade>
+          </Grid>
         </Grid>
       </Fade>
     </>
@@ -70,20 +81,25 @@ Home.propTypes = {
   projPosts: PropTypes.array,
 }
 
-const SelfPresentation = () => (
-  <>
-    <Typography variant='h5'>Hi there! I&apos;m Gian.</Typography>
-    <Typography variant='h6'>
-      I&apos;m a software engineer who loves to find new ways to solve real
-      problems with code.
-    </Typography>
-    <Typography variant='h6'>
-      This website is my digital laboratory, where I do some experiments and
-      share others.
-    </Typography>
-    <Typography variant='body1'></Typography>
-  </>
-)
+const SelfPresentation = () => {
+  const classes = useStyles()
+  return (
+    <>
+      <Typography variant='h4' className={classes.presentTitle}>
+        Hi there! I&apos;m Gian.
+      </Typography>
+      <Typography variant='h6'>
+        I&apos;m a software engineer who loves to find new ways to solve real
+        problems with code.
+      </Typography>
+      <Typography variant='h6'>
+        This website is my digital laboratory, where I do some experiments and
+        share others.
+      </Typography>
+      <Typography variant='body1'></Typography>
+    </>
+  )
+}
 
 export async function getStaticProps() {
   const blogPosts = (await getSortedPostsData()).slice(0, 5) || []

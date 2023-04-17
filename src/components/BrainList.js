@@ -17,9 +17,9 @@ export const BrainList = ({ brains }) => {
       container
       spacing={2}
       className={classes.root}
+      alignItems='flex-start'
       direction='row'
-      justify='flex-start'
-      alignItems='flex-start'>
+      justify='flex-start'>
       {brains?.map(brain => (
         <Grid key={brain.slug} item xs={12} md={2} justifyContent='center'>
           <Card>
@@ -55,6 +55,8 @@ const useStyles = makeStyles(theme => {
       marginBottom: theme.spacing(2),
       boxSizing: 'border-box',
       padding: '10px',
+      width: '90%',
+      marginLeft: '5%',
     },
     centeredContent: {
       display: 'flex',
