@@ -10,8 +10,6 @@ function ThemeContext({ children }) {
     typeof window !== 'undefined' ? localStorage.getItem('theme') : 'dark'
   )
 
-  // console.log(mode)
-
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
