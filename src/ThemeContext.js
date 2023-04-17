@@ -7,9 +7,7 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
 
 function ThemeContext({ children }) {
   const [mode, setMode] = React.useState(
-    typeof window !== 'undefined' && localStorage?.getItem('theme')
-      ? localStorage.getItem('theme')
-      : 'dark'
+    typeof window !== 'undefined' ? localStorage.getItem('theme') : 'dark'
   )
 
   // console.log(mode)
@@ -18,7 +16,8 @@ function ThemeContext({ children }) {
     () => ({
       toggleColorMode: () => {
         setMode(prevMode => (prevMode === 'light' ? 'dark' : 'light'))
-        if (typeof window !== 'undefined') localStorage.setItem('theme', mode)
+        if (typeof window !== 'undefined')
+          localStorage.setItem('theme', mode === 'light' ? 'dark' : 'light')
       },
     }),
     [mode]
