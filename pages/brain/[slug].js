@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import { Container, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { PostBody } from 'components/post-body'
 import { getAllBrainSlugs, getBrainData } from 'lib/dataSource'
 import Head from 'next/head'
@@ -17,26 +17,33 @@ export default function Brain({ brain }) {
   return (
     <>
       <AppHeader />
-      <Container>
-        {router.isFallback ? (
-          <>
-            <p>Loading…</p>
-          </>
-        ) : (
-          <>
-            <Head>
-              <title>{brain.title}</title>
-              <Seo keywords={[brain.seo]} />
-            </Head>
-            <Typography variant='h3' style={{ marginTop: '2%' }}>
-              {brain?.title}
-            </Typography>
-            <hr />
-            <PostBody content={brain?.contentHtml} />
-            <hr className='border-accent-2 mt-28 mb-24' />
-          </>
-        )}
-      </Container>
+      <Grid
+        container
+        spacing={2}
+        alignItems='flex-start'
+        direction='row'
+        justifyContent='center'>
+        <Grid item xs={9} alignItems='center'>
+          {router.isFallback ? (
+            <>
+              <p>Loading…</p>
+            </>
+          ) : (
+            <>
+              <Head>
+                <title>{brain.title}</title>
+                <Seo keywords={[brain.seo]} />
+              </Head>
+              <Typography variant='h3' style={{ marginTop: '2%' }}>
+                {brain?.title}
+              </Typography>
+              <hr />
+              <PostBody content={brain?.contentHtml} />
+              <hr className='border-accent-2 mt-28 mb-24' />
+            </>
+          )}
+        </Grid>
+      </Grid>
     </>
   )
 }

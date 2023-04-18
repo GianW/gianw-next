@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import { Container, Typography } from '@mui/material'
+import { Grid, Typography } from '@mui/material'
 import { getAllProjectWithSlug, getProjectData } from 'lib/contentFullApi'
 import Head from 'next/head'
 import { AppHeader } from 'components/AppHeader'
@@ -18,25 +18,32 @@ export default function Project({ project }) {
   return (
     <>
       <AppHeader />
-      <Container>
-        {router.isFallback ? (
-          <>
-            <p>Loading…</p>
-          </>
-        ) : (
-          <>
-            <Head>
-              <title>{project.nome}</title>
-              <Seo keywords={[project.seo]} />
-            </Head>
-            <Typography variant='h3' style={{ marginTop: '2%' }}>
-              {project?.nome}
-            </Typography>
-            <hr />
-            <RichTextResponse richTextResponse={project} />
-          </>
-        )}
-      </Container>
+      <Grid
+        container
+        spacing={2}
+        alignItems='flex-start'
+        direction='row'
+        justifyContent='center'>
+        <Grid item xs={9} alignItems='center'>
+          {router.isFallback ? (
+            <>
+              <p>Loading…</p>
+            </>
+          ) : (
+            <>
+              <Head>
+                <title>{project.nome}</title>
+                <Seo keywords={[project.seo]} />
+              </Head>
+              <Typography variant='h3' style={{ marginTop: '2%' }}>
+                {project?.nome}
+              </Typography>
+              <hr />
+              <RichTextResponse richTextResponse={project} />
+            </>
+          )}
+        </Grid>
+      </Grid>
     </>
   )
 }
