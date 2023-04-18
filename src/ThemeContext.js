@@ -8,6 +8,12 @@ const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
 function ThemeContext({ children }) {
   const [mode, setMode] = React.useState('dark')
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && localStorage.getItem('theme')) {
+      setMode(localStorage.getItem('theme'))
+    }
+  }, [])
+
   const colorMode = React.useMemo(
     () => ({
       toggleColorMode: () => {
