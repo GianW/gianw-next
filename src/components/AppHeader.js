@@ -196,7 +196,7 @@ const useStyles = makeStyles(theme => {
   return {
     root: {
       marginTop: theme.spacing(4),
-      marginBottom: theme.spacing(2),
+      marginBottom: theme.spacing(8),
     },
     toolBar: {
       display: 'flex',
