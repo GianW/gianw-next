@@ -6,9 +6,7 @@ import { theme } from './theme'
 const ColorModeContext = React.createContext({ toggleColorMode: () => {} })
 
 function ThemeContext({ children }) {
-  const [mode, setMode] = React.useState(
-    typeof window !== 'undefined' ? localStorage.getItem('theme') : 'dark'
-  )
+  const [mode, setMode] = React.useState('dark')
 
   const colorMode = React.useMemo(
     () => ({
