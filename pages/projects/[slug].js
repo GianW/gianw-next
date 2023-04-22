@@ -4,7 +4,7 @@ import ErrorPage from 'next/error'
 import { Grid, Typography } from '@mui/material'
 import { getAllProjectWithSlug, getProjectData } from 'lib/contentFullApi'
 import Head from 'next/head'
-import { AppHeader } from 'components/AppHeader'
+import { AppHeader } from 'components/AppHeader/AppHeader'
 import { Seo } from 'components/Seo'
 
 import { RichTextResponse } from 'components/contentfull/ContentfullParser'

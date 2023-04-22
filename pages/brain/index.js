@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { AppHeader } from 'components/AppHeader'
+import { AppHeader } from 'components/AppHeader/AppHeader'
 import { BrainList } from 'components/BrainList'
 import { getAllCompletesData } from 'lib/dataSource'
 import { Fade } from 'components/Animation/Fade'

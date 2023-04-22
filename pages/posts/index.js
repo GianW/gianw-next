@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { getSortedPostsData } from 'lib/dataSource'
-import { AppHeader } from 'components/AppHeader'
+import { AppHeader } from 'components/AppHeader/AppHeader'
 import { PostsList } from 'components/PostsList'
 import { Fade } from 'components/Animation/Fade'
 
