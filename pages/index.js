@@ -45,7 +45,9 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           </Fade>
         </Grid>
       </Grid>
-      <hr className={classes.divider} />
+      <Fade delay={0}>
+        <hr className={classes.divider} />
+      </Fade>
       <Fade delay={0.3}>
         <Grid
           container
