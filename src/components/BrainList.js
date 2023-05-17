@@ -5,7 +5,6 @@ import { makeStyles } from '@mui/styles'
 import {
   Card,
   CardContent,
-  // CardHeader,
   Grid,
   CardActionArea,
   Typography,
@@ -25,7 +24,6 @@ export const BrainList = ({ brains }) => {
         <Grid key={brain.slug} item xs={12} md={2} justifyContent='center'>
           <Card>
             <CardActionArea href={`/brain/${brain.slug}`}>
-              {/* <CardHeader subheader={brain.title.toUpperCase()} /> */}
               <CardContent className={classes.centeredContent}>
                 <Typography> {brain.title.toUpperCase()} </Typography>
                 <Image
