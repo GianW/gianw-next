@@ -24,7 +24,7 @@ export const PostsList = ({ posts }) => {
       className={classes.root}>
       {posts.map(post => (
         <Grid key={post.slug} item xs={12} md={3}>
-          <Card>
+          <Card className={classes.card}>
             <CardActionArea href={`/posts/${post.slug}`}>
               <CardHeader subheader={post.title} />
               <CardContent>
@@ -37,6 +37,7 @@ export const PostsList = ({ posts }) => {
                     <Chip
                       label={tag}
                       key={tag}
+                      size='small'
                       color='primary'
                       variant='outlined'
                     />
@@ -64,6 +65,9 @@ const useStyles = makeStyles(theme => {
       padding: '10px',
       width: '90%',
       marginLeft: '5%',
+    },
+    card: {
+      height: '200px',
     },
   }
 })
