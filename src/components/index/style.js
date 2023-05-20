@@ -26,12 +26,15 @@ export const useStyles = makeStyles(theme => {
       borderRadius: 6,
       padding: 20,
       cursor: 'pointer',
-      display: 'block',
       gap: 4,
       transition: '0.35s ease-in-out',
       '&:hover': {
         backgroundColor: theme.palette.mode == 'dark' ? '#292929' : '#d7d7d7',
       },
+      height: '90%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
     },
     chip: {
       padding: 2,

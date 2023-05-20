@@ -17,7 +17,7 @@ export const CardContainer = ({ children, title, subtitle }) => {
         spacing={2}
         direction='row'
         justify='flex-start'
-        alignItems='flex-start'
+        alignItems='stretch'
         className={classes.cardGrid}>
         {children}
       </Grid>
