@@ -25,7 +25,10 @@ export const BrainList = ({ brains }) => {
           <Card>
             <CardActionArea href={`/brain/${brain.slug}`}>
               <CardContent className={classes.centeredContent}>
-                <Typography> {brain.title.toUpperCase()} </Typography>
+                <Typography variant='subtitle1' className={classes.text}>
+                  {' '}
+                  {brain.title.toUpperCase()}{' '}
+                </Typography>
                 <Image
                   fill={true}
                   src={`/static/${brain.title}.png`}
@@ -56,9 +59,16 @@ const useStyles = makeStyles(theme => {
       width: '90%',
       marginLeft: '5%',
     },
+    text: {
+      color:
+        theme.palette.mode === 'dark'
+          ? 'rgba(255, 255, 255, 0.7)'
+          : 'rgba(0, 0, 0, 0.6)',
+      marginRight: '15%',
+    },
     centeredContent: {
       display: 'flex',
-      justifyContent: 'space-between',
+      justifyContent: 'center',
     },
   }
 })
