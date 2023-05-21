@@ -5,9 +5,9 @@ import { makeStyles } from '@mui/styles'
 import {
   Card,
   CardContent,
-  CardHeader,
   Grid,
   CardActionArea,
+  Typography,
 } from '@mui/material'
 
 export const BrainList = ({ brains }) => {
@@ -23,17 +23,18 @@ export const BrainList = ({ brains }) => {
       {brains?.map(brain => (
         <Grid key={brain.slug} item xs={12} md={2} justifyContent='center'>
           <Card>
-            <CardActionArea
-              href={`/brain/${brain.slug}`}
-              className={classes.centeredContent}>
-              <CardHeader subheader={brain.title.toUpperCase()} />
+            <CardActionArea href={`/brain/${brain.slug}`}>
               <CardContent className={classes.centeredContent}>
+                <Typography variant='subtitle1' className={classes.text}>
+                  {' '}
+                  {brain.title.toUpperCase()}{' '}
+                </Typography>
                 <Image
+                  fill={true}
                   src={`/static/${brain.title}.png`}
                   alt={brain.title}
-                  layout='intrinsic'
-                  width={38}
-                  height={40}
+                  width={30}
+                  height={30}
                 />
               </CardContent>
             </CardActionArea>
@@ -57,6 +58,13 @@ const useStyles = makeStyles(theme => {
       padding: '10px',
       width: '90%',
       marginLeft: '5%',
+    },
+    text: {
+      color:
+        theme.palette.mode === 'dark'
+          ? 'rgba(255, 255, 255, 0.7)'
+          : 'rgba(0, 0, 0, 0.6)',
+      marginRight: '15%',
     },
     centeredContent: {
       display: 'flex',
