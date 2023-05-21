@@ -12,6 +12,21 @@ export const Fade = ({ children, delay }) => {
   )
 }
 
+export const Bounce = ({ children, delay = 0 }) => {
+  return (
+    <motion.div
+      animate={{ scale: [1, 2, 2, 1, 1] }}
+      transition={{ delay: delay }}>
+      {children}
+    </motion.div>
+  )
+}
+
+Bounce.propTypes = {
+  children: PropTypes.object,
+  delay: PropTypes.number,
+}
+
 Fade.propTypes = {
   children: PropTypes.object,
   delay: PropTypes.number,

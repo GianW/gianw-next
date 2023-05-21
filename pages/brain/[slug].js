@@ -7,6 +7,7 @@ import { getAllBrainSlugs, getBrainData } from 'lib/dataSource'
 import Head from 'next/head'
 import { AppHeader } from 'components/AppHeader'
 import { Seo } from 'components/Seo'
+import { Fade } from 'components/Animation/Fade'
 
 export default function Brain({ brain }) {
   const router = useRouter()
@@ -34,12 +35,18 @@ export default function Brain({ brain }) {
                 <title>{brain.title}</title>
                 <Seo keywords={[brain.seo]} />
               </Head>
-              <Typography variant='h3' style={{ marginTop: '2%' }}>
-                {brain?.title}
-              </Typography>
-              <hr />
-              <PostBody content={brain?.contentHtml} />
-              <hr className='border-accent-2 mt-28 mb-24' />
+              <Fade delay={0.1}>
+                <Typography variant='h3' style={{ marginTop: '2%' }}>
+                  {brain?.title}
+                </Typography>
+              </Fade>
+              <Fade delay={0.2}>
+                <hr />
+              </Fade>
+              <Fade delay={0.3}>
+                <PostBody content={brain?.contentHtml} />
+                <hr className='border-accent-2 mt-28 mb-24' />
+              </Fade>
             </>
           )}
         </Grid>
