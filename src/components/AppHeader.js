@@ -110,8 +110,8 @@ const Header = ({ colorMode, theme }) => {
       <Grid item xs={9} className={classes.inLineItens}>
         {itens.map(item => (
           <Grid key={item.name} item xs={2}>
-            <Link key={item.name} href={`/${item.page}`}>
-              <Typography className={classes.menuLink}>
+            <Typography>
+              <Link key={item.name} href={`/${item.page}`}>
                 <span
                   className={
                     path == item.page
@@ -120,8 +120,8 @@ const Header = ({ colorMode, theme }) => {
                   }>
                   {item.name}
                 </span>
-              </Typography>
-            </Link>
+              </Link>
+            </Typography>
           </Grid>
         ))}
       </Grid>
@@ -222,12 +222,14 @@ const useStyles = makeStyles(theme => {
             ? '#fefefe'
             : theme.palette.colors.primary,
         borderBottom: `1px solid ${theme.palette.colors.primary}`,
+        cursor: 'pointer',
       },
     },
     selectedLinkText: {
       color:
         theme.palette.mode == 'dark' ? '#fefefe' : theme.palette.colors.primary,
       borderBottom: `1px solid ${theme.palette.colors.primary}`,
+      cursor: 'pointer',
     },
   }
 })
