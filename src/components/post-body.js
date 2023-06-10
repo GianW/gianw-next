@@ -17,7 +17,7 @@ export const PostBody = ({ content }) => {
           rel='stylesheet'
         />
       </Head>
-      <div className='max-w-2xl mx-auto'>
+      <div className='max-w-2xl mx-auto' style={{ maxWidth: '900px' }}>
         <div
           className={markdownStyles['markdown']}
           dangerouslySetInnerHTML={{ __html: content }}
@@ -28,5 +28,5 @@ export const PostBody = ({ content }) => {
 }
 
 PostBody.propTypes = {
-  content: PropTypes.object,
+  content: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
 }

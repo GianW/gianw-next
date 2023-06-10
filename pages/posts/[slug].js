@@ -24,7 +24,7 @@ export default function Post({ post }) {
         alignItems='flex-start'
         direction='row'
         justifyContent='center'>
-        <Grid item xs={9} alignItems='center'>
+        <Grid item xs={9} alignItems='center' justifyContent='flex-start'>
           {router.isFallback ? (
             <>
               <p>Loading…</p>
@@ -41,9 +41,7 @@ export default function Post({ post }) {
               <Typography variant='body2' style={{ marginBottom: '2%' }}>
                 {dateFormatter(post.date)}
               </Typography>
-              <hr />
               <PostBody content={post?.contentHtml} />
-              <hr className='border-accent-2 mt-28 mb-24' />
             </>
           )}
         </Grid>
