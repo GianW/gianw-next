@@ -18,7 +18,7 @@ export const theme = ({ mode = 'dark' }) =>
         main: '#19857b',
       },
       colors: {
-        primary: mode == 'dark' ? '#eee' : '#252525',
+        primary: mode == 'dark' ? '#eee' : '#36353c',
       },
       error: {
         main: red.A400,
@@ -29,15 +29,15 @@ export const theme = ({ mode = 'dark' }) =>
     },
     typography: {
       fontFamily: [
-        'Inter',
-        '-apple-system,BlinkMacSystemFont',
-        'Helvetica Neue',
-        'Arial,sans-serif',
+        // 'Inter',
+        // '-apple-system,BlinkMacSystemFont',
+        // 'Helvetica Neue',
+        // 'Arial,sans-serif',
         // 'Google Sans',
-        // '"Roboto"',
-        // '"Helvetica"',
-        // '"Arial"',
-        // 'sans-serif',
+        '"Roboto"',
+        '"Helvetica"',
+        '"Arial"',
+        'sans-serif',
       ].join(','),
     },
     MuiCard: {

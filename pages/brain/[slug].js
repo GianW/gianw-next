@@ -40,12 +40,8 @@ export default function Brain({ brain }) {
                   {brain?.title}
                 </Typography>
               </Fade>
-              <Fade delay={0.2}>
-                <hr />
-              </Fade>
               <Fade delay={0.3}>
                 <PostBody content={brain?.contentHtml} />
-                <hr className='border-accent-2 mt-28 mb-24' />
               </Fade>
             </>
           )}

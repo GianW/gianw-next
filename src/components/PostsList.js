@@ -17,7 +17,7 @@ export const PostsList = ({ posts }) => {
   return (
     <Grid
       container
-      spacing={2}
+      spacing={1}
       direction='row'
       justify='flex-start'
       alignItems='flex-start'
@@ -62,12 +62,12 @@ const useStyles = makeStyles(theme => {
       marginTop: theme.spacing(4),
       marginBottom: theme.spacing(2),
       boxSizing: 'border-box',
-      padding: '10px',
+      padding: '5px',
       width: '90%',
       marginLeft: '5%',
     },
     card: {
-      height: '200px',
+      height: '190px',
     },
   }
 })
