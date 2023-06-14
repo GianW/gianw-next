@@ -1,6 +1,6 @@
 ---
 title: Say hi to ExpressJS
-date: '2017-03-22T00:10:03.284Z'
+date: '2016-12-29T00:10:03.284Z'
 description: My studies and annotations about ExpressJS
 tags: ['Node', 'ExpressJS']
 seo: ['node', 'expressjs', 'npm', 'study', 'studies']
