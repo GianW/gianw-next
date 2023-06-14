@@ -15,11 +15,17 @@ lang: 'en'
   - [Server redirect](#server-redirect)
 - [Middleware](#middleware)
   - [How They Work](#how-they-work)
-  - [Writing own](#writing-middleware)
+  - [Writing our own](#writing-middleware)
+- [User params](#user-params)
+- [Post Requests](#post-requests)
+  - [Repetition in route names](#repetition-route-names)
+  - [Dynamic route instances](#dynamic-routes)
 
 <a name="what-is"></a>
 
 # What is
+
+The code generate during this explanation is here: <a href='https://codesandbox.io/p/sandbox/expressjs-course-vw6lzn'>CodeSandBOX</a>
 
 A web application framework for Node, minimal and flexible, great for building Web APIs.
 Foundation for other tools and frameworks, like Kraken and Sails.
@@ -248,7 +254,9 @@ The static middleware serves <b>everything</b> under the specified folder
   </html>
 ```
 
-## Writing own
+<hr />
+
+## Writing our own
 
 <a name="writing-middleware"></a>
 
@@ -295,3 +303,228 @@ In the main file (app.js) we should require and use our module
 var logger = require('./logger')
 app.use(logger)
 ```
+
+<hr />
+
+# User params
+
+<a name="user-params"></a>
+
+Query params
+
+```
+request.query.limit
+ex: http://localhost:3000/blocks?limit=2
+```
+
+Placeholders can be used to name arguments part of the URL path
+
+```javascript
+app.get('/blocks/:name', function (request, response) {
+  /*creates name property on the request.params object*/
+  console.log(request.params.name)
+})
+```
+
+The app.param function maps placeholders to callback functions.
+It’s useful for running pre-conditions on dynamic routes.
+
+```javascript
+/* called for routes which include the :name placeholder */
+app.param('name', function (request, response, next) {
+  var name = request.params.name
+  var block = name[0].toUpperCase() + name.slice(1).toLowerCase()
+
+  /* can be accessed from other routes in the application */
+  request.blockName = block
+
+  /* must be called to resume request */
+  next()
+})
+```
+
+We can read properties on request which were set on app.param
+
+```javascript
+app.get('/blocks/:name', function(request, response) {
+  var description = blocks[request.blockName];
+  ...
+});
+```
+
+<hr />
+<a name="post-requests"></a>
+
+## POST Requests
+
+Parsing depends on a middleware not shipped with Express
+
+```
+npm install body-parser
+```
+
+```javascript
+var express = require('express');
+var app = express();
+
+var bodyParser = require('body-parser');
+var parseUrlencoded = bodyParser.urlencoded({ extended: false });
+
+/* extended: false = forces the use of the native querystring Node library */
+
+var blocks = { ... };
+```
+
+Routes can take multiple handlers as arguments and will call them sequentially
+
+```javascript
+/* parseUrlencoded -> Will run first */
+/* function ... -> Will run second */
+app.post('/blocks', parseUrlencoded, function (request, response) {
+  /* get form data */
+  var newBlock = request.body
+
+  /*adds new block to the blocks object*/
+  blocks[newBlock.name] = newBlock.description
+
+  response.status(201).json(newBlock.name)
+  /* sets the 201 Created status code */
+  /* responds with new block name */
+})
+```
+
+Using multiple route handlers is useful for re-using middleware that load resources, perform validations, authentication, etc.
+
+<a name="repetition-route-names"></a>
+
+## Repetition in route names
+
+All routes seem to be handling requests to similar paths…
+
+```javascript
+app.get('/blocks', function(request, response) {
+...
+});
+app.get('/blocks/:name', function(request, response) {
+...
+});
+app.post('/blocks', parseUrlencoded, function(request, response) {
+...
+});
+app.delete('/blocks/:name', function(request, response) {
+...
+});
+```
+
+Many similar paths
+
+```javascript
+/* returns route object which handles all requests to the /blocks path */
+var blocksRoute = app.route('/blocks')
+
+/* app.get('/blocks'... */
+blocksRoute.get(function(request, response) {
+...
+});
+
+/* app.post('/blocks'... */
+blocksRoute .post(parseUrlencoded, function(request, response) {
+...
+});
+```
+
+There’s unnecessary repetition of the blocksRoute variable
+
+```javascript
+var blocksRoute = app.route('/blocks')
+
+blocksRoute.get(function(request, response) {
+...
+});
+blocksRoute .post(parseUrlencoded, function(request, response) {
+...
+});
+```
+
+Chaining functions can eliminate intermediate variables and help our code stay more readable. This is a pattern commonly found in Express applications.
+
+```javascript
+app.route('/blocks')
+  .get(function(request, response) {
+    /*chaining means calling functions on the return value of previous functions*/
+    ...
+  });
+  /* lines starting with dot indicate function calls on the object returned from the previous line*/
+  .post(parseUrlencoded, function(request, response) {
+    ...
+  });
+```
+
+<a name="dynamic-routes"></a>
+
+## Dynamic route instances
+
+The app.route function accepts the same url argument format as before
+
+```javascript
+/* returns route object which handles all
+requests to the /blocks/:name path */
+app.route('/blocks/:name')
+.get(function(request, response) {
+...
+})
+.delete(function(request, response) {
+...
+});
+```
+
+Our route handlers for /blocks/:name reference blocks fetched by their name
+
+<a name="route-files"></a>
+
+## Route files
+
+This helps clean up our code and allows our main app.js file to easily accommodate additional routes in the future.
+
+```javascript
+var express = require('express')
+var app = express()
+app.use(express.static('public'))
+
+/* we’ll move our routes to this new file */
+var blocks = require('./routes/blocks')
+/* router is mounted in a particular root url */
+app.use('/blocks', blocks)
+
+app.listen(3000)
+```
+
+Let’s see how we can do this by taking advantage of Node’s module system.
+
+A dedicated folder for routes can help organize our code
+
+  <ul class="directory-list">
+    <li class="folder">public/</li>
+    <li class="folder">routes/
+      <ul>
+        <li>blocks.js</li>
+      </ul>
+    </li>
+  </ul>
+
+```javascript
+/*blocks.js*/
+var express = require('express')
+/*returns router instance which can
+be mounted as a middleware*/
+var router = express.Router()
+/*exports the router as a Node module*/
+
+/* he root path relative to
+  the path where it’s mounted ( app.use('/blocks', ...);)*/
+router.route('/')
+
+module.exports = router
+```
+
+We assign the router to module.exports to make it accessible from other files
