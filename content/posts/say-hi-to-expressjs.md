@@ -416,7 +416,7 @@ app.delete('/blocks/:name', function(request, response) {
 });
 ```
 
-Many similar paths
+There’s unnecessary repetition of the blocksRoute variable
 
 ```javascript
 /* returns route object which handles all requests to the /blocks path */
@@ -428,19 +428,6 @@ blocksRoute.get(function(request, response) {
 });
 
 /* app.post('/blocks'... */
-blocksRoute .post(parseUrlencoded, function(request, response) {
-...
-});
-```
-
-There’s unnecessary repetition of the blocksRoute variable
-
-```javascript
-var blocksRoute = app.route('/blocks')
-
-blocksRoute.get(function(request, response) {
-...
-});
 blocksRoute .post(parseUrlencoded, function(request, response) {
 ...
 });
