@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => {
     divider: {
       width: '70%',
       marginTop: '5%',
-      marginBotton: '2%',
+      marginBotton: '4%',
     },
   }
 })
@@ -87,18 +87,17 @@ const SelfPresentation = () => {
   const classes = useStyles()
   return (
     <>
-      <Typography variant='h4' className={classes.presentTitle}>
+      <Typography variant='h3' className={classes.presentTitle}>
         Hi there! I&apos;m Gian.
       </Typography>
-      <Typography variant='h6'>
+      <Typography variant='h5'>
         I&apos;m a software engineer who loves to find new ways to solve real
         problems with code.
       </Typography>
-      <Typography variant='h6'>
+      <Typography variant='h5'>
         This website is my digital laboratory, where I do some experiments and
         share others.
       </Typography>
-      <Typography variant='body1'></Typography>
     </>
   )
 }
