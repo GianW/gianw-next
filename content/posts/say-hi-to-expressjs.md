@@ -416,7 +416,7 @@ app.delete('/blocks/:name', function(request, response) {
 });
 ```
 
-Many similar paths
+There’s unnecessary repetition of the blocksRoute variable
 
 ```javascript
 /* returns route object which handles all requests to the /blocks path */
@@ -428,19 +428,6 @@ blocksRoute.get(function(request, response) {
 });
 
 /* app.post('/blocks'... */
-blocksRoute .post(parseUrlencoded, function(request, response) {
-...
-});
-```
-
-There’s unnecessary repetition of the blocksRoute variable
-
-```javascript
-var blocksRoute = app.route('/blocks')
-
-blocksRoute.get(function(request, response) {
-...
-});
 blocksRoute .post(parseUrlencoded, function(request, response) {
 ...
 });
@@ -503,14 +490,14 @@ Let’s see how we can do this by taking advantage of Node’s module system.
 
 A dedicated folder for routes can help organize our code
 
-  <ul class="directory-list">
-    <li class="folder">public/</li>
-    <li class="folder">routes/
-      <ul>
-        <li>blocks.js</li>
-      </ul>
-    </li>
-  </ul>
+<ul class="directory-list">
+  <li class="folder">public/</li>
+  <li class="folder">routes/
+    <ul>
+      <li>blocks.js</li>
+    </ul>
+  </li>
+</ul>
 
 ```javascript
 /*blocks.js*/
