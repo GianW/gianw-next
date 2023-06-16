@@ -490,14 +490,14 @@ Let’s see how we can do this by taking advantage of Node’s module system.
 
 A dedicated folder for routes can help organize our code
 
-  <ul class="directory-list">
-    <li class="folder">public/</li>
-    <li class="folder">routes/
-      <ul>
-        <li>blocks.js</li>
-      </ul>
-    </li>
-  </ul>
+<ul class="directory-list">
+  <li class="folder">public/</li>
+  <li class="folder">routes/
+    <ul>
+      <li>blocks.js</li>
+    </ul>
+  </li>
+</ul>
 
 ```javascript
 /*blocks.js*/
