@@ -20,6 +20,8 @@ lang: 'en'
   - [Creating and reusing](#creating-reusing)
   - [Multi steps keyframes](#multistep-keyframes)
   - [More Advanced Keyframe Animations](#more-advanced-keyframes)
+- [SVG](#svg)
+  - [Animating SVGs With CSS](#animating-svg)
 
 # What is
 
@@ -599,3 +601,86 @@ Finishing Form By Animating the Stuﬀ Inside
 </iframe>
 
 <hr />
+
+<a name="svg"></a>
+
+# SVG
+
+<a name="animating-svg"></a>
+
+## Animating SVGs With CSS
+
+SVG is a ﬁle format that contains vector-based images.
+
+SVG can be dropped in your HTML ﬁle wherever you’re normally
+loading PNG (or other) images.
+
+We can access specific SVG tags with CSS selectors
+
+```css
+/* SVG uses fill instead of
+background-color */
+#icing-fill {
+  fill: #dd3d93;
+}
+```
+
+And also we can animate it now
+
+```css
+@keyframes darken {
+  0% {
+    fill: #fca9b7;
+  }
+  100% {
+    fill: #dd3d93;
+  }
+}
+#icing-fill {
+  animation: darken 3s infinite;
+}
+```
+
+SVG has some unique CSS properties that can be animated.
+
+<table>
+  <tr><td>
+    enable-background
+  </td></tr>
+  <tr>
+    <td>fill</td>
+  </tr>
+<tr><td>
+fill-opacity
+</td></tr>
+<tr><td>
+filter
+</td></tr>
+<tr><td>
+mask
+</td></tr>
+<tr><td>
+stroke
+</td></tr>
+<tr><td>
+stroke-dasharray
+</td></tr>
+<tr><td>
+stroke-dashoffset
+</td></tr>
+<tr><td>
+viewport-fill
+</td></tr>
+<tr><td>
+viewport-fill-opacity
+</td></tr>
+</table>
+
+Check out MDN for the full list of SVG properties.
+<a href='https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute#presentation_attributes'>MDN Docs</a>
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/GianW/embed/YzRqowY?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/GianW/pen/YzRqowY">
+  Untitled</a> by Gian (<a href="https://codepen.io/GianW">@GianW</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
