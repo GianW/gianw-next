@@ -105,7 +105,7 @@ const SelfPresentation = () => {
 export async function getStaticProps() {
   const blogPosts = (await getSortedPostsData()).slice(0, 5) || []
   const brainPosts = (await getAllBrainSlugs()).slice(0, 5) || []
-  const projPosts = (await getProjectsForMain()) || []
+  const projPosts = (await getProjectsForMain()).slice(0, 8) || []
   return {
     props: { blogPosts, brainPosts, projPosts },
   }
