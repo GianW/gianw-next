@@ -18,6 +18,8 @@ lang: 'en'
   - [Transforming Scale Translate](#transforming-scale-translate)
 - [Keyframes](#keyframes)
   - [Creating and reusing](#creating-reusing)
+  - [Multi steps keyframes](#multistep-keyframes)
+  - [More Advanced Keyframe Animations](#more-advanced-keyframes)
 
 # What is
 
@@ -396,3 +398,204 @@ The result of this section:
 <a name="creating-reusing"></a>
 
 ## Creating and Reusing Keyframes
+
+A list of what should happen over the course of the animation —
+which properties should change, how, and when.
+
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1686967485/Blog/key-frame_epo608.png" alt="Button text moviment" style="width:70%;"/>
+
+There are 2 parts to keyframe animations:
+
+<b>1.</b> Create the Animation<br>
+<b>2.</b> Assign the Animation
+
+```css
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+/*keyframe recipe*/
+
+@keyframes <name-animation> {
+  <step 1 > {
+    <property>: <value>;
+  }
+  <step 2 > {
+    <property>: <value>;
+  }
+}
+/*Deﬁne steps of the animation*/
+```
+
+<b>from</b> is a shortcut for writing <b>0%</b>
+<b>to</b> is a shortcut for writing <b>100%</b>
+
+```css
+.left-donut {
+  animation: swing 2s 0s infinite ease;
+  /*
+  in order:
+  swing -> Keyframe name
+  duration
+  delay
+  iteration (how many times will run)
+  timing function
+  */
+}
+```
+
+<a name="multistep-keyframes"></a>
+
+## Multi-step Keyframes
+
+Let’s add more than 2 steps to make the donut look more natural.
+
+```css
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+```
+
+If you have any duplicate
+animation code you can condense the
+duplicates to one
+comma-separated line.
+
+```css
+@keyframes swing {
+  0%,
+  50%,
+  100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+}
+```
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS KeyFrames" src="https://codepen.io/GianW/embed/NWENXXj?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/GianW/pen/NWENXXj">
+  CSS KeyFrames</a> by Gian (<a href="https://codepen.io/GianW">@GianW</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<a name="more-advanced-keyframes"></a>
+
+## More Advanced Keyframe Animations
+
+Fading in the modal-overlay
+
+```css
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden; /*start hidden*/
+  }
+  to {
+    opacity: 1;
+    visibility: visible; /*end visible*/
+  }
+}
+
+.modal-overlay.active {
+  animation: fadeIn .25s forwards;
+}}
+
+/*Fill-mode forwards is used to set the
+animation’s ﬁnal state to the last speciﬁed step.*/
+
+```
+
+slideUp Keyframe for Entire Modal
+
+```css
+@keyframes slideUp {
+  from {
+    /* start low on the page */
+    transform: translateY(400px);
+  }
+  to {
+    /* end higher on the page */
+    transform: translateY(-300px);
+  }
+}
+
+.modal.active {
+  animation: slideUp 0.65s 0.5s forwards;
+}
+```
+
+When animating a single property, simply specify start/end state
+and use a timing function to create the desired timing.
+
+```css
+/*custom cubic-bezier timing function*/
+modal.active {
+  animation: slideUp 0.65s 0.5s cubic-bezier(0.17, 0.89, 0.32, 1.28) forwards;
+  /*cubic causes overshoot effec*/
+}
+```
+
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1687097112/Blog/css-cubis-bezier_mwel2s.png" alt="Button text moviment" style="width:70%;"/>
+
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1687097248/Blog/css-all-bezier_ji3efb.png" alt="Button text moviment" style="width:70%;"/>
+
+Assign the fadeIn animation to our .active modal as well.
+
+```css
+.modal.active {
+  animation: slideUp 0.65s 0.5s cubic-bezier(…) forwards, fadeIn 0.65s 0.5s
+      forwards;
+}
+```
+
+Finishing Form By Animating the Stuﬀ Inside
+
+```css
+@keyframes slideUpSmall {
+  from {
+    transform: translateY(80px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.modal-header h3 {
+  animation: slideUpSmall 0.25s 0.75s forwards, fadeIn 0.25s 0.75s forwards;
+}
+.modal.active .form-field {
+  animation: slideUpSmall 0.25s 0.8s forwards, fadeIn 0.25s 0.8s forwards;
+}
+```
+
+<iframe height="300" style="width: 100%;" scrolling="no" title="CSS Transition and Transform" src="https://codepen.io/GianW/embed/vYQLMXY?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href="https://codepen.io/GianW/pen/vYQLMXY">
+  CSS Transition and Transform</a> by Gian (<a href="https://codepen.io/GianW">@GianW</a>)
+  on <a href="https://codepen.io">CodePen</a>.
+</iframe>
+
+<hr />
