@@ -15,6 +15,7 @@ lang: 'en'
 - [Confirmative](#confirmative)
 - [Multi Line String](#multi-line-string)
 - [Capture Groups](#capture-groups)
+- [Glossary](#glossary)
 
 # What is
 
@@ -544,10 +545,84 @@ Match Groups
 3. AK
 4. 99705
 
-Codes
+Code generated during this class
 
 <iframe height="300" style="width: 100%;" scrolling="no" title="Untitled" src="https://codepen.io/GianW/embed/bGQeobR?default-tab=html%2Cresult" frameborder="no" loading="lazy" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href="https://codepen.io/GianW/pen/bGQeobR">
   Untitled</a> by Gian (<a href="https://codepen.io/GianW">@GianW</a>)
   on <a href="https://codepen.io">CodePen</a>.
 </iframe>
+
+<a name="glossary"></a>
+
+<hr />
+
+# Glossary
+
+<table className='markdown content'>
+  <tr>
+    <td><b>^</b></td>
+    <td>-></td>
+    <td>Start looking at the beggining of the subject</td>
+  </tr>
+  <tr>
+    <td><b>$</b></td>
+    <td>-></td>
+    <td>Stop looking at the end of the subject</td>
+  </tr>
+  <tr>
+    <td><b>\b</b></td>
+    <td>-></td>
+    <td>Whole words only</td>
+  </tr>
+  <tr>
+    <td><b>\d</b></td>
+    <td>-></td>
+    <td>Any number</td>
+  </tr>
+    <tr>
+    <td><b>\D</b></td>
+    <td>-></td>
+    <td>Uppercase means the opposite</td>
+  </tr>
+  <tr>
+    <td><b>\s</b></td>
+    <td>-></td>
+    <td>White space</td>
+  </tr>
+  <tr>
+    <td><b>\w</b></td>
+    <td>-></td>
+    <td>Only char</td>
+  </tr>
+  <tr>
+    <td><b>\w+</b></td>
+    <td>-></td>
+    <td>Char repetition</td>
+  </tr>
+  <tr>
+    <td><b>.</b></td>
+    <td>-></td>
+    <td>Accepts any char, exceptnew line</td>
+  </tr>
+  <tr>
+    <td><b>\.</b></td>
+    <td>-></td>
+    <td>Char dot (escaped)</td>
+  </tr>
+  <tr>
+    <td><b>+</b></td>
+    <td>-></td>
+    <td>Matches 1 or more times</td>
+  </tr>
+  <tr>
+    <td><b>\+</b></td>
+    <td>-></td>
+    <td>Plus simble</td>
+  </tr>
+  <tr>
+    <td><b>?</b></td>
+    <td>-></td>
+    <td>Make proceding pattern optional</td>
+  </tr>
+</table>

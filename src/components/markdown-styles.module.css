@@ -21,6 +21,11 @@
   color: rgb(207, 41, 207);
 }
 
+/*Table*/
+.markdown > .content {
+  border: 1px solid gray;
+}
+
 /* The list style
 -------------------------------------------------------------- */
 
