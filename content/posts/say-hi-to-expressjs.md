@@ -25,9 +25,9 @@ lang: 'en'
 
 # What is
 
-The code generate during this explanation is here: <a href='https://codesandbox.io/p/sandbox/expressjs-course-vw6lzn'>CodeSandBOX</a>
+This is my anotations during a course in Code Scholl, the code generate during this explanation is here: <a href='https://codesandbox.io/p/sandbox/expressjs-course-vw6lzn'>CodeSandBOX</a>
 
-A web application framework for Node, minimal and flexible, great for building Web APIs.
+ExpressJS is A web application framework for Node, minimal and flexible, great for building Web APIs.
 Foundation for other tools and frameworks, like Kraken and Sails.
 
 To install latest or a specific version:
@@ -38,6 +38,7 @@ or
 npm install express@4.9
 ```
 
+<hr />
 <a name="basics"></a>
 
 # Basics
@@ -156,6 +157,8 @@ Content-Type: text/plain; charset=utf-8
 
 Moved Temporarily. Redirecting to /parts
 ```
+
+<hr />
 
 <a name="middleware"></a>
 
