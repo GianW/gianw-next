@@ -45,8 +45,7 @@ export async function getSortedPostsData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(postsDirectory)
   const allPostsData = fileNames.map(fileName => {
-    // Remove ".md" from file name to get slug
-    const slug = fileName.replace(/\.md$/, '')
+    const slug = slugName(fileName)
 
     // Read markdown file as string
     const fullPath = path.join(postsDirectory, fileName)
@@ -78,15 +77,9 @@ export async function getAllCompletesData() {
   // Get file names under /posts
   const fileNames = fs.readdirSync(brainDirectory)
   return fileNames.map(fileName => {
-    // Remove ".md" from file name to get slug
-    const slug = fileName.replace(/\.md$/, '')
+    const slug = slugName(fileName)
 
-    // Read markdown file as string
-    const fullPath = path.join(brainDirectory, fileName)
-    const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-    // Use gray-matter to parse the post metadata section
-    const matterResult = matter(fileContents)
+    const matterResult = resolveMatterResult(fileName)
 
     // Combine the data with the slug
     return {
@@ -97,11 +90,7 @@ export async function getAllCompletesData() {
 }
 
 export async function getBrainData(slug) {
-  const fullPath = path.join(brainDirectory, `${slug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-
-  // Use gray-matter to parse the post metadata section
-  const matterResult = matter(fileContents)
+  const matterResult = resolveMatterResult(`${slug}.md`)
 
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
@@ -117,3 +106,15 @@ export async function getBrainData(slug) {
     ...matterResult.data,
   }
 }
+
+const resolveMatterResult = fileName => {
+  // Read markdown file as string
+  const fullPath = path.join(brainDirectory, fileName)
+  const fileContents = fs.readFileSync(fullPath, 'utf8')
+
+  // Use gray-matter to parse the post metadata section
+  return matter(fileContents)
+}
+
+// Remove ".md" from file name to get slug
+const slugName = fileName => fileName.replace(/\.md$/, '')
