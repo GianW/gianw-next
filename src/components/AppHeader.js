@@ -102,9 +102,7 @@ const Header = ({ colorMode, theme }) => {
           </Typography>
         </Grid>
         <Grid item xs={2}>
-          <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>
-            {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness3 />}
-          </IconButton>
+          <ChangeColorButton colorMode={colorMode} theme={theme} />
         </Grid>
       </Grid>
       <Grid item xs={9} className={classes.inLineItens}>
@@ -167,14 +165,8 @@ const HeaderMobile = ({ colorMode, title, theme }) => {
           </Typography>
           <Typography variant='h6' component='div'>
             Gian Winckler
-            <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>
-              {theme.palette.mode === 'dark' ? (
-                <Brightness7 />
-              ) : (
-                <Brightness3 />
-              )}
-            </IconButton>
           </Typography>
+          <ChangeColorButton colorMode={colorMode} theme={theme} />
         </Toolbar>
       </AppBar>
       <Drawer anchor='left' open={open} onClose={toggleDrawer}>
@@ -191,6 +183,17 @@ HeaderMobile.propTypes = {
 }
 
 const isMobile = () => (window?.outerWidth < 700 ? true : false)
+
+const ChangeColorButton = ({ colorMode, theme }) => (
+  <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>
+    {theme.palette.mode === 'dark' ? <Brightness7 /> : <Brightness3 />}
+  </IconButton>
+)
+
+ChangeColorButton.propTypes = {
+  colorMode: PropTypes.func,
+  theme: PropTypes.object,
+}
 
 const useStyles = makeStyles(theme => {
   return {
