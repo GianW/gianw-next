@@ -26,7 +26,7 @@ export const CardContainer = ({ children, title, subtitle }) => {
 }
 
 CardContainer.propTypes = {
-  children: PropTypes.object,
+  children: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   subtitle: PropTypes.string,
   title: PropTypes.string,
 }
