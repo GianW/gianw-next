@@ -33,7 +33,7 @@ export const ProjectList = ({ projects }) => {
                 <CardMedia
                   component='img'
                   height='140'
-                  image={proj.capa ? proj.capa : defaultCover}
+                  image={proj.capa ? proj.capa?.url : defaultCover}
                   alt='Project cover image'
                 />
                 <CardHeader subheader={proj.nome.toUpperCase()} />
