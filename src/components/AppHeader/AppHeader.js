@@ -55,8 +55,8 @@ AppHeader.propTypes = {
 const itens = [
   { name: 'Home', icon: <HomeIcon />, page: '' },
   { name: 'Brain', icon: <LightIcon />, page: 'brain' },
-  { name: 'Projects', icon: <AutoAwesomeMotionIcon />, page: 'projects' },
   { name: 'Posts', icon: <AutoStoriesIcon />, page: 'posts' },
+  { name: 'Projects', icon: <AutoAwesomeMotionIcon />, page: 'projects' },
 ]
 
 const MenuItens = ({ toggleDrawer }) => {

@@ -8,22 +8,9 @@ import PropTypes from 'prop-types'
 
 function renderOptions(links) {
   // create an asset block map
-  const assetBlockMap = new Map()
-  // loop through the assets and add them to the map
-  if (links?.assets?.block) {
-    for (const asset of links?.assets?.block) {
-      assetBlockMap.set(asset.sys.id, asset)
-    }
-  }
-
+  const assetBlockMap = getAssetBlockMap(links)
   // create an entry block map
-  const entryBlockMap = new Map()
-  // loop through the assets and add them to the map
-  if (links?.entries?.block) {
-    for (const entry of links.entries.block) {
-      entryBlockMap.set(entry.sys.id, entry)
-    }
-  }
+  const entryBlockMap = genEntryblockMap(links)
 
   return {
     // other options...
@@ -61,6 +48,32 @@ function renderOptions(links) {
       },
     },
   }
+}
+
+const getAssetBlockMap = links => {
+  // create an asset block map
+  const assetBlockMap = new Map()
+  // loop through the assets and add them to the map
+  if (links?.assets?.block) {
+    for (const asset of links?.assets?.block) {
+      assetBlockMap.set(asset.sys.id, asset)
+    }
+  }
+
+  return assetBlockMap
+}
+
+const genEntryblockMap = links => {
+  // create an entry block map
+  const entryBlockMap = new Map()
+  // loop through the assets and add them to the map
+  if (links?.entries?.block) {
+    for (const entry of links.entries.block) {
+      entryBlockMap.set(entry.sys.id, entry)
+    }
+  }
+
+  return entryBlockMap
 }
 
 export const RichTextResponse = ({ richTextResponse }) => {

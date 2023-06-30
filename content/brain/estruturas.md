@@ -1,11 +1,12 @@
 ---
-title: estruturas de dados
+title: estruturas
 type: brain
 tags: []
-seo: ['algoritimos', 'programação','estruturas de dados']
+seo: ['algoritimos', 'programação', 'estruturas de dados']
 ---
 
 ## Table of Contents
+
 - [Array](#array)
 - [Linked list](#linked-list)
 
@@ -28,6 +29,6 @@ Esste tipo de coleção tem a leitura eficiente mas a a inserção e remoção i
 
 É uma coleção de elementos que não é necessariamente alocada em ordem na memória, sua ordem é definida diretamente em seus elementos que possuem a estrutura de `valor` + `indicador do próximo elemento`.
 
-Nesse tipo de coleção a inserção e remoção é eficiente e consulta ineficiente 
+Nesse tipo de coleção a inserção e remoção é eficiente e consulta ineficiente
 
 <hr>
