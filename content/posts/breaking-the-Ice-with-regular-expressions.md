@@ -603,7 +603,7 @@ Code generated during this class
   <tr>
     <td><b>.</b></td>
     <td>-></td>
-    <td>Accepts any char, exceptnew line</td>
+    <td>Accepts any char, except new line</td>
   </tr>
   <tr>
     <td><b>\.</b></td>
@@ -618,11 +618,46 @@ Code generated during this class
   <tr>
     <td><b>\+</b></td>
     <td>-></td>
-    <td>Plus simble</td>
+    <td>Plus symbol</td>
   </tr>
   <tr>
     <td><b>?</b></td>
     <td>-></td>
     <td>Make proceding pattern optional</td>
+  </tr>
+  <tr>
+    <td><b>\d{2}</b></td>
+    <td>-></td>
+    <td>How many chars</td>
+  </tr>
+  <tr>
+    <td><b>\d{20, 40}</b></td>
+    <td>-></td>
+    <td>Max and Min length</td>
+  </tr>
+  <tr>
+    <td><b>//m</b></td>
+    <td>-></td>
+    <td>Multi lines</td>
+  </tr>
+  <tr>
+    <td><b>//g</b></td>
+    <td>-></td>
+    <td>Global</td>
+  </tr>
+  <tr>
+    <td><b>//i</b></td>
+    <td>-></td>
+    <td>Upper and lower case</td>
+  </tr>
+  <tr>
+    <td><b>()</b></td>
+    <td>-></td>
+    <td>Group</td>
+  </tr>
+  <tr>
+    <td><b>?:</b></td>
+    <td>-></td>
+    <td>Jump group</td>
   </tr>
 </table>
