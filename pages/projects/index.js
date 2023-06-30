@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { AppHeader } from 'components/AppHeader'
+import { AppHeader } from 'components/AppHeader/AppHeader'
 import { ProjectList } from 'components/ProjectList'
 import { Fade } from 'components/Animation/Fade'
 import { getAllProjectsForHome } from 'lib/contentFullApi'

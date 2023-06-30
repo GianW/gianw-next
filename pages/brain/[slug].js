@@ -5,7 +5,7 @@ import { Grid, Typography } from '@mui/material'
 import { PostBody } from 'components/post-body'
 import { getAllBrainSlugs, getBrainData } from 'lib/dataSource'
 import Head from 'next/head'
-import { AppHeader } from 'components/AppHeader'
+import { AppHeader } from 'components/AppHeader/AppHeader'
 import { Seo } from 'components/Seo'
 import { Fade } from 'components/Animation/Fade'
 

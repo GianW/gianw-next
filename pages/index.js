@@ -7,7 +7,7 @@ import { MainLastPosts } from 'components/index/MainLastPosts'
 import { MainLastProjects } from 'components/index/MainLastProjects'
 import { MainLastBrains } from 'components/index/MainLastBrains'
 import { SocialLinks } from 'components/SocialLinks'
-import { AppHeader } from 'components/AppHeader'
+import { AppHeader } from 'components/AppHeader/AppHeader'
 import { Fade } from 'components/Animation/Fade'
 
 const useStyles = makeStyles(theme => {
