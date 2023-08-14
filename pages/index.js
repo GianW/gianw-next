@@ -88,7 +88,7 @@ const SelfPresentation = () => {
   return (
     <>
       <Typography variant='h3' className={classes.presentTitle}>
-        Hi there! I&apos;m Gian.
+        Hi there! 
       </Typography>
       <Typography variant='h5'>
         I&apos;m a software engineer who loves to find new ways to solve real
