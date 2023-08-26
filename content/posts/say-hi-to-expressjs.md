@@ -25,7 +25,7 @@ lang: 'en'
 
 # What is
 
-This is my anotations during a course in Code Scholl, the code generate during this explanation is here: <a href='https://codesandbox.io/p/sandbox/expressjs-course-vw6lzn'>CodeSandBOX</a>
+These are my notes taken during a course at Code School. The code generated during the explanations is available here: <a href='https://codesandbox.io/p/sandbox/expressjs-course-vw6lzn'>CodeSandbox</a>.
 
 ExpressJS is A web application framework for Node, minimal and flexible, great for building Web APIs.
 Foundation for other tools and frameworks, like Kraken and Sails.
