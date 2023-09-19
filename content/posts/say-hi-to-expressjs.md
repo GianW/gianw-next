@@ -107,13 +107,13 @@ app.get('/blocks', function (request, response) {
 
 use -i to print response headers
 
-```curl
+```shell
 curl -i http://localhost:3000/blocks
 HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8 (sets proper
 response headers)
-[&apos;Fixed&apos;,&apos;Movable&apos;,&apos;Rotating&apos;]
+['Fixed','Movable','Rotating']
 ```
 
 The send function converts strings to HTML
