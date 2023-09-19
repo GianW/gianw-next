@@ -7,9 +7,13 @@ seo: ['node', 'expressjs', 'npm', 'study', 'studies']
 lang: 'en'
 ---
 
+# What is
+
+These are my notes taken during a course at Code School. The code generated during the explanations is available here: <a href='https://codesandbox.io/p/sandbox/expressjs-course-vw6lzn'>CodeSandbox</a>.
+
 ## Content
 
-- [Overview](#what-is)
+- [Overview](#overview)
 - [Basics](#basics)
   - [Server response](#server-response)
   - [Server redirect](#server-redirect)
@@ -21,11 +25,9 @@ lang: 'en'
   - [Repetition in route names](#repetition-route-names)
   - [Dynamic route instances](#dynamic-routes)
 
-<a name="what-is"></a>
+<a name="overview"></a>
 
-# What is
-
-These are my notes taken during a course at Code School. The code generated during the explanations is available here: <a href='https://codesandbox.io/p/sandbox/expressjs-course-vw6lzn'>CodeSandbox</a>.
+# Overview 
 
 ExpressJS is A web application framework for Node, minimal and flexible, great for building Web APIs.
 Foundation for other tools and frameworks, like Kraken and Sails.
