@@ -113,7 +113,7 @@ HTTP/1.1 200 OK
 X-Powered-By: Express
 Content-Type: application/json; charset=utf-8 (sets proper
 response headers)
-['Fixed','Movable','Rotating']
+["Fixed","Movable","Rotating"]
 ```
 
 The send function converts strings to HTML
