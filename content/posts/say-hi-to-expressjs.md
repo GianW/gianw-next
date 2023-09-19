@@ -129,7 +129,7 @@ Responds with text/html
 <i>For server-side templates,
 checkout EJS or Jade</i>
 
-```
+```shell
 $ curl -i http://localhost:3000/blocks
 HTTP/1.1 200 OK
 X-Powered-By: Express
