@@ -6,6 +6,11 @@ tags: ['CSS']
 seo: ['web', 'css', 'animations']
 lang: 'en'
 ---
+# What is
+
+These are my annotations and insights from the course 'Adventures in Web Animations' by CodeSchool.
+
+<hr>
 
 ## Content
 
@@ -23,9 +28,7 @@ lang: 'en'
 - [SVG](#svg)
   - [Animating SVGs With CSS](#animating-svg)
 
-# What is
 
-This is my anotations and insigts during the course "Adventures in Web Animations" from CodeSchool
 
 <a name="transitions"></a>
 
