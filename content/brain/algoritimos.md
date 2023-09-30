@@ -47,7 +47,7 @@ Tabela de referência de complexidades: <a href="https://www.bigocheatsheet.com/
 
 O exemplo de uso mais comum para a pesquisa binária é a lista telefonica, onde temos uma lista ordenada e queremos buscar um valor aleatório. Com este método sempre vamos para a metade da lista e verificamos se o valor é maior ou menor, então, decidimos se iremos para direita ou esquerda e repetimos o procedimento até chegar no valor.
 
-JS: https://gist.github.com/GianW/4aee2aaa4a7cf8af87026cbe08798aff.js
+JS: <a href='https://gist.github.com/GianW/4aee2aaa4a7cf8af87026cbe08798aff.js'>https://gist.github.com/GianW/4aee2aaa4a7cf8af87026cbe08798aff.js</a>
 
 <hr>
 <a name="ordenacao_selecao"></a>
@@ -55,6 +55,8 @@ JS: https://gist.github.com/GianW/4aee2aaa4a7cf8af87026cbe08798aff.js
 ## Ordenação por seleção - Selection sort
 
 Busca por um item por vez na lista e salva ordenadamente em outro espaço da memória (lista)
+
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1696038594/brain/ordenacao_selecao_a0v9ni.png" alt="Button text moviment" style="width:50%;"/>
 
 Complexidade O(n²)
 
