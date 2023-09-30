@@ -31,6 +31,6 @@ Esste tipo de coleção tem a leitura eficiente mas a a inserção e remoção i
 
 Nesse tipo de coleção a inserção e remoção é eficiente e consulta ineficiente
 
-JS: <script src="https://gist.github.com/GianW/d6ef960bd96ad15252a71bcbd34ca419.js"></script>
+JS: <a href='https://gist.github.com/GianW/d6ef960bd96ad15252a71bcbd34ca419'>https://gist.github.com/GianW/d6ef960bd96ad15252a71bcbd34ca419</a>
 
 <hr>
