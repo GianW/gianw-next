@@ -10,6 +10,7 @@ seo: ['algoritimos', 'programação']
 - [Notação Big O](#notacao-big-o)
 - [Pesquisa Binaria](#pesquisa_binaria)
 - [Ordenação por seleção](#ordenacao_selecao)
+- [QuickSort](#quicksort)
 - [Gloassário](#glassario)
   - [Logaritmo](#logaritimo)
 
@@ -56,11 +57,26 @@ JS: <a href='https://gist.github.com/GianW/4aee2aaa4a7cf8af87026cbe08798aff.js'>
 
 Busca por um item por vez na lista e salva ordenadamente em outro espaço da memória (lista)
 
-<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1696038594/brain/ordenacao_selecao_a0v9ni.png" alt="Button text moviment" style="width:50%;"/>
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1696038594/brain/ordenacao_selecao_a0v9ni.png" alt="Button text moviment" style="width:90%;"/>
 
 Complexidade O(n²)
 
 JS: <a href="https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b">https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b</a>
+
+<hr>
+<a name="quicksort"></a>
+
+## QuickSort
+
+Escolhida uma posição aleatória do array, chamada de Pivô, o algoritimo jogará para a esqueda do pivô os valores que forem menores e a direita os menores, o processo deve ser repetido para cada uma das novas listas (dir e esq) até que cada uma tenha 0 ou 1 elemento.
+
+Esse algoritomo tem tempo médio de O(n log n), mas no pior caso pode levar O(n^2).
+
+JS: <a href='https://gist.github.com/GianW/4b70eb075c756228c9271f50caa89ab4'>https://gist.github.com/GianW/4b70eb075c756228c9271f50caa89ab4</a>
+
+Ruby: <a href='https://gist.github.com/GianW/ca565954431a20c51ee1fa7f6fed3e58'>https://gist.github.com/GianW/ca565954431a20c51ee1fa7f6fed3e58</a>
+
+
 
 <hr>
 <a name="glassario"></a>
