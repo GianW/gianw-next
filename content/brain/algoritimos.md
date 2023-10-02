@@ -70,6 +70,8 @@ JS: <a href="https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b">htt
 
 Escolhida uma posição aleatória do array, chamada de Pivô, o algoritimo jogará para a esqueda do pivô os valores que forem menores e a direita os menores, o processo deve ser repetido para cada uma das novas listas (dir e esq) até que cada uma tenha 0 ou 1 elemento.
 
+<img src="https://res.cloudinary.com/duntsh1qv/image/upload/v1696211082/brain/QuickSort_sd81wp.png" alt="Button text moviment" style="width:90%;"/>
+
 Esse algoritomo tem tempo médio de O(n log n), mas no pior caso pode levar O(n^2).
 
 JS: <a href='https://gist.github.com/GianW/4b70eb075c756228c9271f50caa89ab4'>https://gist.github.com/GianW/4b70eb075c756228c9271f50caa89ab4</a>
