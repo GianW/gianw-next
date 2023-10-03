@@ -10,6 +10,7 @@ seo: ['algoritimos', 'programação']
 - [Notação Big O](#notacao-big-o)
 - [Pesquisa Binaria](#pesquisa_binaria)
 - [Ordenação por seleção](#ordenacao_selecao)
+- [MergeSort](#mergesort)
 - [QuickSort](#quicksort)
 - [Gloassário](#glassario)
   - [Logaritmo](#logaritimo)
@@ -62,6 +63,21 @@ Busca por um item por vez na lista e salva ordenadamente em outro espaço da mem
 Complexidade O(n²)
 
 JS: <a href="https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b">https://gist.github.com/GianW/08d5d307b0dd3615bb19d24d4ca40c2b</a>
+
+<hr>
+<a name="mergesort"></a>
+
+## MergeSort
+
+Este algoritimo divide a lista ao meio recursivamente, até que a lista tenha apenas um elemento, então em pares a lista começa a ser remontada de forma organizada. 
+
+Complexidade: <b>O(n logn)</b> no pior caso, no caso médio e no melhor caso.
+
+A lista é dividida repetidamente ao meio até que cada sublista tenha apenas um elemento. Isso requer O(log n)
+A etapa de mesclagem em pares de sub-listas ordenadas leva O(n)
+
+Ruby <a href='https://gist.github.com/GianW/acd8b94195b42e0fb246e3cc47f76c84'>https://gist.github.com/GianW/acd8b94195b42e0fb246e3cc47f76c84</a>
+
 
 <hr>
 <a name="quicksort"></a>
