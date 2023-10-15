@@ -10,7 +10,7 @@ export const theme = ({ mode = 'dark' }) =>
         default: mode == 'dark' ? '#252525' : '#eee',
       },
       primary: {
-        main: mode == 'dark' ? '#aa6cff' : '#3D1766',
+        main: mode == 'dark' ? '#aa6cff' : '#7b45b5',
       },
       secondary: {
         light: '#0066ff',
@@ -33,7 +33,7 @@ export const theme = ({ mode = 'dark' }) =>
         // '-apple-system,BlinkMacSystemFont',
         // 'Helvetica Neue',
         // 'Arial,sans-serif',
-        // 'Google Sans',
+        'Google Sans',
         '"Roboto"',
         '"Helvetica"',
         '"Arial"',
