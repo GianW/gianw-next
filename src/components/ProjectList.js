@@ -21,40 +21,47 @@ export const ProjectList = ({ projects }) => {
     <Grid
       container
       spacing={2}
-      className={classes.root}
       direction='row'
-      justifyContent='center'
-      alignItems='flex-start'>
-      <Grid item xs={9} alignItems='center' className={classes.inLineItens}>
-        {projects?.map(proj => (
-          <Grid key={proj.slug} item xs={12} md={3} justifyContent='center'>
-            <Card>
-              <CardActionArea href={`/projects/${proj.slug}`}>
-                <CardMedia
-                  component='img'
-                  height='140'
-                  image={proj.capa ? proj.capa?.url : defaultCover}
-                  alt='Project cover image'
-                />
-                <CardHeader subheader={proj.nome.toUpperCase()} />
-                <CardContent>
-                  <Typography variant='body2'>{proj.descricao}</Typography>
-                  <p>
-                    {proj.tags.map(tag => (
-                      <Chip
-                        label={tag}
-                        key={tag}
-                        color='primary'
-                        variant='outlined'
-                      />
-                    ))}
-                  </p>
-                </CardContent>
-              </CardActionArea>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
+      justify='flex-start'
+      alignItems='flex-start'
+      className={classes.root}>
+      {projects?.map(proj => (
+        <Grid key={proj.slug} item xs={12} md={3} justifyContent='center'>
+          <Card>
+            <CardActionArea href={`/projects/${proj.slug}`}>
+              <CardMedia
+                component='img'
+                height='160'
+                image={proj.capa ? proj.capa?.url : defaultCover}
+                alt='Project cover image'
+              />
+              <CardHeader
+                subheader={
+                  <>
+                    {proj.nome.toUpperCase()}
+                    <br />
+                    <Typography variant='caption'>{proj.year}</Typography>
+                  </>
+                }
+              />
+              <CardContent>
+                <Typography variant='body2'>{proj.descricao}</Typography>
+                <p>
+                  {proj.tags.map(tag => (
+                    <Chip
+                      label={tag}
+                      key={tag}
+                      color='primary'
+                      variant='outlined'
+                      style={{ marginRight: '5px' }}
+                    />
+                  ))}
+                </p>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+        </Grid>
+      ))}
     </Grid>
   )
 }
@@ -70,9 +77,8 @@ const useStyles = makeStyles(theme => {
       marginBottom: theme.spacing(2),
       boxSizing: 'border-box',
       padding: '10px',
-    },
-    inLineItens: {
-      display: 'flex',
+      width: '90%',
+      marginLeft: '5%',
     },
   }
 })
