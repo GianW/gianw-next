@@ -10,7 +10,7 @@ export const theme = ({ mode = 'dark' }) =>
         default: mode == 'dark' ? '#252525' : '#eee',
       },
       primary: {
-        main: mode == 'dark' ? '#aa6cff' : '#7b45b5',
+        main: mode == 'dark' ? '#7b45b5' : '#3D1766',
       },
       secondary: {
         light: '#0066ff',
