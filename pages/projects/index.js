@@ -9,7 +9,7 @@ export default function Projects({ projectsList }) {
     <>
       <AppHeader title='Projects' />
       <Fade delay={0}>
-        <ProjectList projects={projectsList} />
+        <ProjectList projects={projectsList.sort((a, b) => b.year - a.year)} />
       </Fade>
     </>
   )

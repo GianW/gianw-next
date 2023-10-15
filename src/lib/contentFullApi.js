@@ -63,6 +63,7 @@ export async function getAllProjectsForHome() {
           nome,
           slug,
           descricao,
+          year,
           capa{
             url
           },
@@ -85,6 +86,7 @@ export async function getProjectData(slug) {
           descricao
           tags
           seo
+          year
           conteudo{
             json
             links{
