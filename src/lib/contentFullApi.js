@@ -68,7 +68,10 @@ export async function getAllProjectsForHome() {
           descricao,
           year,
           tags,
-          seo
+          seo,
+          capa{
+            url
+          },
         }
       }
     }`
