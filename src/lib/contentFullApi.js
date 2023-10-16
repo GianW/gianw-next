@@ -48,6 +48,9 @@ export async function getAllProjectWithSlug() {
           slug,
           nome,
           tags,
+          capa{
+            url
+          },
         }
       }
     }`
@@ -64,9 +67,6 @@ export async function getAllProjectsForHome() {
           slug,
           descricao,
           year,
-          capa{
-            url
-          },
           tags,
           seo
         }
@@ -87,6 +87,9 @@ export async function getProjectData(slug) {
           tags
           seo
           year
+          capa{
+            url
+          },
           conteudo{
             json
             links{

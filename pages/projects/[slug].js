@@ -38,6 +38,7 @@ export default function Project({ project }) {
               <Typography variant='h3' style={{ marginTop: '2%' }}>
                 {project?.nome}
               </Typography>
+              {project.capa?.url && <img src={project.capa?.url} width='40%' />}
               <hr />
               <RichTextResponse richTextResponse={project} />
             </>
