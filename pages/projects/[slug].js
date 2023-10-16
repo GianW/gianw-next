@@ -12,8 +12,6 @@ import { RichTextResponse } from 'components/contentfull/ContentfullParser'
 export default function Project({ project }) {
   const router = useRouter()
 
-  const defaultCover = '/static/default_cover.jpg'
-
   if (!router.isFallback && !project?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -40,10 +38,7 @@ export default function Project({ project }) {
               <Typography variant='h3' style={{ marginTop: '2%' }}>
                 {project?.nome}
               </Typography>
-              <img
-                src={project.capa ? project.capa?.url : defaultCover}
-                width='40%'
-              />
+              {project.capa?.url && <img src={project.capa?.url} width='40%' />}
               <hr />
               <RichTextResponse richTextResponse={project} />
             </>
