@@ -2,7 +2,7 @@
 title: Advanced NodeJS
 date: '2018-10-15T00:10:03.284Z'
 description: Advanced Node.js 
-tags: ['NODEJS']
+tags: ['Node']
 seo: ['web', 'nodejs', 'javascript']
 lang: 'en'
 ---
