@@ -30,7 +30,7 @@ export const BrainList = ({ brains }) => {
                   {brain.title.toUpperCase()}{' '}
                 </Typography>
                 <Image
-                  fill={true}
+                  fill={'true'}
                   src={`/static/${brain.title}.png`}
                   alt={brain.title}
                   width={30}
