@@ -4,6 +4,7 @@ import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeContext } from 'ThemeContext'
 import Header from 'Header'
 import NextNprogress from 'nextjs-progressbar'
+import '../public/prism-dracula.css'
 
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
