@@ -126,3 +126,12 @@ function useLocalStorageState(key, defaultValue = ''){
   return [state, setState]
 }
 ```
+
+### React Hook flow
+
+Exemplo de execucao com console.log do fluxo de hooks no react, desde a montagem dos componentes em memoria ate o renderizacao em tela 
+
+https://github.com/kentcdodds/react-hooks/blob/8fd831190005587a38f225e66adf5f8b466d4bf2/src/examples/hook-flow.js
+
+https://github.com/kentcdodds/react-hooks/blob/main/src/examples/hook-flow.png?raw=true![image](https://github.com/user-attachments/assets/a2f9e1eb-4eae-4b7b-afa4-12a9dbf5082b)
+
