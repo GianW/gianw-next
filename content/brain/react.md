@@ -10,6 +10,9 @@ seo: ['react', 'reactjs']
 - [Hooks](#hooks)
   - [useState](#usestate)
   - [useEffect](#useeffect)
+  - [useContext](#useContext)
+  - [useReducer](#useReducer)
+  - [useCallback](#useCallback)
 
 <a name="hooks"></a>
 
@@ -25,10 +28,10 @@ Hook nativo do React que permite manter um state e disparar o render toda vez qu
 
 
 ```javascript
-  /* Nao e manipulavel */
-  const name = ''
-  /* Monitorado pelo processo do react */
-  const [name, setName] = React.useState('')
+/* Nao e manipulavel */
+const name = ''
+/* Monitorado pelo processo do react */
+const [name, setName] = React.useState('')
 ```
 
 - Lazy state initialization
@@ -36,9 +39,9 @@ Hook nativo do React que permite manter um state e disparar o render toda vez qu
 Em casos bem especificos onde o state inicial vem de um processo que requer mais processamento, pode-se ussar uma funcao como state inicial, isso fara com que o React nao repita o processo em cada re-render do componente (que pode acontecer diversas vezes) 
 
 ```javascript
-   const [name, setName] = React.useState(window.localStorage.getItem('name') || initialName)
-   /* Alterado para */
-   const [name, setName] = React.useState(() => window.localStorage.getItem('name') || initialName)
+const [name, setName] = React.useState(window.localStorage.getItem('name') || initialName)
+/* Alterado para */
+const [name, setName] = React.useState(() => window.localStorage.getItem('name') || initialName)
 ```
 
 
@@ -102,3 +105,24 @@ Recebe os argumentos de entrada para execução da função e uma lista (array) 
 <a name="useref"></a>
 
 ### useRef
+
+
+<a name="customhooks"></a>
+
+### Custom Hooks
+
+Por convencao, sao funcoes que usam hooks, tambem por convencao elas devem iniciar com a palavra `use` 
+
+```javascript
+function useLocalStorageState(key, defaultValue = ''){
+  const [state, setState] = React.useState(
+    () => window.localStorage.getItem('name') || initialName
+  )
+
+  React.useEffect(() => {
+    windows.localStorage.setItem(key, state)
+  }, [key, state])
+
+  return [state, setState]
+}
+```
