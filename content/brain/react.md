@@ -133,5 +133,10 @@ Exemplo de execucao com console.log do fluxo de hooks no react, desde a montagem
 
 https://github.com/kentcdodds/react-hooks/blob/8fd831190005587a38f225e66adf5f8b466d4bf2/src/examples/hook-flow.js
 
+Run lazy initializers -> Quando a pagina esta sendo renderizada pela primeira vez
+Render -> Montando o resto da aplicacao (por exemplo, onde o useState e processado)
+React update DOM -> React faz o update do state do VDOM
+Browser paints screen -> VDom para o DOM
+
 https://github.com/kentcdodds/react-hooks/blob/main/src/examples/hook-flow.png?raw=true![image](https://github.com/user-attachments/assets/a2f9e1eb-4eae-4b7b-afa4-12a9dbf5082b)
 
