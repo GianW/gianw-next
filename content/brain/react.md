@@ -13,6 +13,9 @@ seo: ['react', 'reactjs']
   - [useContext](#useContext)
   - [useReducer](#useReducer)
   - [useCallback](#useCallback)
+  - [useMemo](#usememo)
+  - [useRef](#useref)
+  - [React Hook flow](#reacthookflow)
 
 <a name="hooks"></a>
 
@@ -106,6 +109,24 @@ Recebe os argumentos de entrada para execução da função e uma lista (array) 
 
 ### useRef
 
+Usar quando precisar alguma interacao com o DOM. A sintaxe html que usamos no React e apenas um syntatic suggar do `React.createElement` que nao da acesso real ao DOM.
+
+O elemento so ira existir de fato no DOM apos o processo de render do React, e para acessa-lo e preciso interagir com o uso do Ref.
+
+```javascript
+function MyDiv() {
+  const myDivRef = React.useRef()
+  React.useEffect(() => {
+    const myDiv = myDivRef.current
+    // myDiv is the div DOM node!
+    console.log(myDiv)
+  }, [])
+  return <div ref={myDivRef}>hi</div>
+}
+```
+
+Após o componente ser renderizado, ele é considerado "montado". É nesse momento que o callback do React.useEffect é chamado, e, por isso, nesse ponto, a referência deve ter sua propriedade current definida para o node do DOM. Portanto, muitas vezes você realizará interações/manipulações diretas no DOM dentro do callback do useEffect.
+
 
 <a name="customhooks"></a>
 
@@ -126,6 +147,7 @@ function useLocalStorageState(key, defaultValue = ''){
   return [state, setState]
 }
 ```
+<a name="reacthookflow"></a>
 
 ### React Hook flow
 
