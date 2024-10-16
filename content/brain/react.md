@@ -78,8 +78,17 @@ Permite executar uma funcao depois que o React executou o render (e re-render) n
 <p class="contentDottedDivider"></p>
 
 <a name="usereducer"></a>
-
 ### useReducer
+
+Muito similar ao useState, mas idealmente usado quando a troca do estado requer uma funcao mais complexa.
+
+```javascript
+function nameReducer(previousName, newName) {
+  return newName
+}
+
+const [name, setName] = React.useReducer(nameReducer, initialNameValue)
+```
 
 <p class="contentDottedDivider"></p>
 
