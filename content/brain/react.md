@@ -90,6 +90,41 @@ function nameReducer(previousName, newName) {
 const [name, setName] = React.useReducer(nameReducer, initialNameValue)
 ```
 
+Exemplo com uma estrutura parecida com o Redux
+
+```javascript
+import React, { useReducer } from 'react';
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      <p>Contagem: {state.count}</p>
+      <button onClick={() => dispatch({ type: 'increment' })}>Incrementar</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>Decrementar</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+```
+
+
 <p class="contentDottedDivider"></p>
 
 <a name="usecallback"></a>
