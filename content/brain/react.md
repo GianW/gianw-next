@@ -141,6 +141,28 @@ const minhaFuncao = useCallback((name, ref) => {
 
 Recebe os argumentos de entrada para execução da função e uma lista (array) com as variáveis que fazem o componente ser recriado
 
+Quando usar?
+Quando passamos a funcao para componentes filhos, usar funcao memorizadas pode evitar renderizacoes desnescessarias nos componentes filhos.
+
+```javascript
+// Funcao declara no corpo do componente, sempre que ele e renderizado
+// a funcao e registrada novamente, disparando o useEffect
+const updateLocalStorage = () => window.localStorage.setItem('count', count)
+React.useEffect(() => {
+  updateLocalStorage()
+}, [updateLocalStorage]) // <-- function as a dependency
+---------------
+// Apos o primeiro render nao tem nova declarao de funcao
+
+const updateLocalStorage = React.useCallback(
+  () => window.localStorage.setItem('count', count),
+  [count], // <-- yup! That's a dependency list!
+)
+React.useEffect(() => {
+  updateLocalStorage()
+}, [updateLocalStorage])
+```
+
 <p class="contentDottedDivider"></p>
 
 <a name="usememo"></a>
