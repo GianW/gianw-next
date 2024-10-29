@@ -75,6 +75,27 @@ Permite executar uma funcao depois que o React executou o render (e re-render) n
 
 ### useContext
 
+Para facilitar o compartilhamento do state entre componentes filhos, usar o context, definindo state em um componente pai
+e fazendo uso apenas no componente que for necessario.
+
+```javascript
+import * as React from 'react'
+
+const FooContext = React.createContext()
+
+function FooDisplay() {
+  const foo = React.useContext(FooContext)
+  return <div>Foo is: {foo}</div>
+}
+
+ReactDOM.render(
+  <FooContext.Provider value="I am foo">
+    <FooDisplay />
+  </FooContext.Provider>,
+  document.getElementById('root'),
+)
+```
+
 <p class="contentDottedDivider"></p>
 
 <a name="usereducer"></a>
