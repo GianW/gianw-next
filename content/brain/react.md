@@ -15,6 +15,9 @@ seo: ['react', 'reactjs']
   - [useCallback](#useCallback)
   - [useMemo](#usememo)
   - [useRef](#useref)
+  - [forwardRef](#forwardRef) 
+  - [useLayoutEffect](#uselayouteffect)
+  - [useImperativeHandle](useImperativeHandle)
   - [React Hook flow](#reacthookflow)
 
 <a name="hooks"></a>
@@ -214,6 +217,85 @@ function MyDiv() {
 
 Após o componente ser renderizado, ele é considerado "montado". É nesse momento que o callback do React.useEffect é chamado, e, por isso, nesse ponto, a referência deve ter sua propriedade current definida para o node do DOM. Portanto, muitas vezes você realizará interações/manipulações diretas no DOM dentro do callback do useEffect.
 
+<p class="contentDottedDivider"></p>
+
+<a name="forwardRef"></a>
+
+### forwardRef
+
+refs só podem ser passadas diretamente para elementos DOM, como <input>, <div>, etc. Porém, React.forwardRef permite que você use refs também em componentes personalizados, repassando-os aos elementos internos.
+
+Quando usar? quando quero que o componente pai tenha funcoes de controle para algum componente filho
+
+Neste exemplo, criamos um componente InputCustomizado que usa React.forwardRef para permitir que um componente pai controle diretamente o foco do input.
+
+```javascript
+import React, { useRef } from 'react';
+
+// Componente InputCustomizado que permite receber uma ref externa
+const InputCustomizado = React.forwardRef((props, ref) => {
+  return <input ref={ref} {...props} />;
+});
+
+function App() {
+  const inputRef = useRef();
+
+  const focarInput = () => {
+    inputRef.current.focus(); // Foca o input diretamente pelo ref
+  };
+
+  return (
+    <div>
+      <InputCustomizado ref={inputRef} placeholder="Digite algo" />
+      <button onClick={focarInput}>Focar no input</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+<p class="contentDottedDivider"></p>
+
+<a name="uselayouteffect"></a>
+
+### useLayoutEffect
+
+O useLayoutEffect, se parece muito com o useEffect no funcionamento e na declaracao, a diferenca chave e que o `useLayoutEffect` executa o codigo antes do browser 
+pintar os elementos no dom, ja o useEffect normal faz isso de forma assincrona. pode ser util para evitar layout shift
+
+```javascript
+import React, { useRef, useLayoutEffect, useState } from 'react';
+
+function Example() {
+  const boxRef = useRef(null);
+  const [boxWidth, setBoxWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    // Aqui, garantimos que o width do elemento foi calculado antes da pintura
+    if (boxRef.current) {
+      setBoxWidth(boxRef.current.offsetWidth);
+    }
+  }, []); // sem dependências, executa apenas na primeira renderização
+
+  return (
+    <div>
+      <div ref={boxRef} style={{ width: '100px', height: '100px', backgroundColor: 'blue' }} />
+      <p>A largura da caixa é: {boxWidth}px</p>
+    </div>
+  );
+}
+
+export default Example;
+```
+
+<p class="contentDottedDivider"></p>
+
+<a name="useImperativeHandle"></a>
+
+### useImperativeHandle
+
+Use-o em componentes que precisam expor métodos ou comportamentos específicos ao componente pai, sem que o componente pai precise acessar diretamente detalhes internos do DOM ou lógica interna do componente filho.
 
 <a name="customhooks"></a>
 
