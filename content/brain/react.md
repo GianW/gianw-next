@@ -19,6 +19,8 @@ seo: ['react', 'reactjs']
   - [useLayoutEffect](#uselayouteffect)
   - [useImperativeHandle](useImperativeHandle)
   - [React Hook flow](#reacthookflow)
+- [Patterns](#patterns)
+  -[Context Module Functions](#contextmodulefunction) 
 
 <a name="hooks"></a>
 
@@ -331,3 +333,74 @@ Browser paints screen -> VDom para o DOM
 
 https://github.com/kentcdodds/react-hooks/blob/main/src/examples/hook-flow.png?raw=true![image](https://github.com/user-attachments/assets/a2f9e1eb-4eae-4b7b-afa4-12a9dbf5082b)
 
+<a name="patterns"></a>
+
+<hr>
+
+## Patters
+
+<a name="contextmodulefunction"></a>
+
+### Context Module Functions
+
+Permite encapsular um contexto, no lugar de expor o contexto permite expor apenas funcoes que manipulam e acessam o contexto.
+
+Exemplo ThemeContext.js
+```javascript
+import React, { createContext, useContext, useState } from 'react';
+
+// Criação do contexto
+const ThemeContext = createContext();
+
+// Provider do contexto
+export function ThemeProvider({ children }) {
+  const [theme, setTheme] = useState('light');
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+}
+
+// Função para acessar o contexto diretamente
+export function useTheme() {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error("useTheme deve ser usado dentro de um ThemeProvider");
+  }
+  return context;
+}
+```
+
+Utilizando o contexto
+
+```javascript
+import React from 'react';
+import { useTheme, ThemeProvider } from './ThemeContext';
+
+function ThemedComponent() {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <div style={{ background: theme === 'dark' ? '#333' : '#FFF', color: theme === 'dark' ? '#FFF' : '#333', padding: '20px' }}>
+      <p>O tema atual é: {theme}</p>
+      <button onClick={toggleTheme}>Alternar Tema</button>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <ThemeProvider>
+      <ThemedComponent />
+    </ThemeProvider>
+  );
+}
+
+export default App;
+```
