@@ -20,7 +20,10 @@ seo: ['react', 'reactjs']
   - [useImperativeHandle](useImperativeHandle)
   - [React Hook flow](#reacthookflow)
 - [Patterns](#patterns)
-  -[Context Module Functions](#contextmodulefunction) 
+  - [Context Module Functions](#contextmodulefunction)
+  - [Compound Components](#compoundcomponents) 
+  
+  
 
 <a name="hooks"></a>
 
@@ -399,6 +402,71 @@ function App() {
     <ThemeProvider>
       <ThemedComponent />
     </ThemeProvider>
+  );
+}
+
+export default App;
+```
+
+<hr>
+
+<a name="compoundcomponents"></a>
+
+### Compound Components
+
+O padrao de composicao de componentes permite que sejam criados componentes complexos a partir da composicao de componentes menores, onde um componente pai compartilha o state com os componentes filhos. por exemplo, um componente Select que compartilha o state de habilitado e valor selecionado com os componentes filhos SelectOption. 
+Um exemplo completo do componente Accordion:
+
+```javascript
+
+import React, { createContext, useContext, useState } from 'react';
+
+// Criação do contexto
+const AccordionContext = createContext();
+
+export function Accordion({ children }) {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleIndex = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <AccordionContext.Provider value={{ openIndex, toggleIndex }}>
+      <div>{children}</div>
+    </AccordionContext.Provider>
+  );
+}
+
+export function AccordionItem({ index, children }) {
+  const { openIndex, toggleIndex } = useContext(AccordionContext);
+  const isOpen = openIndex === index;
+
+  return (
+    <div>
+      <button onClick={() => toggleIndex(index)}>
+        {isOpen ? 'Fechar' : 'Abrir'} item {index + 1}
+      </button>
+      {isOpen && <div>{children}</div>}
+    </div>
+  );
+}
+
+/*********************************/
+/*  USO DO COMPONENTE  */
+/*********************************/
+
+
+import React from 'react';
+import { Accordion, AccordionItem } from './Accordion';
+
+function App() {
+  return (
+    <Accordion>
+      <AccordionItem index={0}>Conteúdo do Item 1</AccordionItem>
+      <AccordionItem index={1}>Conteúdo do Item 2</AccordionItem>
+      <AccordionItem index={2}>Conteúdo do Item 3</AccordionItem>
+    </Accordion>
   );
 }
 
