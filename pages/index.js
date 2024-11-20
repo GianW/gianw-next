@@ -43,6 +43,9 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           <Fade delay={0}>
             <SelfPresentation />
           </Fade>
+          <Fade delay={0.2}>
+            <SocialLinks />
+          </Fade>
         </Grid>
       </Grid>
       <Fade delay={0}>
@@ -58,10 +61,7 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           justifyContent='center'
           className={classes.root}>
           <Grid item xs={9}>
-            <MainLastPosts blogPosts={blogPosts} />
-            <Fade delay={0.2}>
-              <SocialLinks />
-            </Fade>
+            <MainLastPosts blogPosts={blogPosts} />            
           </Grid>
           <Grid item xs={9}>
             <MainLastProjects projects={projPosts} />
