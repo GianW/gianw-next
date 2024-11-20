@@ -59,18 +59,16 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           className={classes.root}>
           <Grid item xs={9}>
             <MainLastPosts blogPosts={blogPosts} />
+            <Fade delay={0.2}>
+              <SocialLinks />
+            </Fade>
           </Grid>
           <Grid item xs={9}>
             <MainLastProjects projects={projPosts} />
           </Grid>
           <Grid item xs={9}>
             <MainLastBrains brains={brainPosts} />
-          </Grid>
-          <Grid item xs={9}>
-            <Fade delay={0.2}>
-              <SocialLinks />
-            </Fade>
-          </Grid>
+          </Grid>   
         </Grid>
       </Fade>
     </>
