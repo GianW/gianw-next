@@ -9,27 +9,33 @@ lang: 'pt'
 
 # GPT - Generative Pre-trained Transformer
 
-## Mas o que?
-Um modelo de deep learning para produzir texto natural dado um determinado input, GPTs trabalham analisando uma determinada entrada e predizendo qual a mais adequada saída, de acordo com sua base de conhecimento. 
+Um breve resumo para minha autorreferência sobre o que é o GPT.
 
-Essa e a parte do Generative + Pre-Trained, que permite ao modelo identificar padrões de dados e aplicar aos novos inputs o que e chamada de treinamento sem supervisão (unsupervised learning) onde o modelo recebe um conjunto de dados sem um label ou categoria e ele mesmo que tera de identificar os padrões e conjuntos no input, isso permite que ele gere saídas semelhantes para novos imputs que entrem na mesma categoria. 
+## Por dentro
 
-A terceira parte dessa sigla ‘e o T, de Transformer, que e uma especie de neural network especializado em processamento de linguagem natural (humana). Ele não entende linguagens da mesma maneira que os humanos, ele processa as palavras em unidades discretas, essas unidades são chamados de TOKENS. Esses pedaços de palavras + caracteres são o que os modelos conseguem entender. 
+Um modelo de deep learning para produzir texto natural a partir de uma entrada específica. Os GPTs analisam o conteúdo fornecido e preveem a saída mais adequada, de acordo com sua base de conhecimento. 
 
-Os transformers processam os dados com dois m[odulos chamados encoders e decoders que usam algo chamado de “self attention mechanism” para estabelecer dependências e relações.
+Essa é a parte do Generative + Pre-Trained, que permite ao modelo identificar padrões nos dados e aplicar, aos novos inputs, o que é chamado de treinamento sem supervisão (unsupervised learning). Nesse tipo de treinamento, o modelo recebe um conjunto de dados sem rótulos ou categorias definidos, e cabe a ele identificar os padrões e agrupamentos no input. Isso permite que ele gere saídas semelhantes para novos imputs que entrem na mesma categoria. 
 
-Self Attention: Esse e um dos pedacos que transformam este modelo mais especial, modelos anteriores, como Recurrent neural networks ou Convolutional neural, acessam os dados de forma sequencial e hierárquica, ja o Transformer atual, consegue direcionar a sua ATENCAO para os tokens mais importantes do input, não importa onde estejam no texto, o que permite ao modelo avaliar a importância de cada palavra no contexto geral do input e os links e dependências entre elas.
+A terceira parte dessa sigla é o T, de Transformer, que é uma espécie de rede neural especializada em processamento de linguagem natural (humana). Ele não entende linguagens da mesma maneira que os humanos. Em vez disso, processa as palavras em unidades discretas chamadas de <b>tokens</b>. Esses pedaços de palavras + caracteres são as unidades que os modelos conseguem interpretar.
 
-Encoder: este [e o modulo que faz o mapeamento dos tokens em um vetor 3d em um processo chamado “embedding”. Os tokens que são mapeados próximos nesse vetor 3d indicam ter um significado parecido. Cada bloco no embedding tem um peso, que determina a importância e a posição na semântica o que permite ao modelo diferenciar o significado do mesmo grupo de palavras em uma ordem diferente. 
-Ex: O ovo veio antes da galinha OU A galinha veio antes do ovo. praticamente o mesmo conjunto de palavras mas com significados diferentes.
+Os Transformers processam os dados com dois módulos chamados encoders e decoders, que utilizam algo chamado “self attention mechanism” para identificar dependências e estabelecer relações entre os elementos do texto.
 
-Decoder: Projeta estatisticamente a resposta mais provável para os embeddings preparados pelo encoder, identificando as partes mais importante do input usando a sequencia do ‘self attention’ e determinando o output que parece mais correto.
+<b>Self-Attention:</b> Esse é um dos pedaços que tornam este modelo tão especial. Diferentemente de modelos anteriores, como as redes neurais recorrentes (Recurrent Neural Networks) ou as redes neurais convolucionais (Convolutional Neural Networks), que acessam os dados de forma sequencial e hierárquica, o "self-attention" consegue direcionar sua <s>atenção</s> para os tokens mais importantes do input, independentemente de onde estejam no texto. Isso permite ao modelo avaliar a importância de cada palavra no contexto geral do input e identificar as conexões e dependências entre elas.
+
+<b>Encoder:</b> É o módulo responsável por mapear os tokens em um vetor 3D, em um processo chamado "embedding". Os tokens que são mapeados próximos nesse vetor indicam ter significados semelhantes. Cada bloco no embedding possui um peso que determina sua importância e posição na semântica. Isso permite ao modelo diferenciar o significado de um mesmo conjunto de palavras quando apresentado em ordens diferentes.
+Por exemplo:
+ - O ovo veio antes da galinha.
+ - A galinha veio antes do ovo.
+ - 
+Embora usem praticamente o mesmo conjunto de palavras, as frases têm significados distintos, e o Encoder é capaz de capturar essa diferença.
+
+<b>Decoder:</b> O Decoder projeta, de forma estatística, a resposta mais provável com base nos embeddings preparados pelo Encoder. Ele identifica as partes mais importantes do input utilizando a sequência do mecanismo de self-attention e, a partir disso, determina o output que parece mais adequado.
 
 _____________________________________________________________________________________________________
 <hr>
 
-A arquitetura de Transformers foi introduzida em 2017 em um papper divulgado pelo Google chamado ”Attention is all you need”, agora, no inicio de 2024 ja existem diversas IAs desenvolvidas em cima desta arquitetura, a mais famosa e o ChatGPT, que não e um modelo GPT em especifico, mas sim uma interface de chat quer permite aos usuários interagir com diversos modelos de GPT, voce pode escolher o modelo que quer interagir (GPT-3, GPT-4 e etc).    
-
+A arquitetura de Transformers foi introduzida em 2017 em um artigo publicado pelo Google, intitulado “Attention Is All You Need”. Agora, no início de 2024, já existem diversas IAs desenvolvidas com base nessa arquitetura. A mais famosa é o ChatGPT, que não é um modelo GPT específico, mas sim uma interface de chat que permite aos usuários interagir com diferentes modelos de GPT, como o GPT-3, GPT-4, entre outros.
 
 
 Ref: https://www.ibm.com/account/reg/us-en/signup
