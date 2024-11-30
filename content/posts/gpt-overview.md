@@ -27,7 +27,7 @@ Os Transformers processam os dados com dois módulos chamados encoders e decoder
 Por exemplo:
  - O ovo veio antes da galinha.
  - A galinha veio antes do ovo.
- - 
+   
 Embora usem praticamente o mesmo conjunto de palavras, as frases têm significados distintos, e o Encoder é capaz de capturar essa diferença.
 
 <b>Decoder:</b> O Decoder projeta, de forma estatística, a resposta mais provável com base nos embeddings preparados pelo Encoder. Ele identifica as partes mais importantes do input utilizando a sequência do mecanismo de self-attention e, a partir disso, determina o output que parece mais adequado.
