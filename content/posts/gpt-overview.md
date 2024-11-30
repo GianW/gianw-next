@@ -7,10 +7,10 @@ seo: ['gpt']
 lang: 'pt'
 ---
 
-GPT - Generative Pre-trained Transformer
+# GPT - Generative Pre-trained Transformer
 
-Mas o que?
-Um modelo de deep learning para produzir texto natural dado um determinado input, GPTs trabalham analisando uma determinada entrada e predizendo qual a mais adequada sa[ida, de acordo com sua base de conhecimento. 
+## Mas o que?
+Um modelo de deep learning para produzir texto natural dado um determinado input, GPTs trabalham analisando uma determinada entrada e predizendo qual a mais adequada saída, de acordo com sua base de conhecimento. 
 
 Essa e a parte do Generative + Pre-Trained, que permite ao modelo identificar padrões de dados e aplicar aos novos inputs o que e chamada de treinamento sem supervisão (unsupervised learning) onde o modelo recebe um conjunto de dados sem um label ou categoria e ele mesmo que tera de identificar os padrões e conjuntos no input, isso permite que ele gere saídas semelhantes para novos imputs que entrem na mesma categoria. 
 
@@ -25,7 +25,8 @@ Ex: O ovo veio antes da galinha OU A galinha veio antes do ovo. praticamente o m
 
 Decoder: Projeta estatisticamente a resposta mais provável para os embeddings preparados pelo encoder, identificando as partes mais importante do input usando a sequencia do ‘self attention’ e determinando o output que parece mais correto.
 
-——————————————————
+_____________________________________________________________________________________________________
+<hr>
 
 A arquitetura de Transformers foi introduzida em 2017 em um papper divulgado pelo Google chamado ”Attention is all you need”, agora, no inicio de 2024 ja existem diversas IAs desenvolvidas em cima desta arquitetura, a mais famosa e o ChatGPT, que não e um modelo GPT em especifico, mas sim uma interface de chat quer permite aos usuários interagir com diversos modelos de GPT, voce pode escolher o modelo que quer interagir (GPT-3, GPT-4 e etc).    
 
