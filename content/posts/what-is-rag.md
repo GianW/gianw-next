@@ -28,4 +28,4 @@ it to the user.
 
 This helps prevent the model from generating hallucinations when trying to find an answer, and also provides a way to instruct the model to say, "I don't know."
 
-![RAG]( /posts/rag-post.svg)
+![RAG]( /static/content/rag-post.svg)
