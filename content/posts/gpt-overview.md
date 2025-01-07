@@ -1,7 +1,7 @@
 ---
-title: O que e GPT
+title: O que é GPT
 date: '2024-03-13T00:10:03.284Z'
-description: GPT um breve, muito breve, overview
+description: GPT um breve, muiito breve, overview
 tags: ['GPT']
 seo: ['gpt']
 lang: 'pt'
