@@ -47,5 +47,6 @@ As shown in the attached image, the user submits a query, the agent defines the 
 
 For narrow contexts where the problem or question should be solved within a limited scope—or not answered at all—RAG remains the best option. However, we will increasingly see more "agentic" approaches, possibly in combination with RAG.
 
-<img src="/static/content/ai-agents.png" alt="Agent" style="max-width: 100%; height: auto;">
+<img src="/static/content/ai-agents.png" alt="Agent" width="100%">
+
 
