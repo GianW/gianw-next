@@ -21,7 +21,8 @@ seo: ['react', 'reactjs']
   - [React Hook flow](#reacthookflow)
 - [Patterns](#patterns)
   - [Context Module Functions](#contextmodulefunction)
-  - [Compound Components](#compoundcomponents) 
+  - [Compound Components](#compoundcomponents)
+  - [Flexible Compound Components](#flexiblecompoundcomponents) 
   
   
 
@@ -472,3 +473,13 @@ function App() {
 
 export default App;
 ```
+
+<hr>
+
+<a name="flexiblecompoundcomponents"></a>
+
+### Flexible Compound Components
+
+Exatamente o mesmo tipo de componente do anterior, com a difereca que este deve passar as propriedade via Context e nao diretamente em cada componente.
+
+
