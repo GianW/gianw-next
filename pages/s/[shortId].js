@@ -1,5 +1,5 @@
 // pages/s/[shortId].js
-import { getUrl, updateUrlClicks } from '../../lib/blobStore';
+import { getUrl } from '../../lib/blobStore';
 
 // eslint-disable-next-line react/prop-types
 export default function ShortUrlRedirect({ error }) {
