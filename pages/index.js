@@ -43,6 +43,9 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           <Fade delay={0}>
             <SelfPresentation />
           </Fade>
+          <Fade delay={0.2}>
+            <SocialLinks />
+          </Fade>
         </Grid>
       </Grid>
       <Fade delay={0}>
@@ -58,19 +61,14 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           justifyContent='center'
           className={classes.root}>
           <Grid item xs={9}>
-            <MainLastPosts blogPosts={blogPosts} />
+            <MainLastPosts blogPosts={blogPosts} />            
           </Grid>
           <Grid item xs={9}>
             <MainLastProjects projects={projPosts} />
           </Grid>
           <Grid item xs={9}>
             <MainLastBrains brains={brainPosts} />
-          </Grid>
-          <Grid item xs={9}>
-            <Fade delay={0.2}>
-              <SocialLinks />
-            </Fade>
-          </Grid>
+          </Grid>   
         </Grid>
       </Fade>
     </>
@@ -91,12 +89,10 @@ const SelfPresentation = () => {
         Hi there! 
       </Typography>
       <Typography variant='h5'>
-        I&apos;m a software engineer who loves to find new ways to solve real
-        problems with code.
+        This website is my digital lab, where I run experiments and write down random stuff.
       </Typography>
       <Typography variant='h5'>
-        This website is my digital laboratory, where I do some experiments and
-        share others.
+        Feel free to look around and make contact with the links below.
       </Typography>
     </>
   )

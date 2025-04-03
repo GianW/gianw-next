@@ -16,8 +16,10 @@
     "@mui/icons-material": "^5.0.3",
     "@mui/material": "^5.0.0",
     "@mui/styles": "^5.0.0",
+    "@vercel/blob": "^0.27.3",
     "framer-motion": "^6.2.8",
     "gray-matter": "^4.0.3",
+    "nanoid": "^5.1.5",
     "next": "12",
     "nextjs-progressbar": "^0.0.13",
     "prismjs": "^1.29.0",
@@ -31,5 +33,6 @@
   "devDependencies": {
     "eslint": "7.32.0",
     "eslint-config-next": "11.1.2"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
