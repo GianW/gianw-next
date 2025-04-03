@@ -45,9 +45,9 @@ export async function getServerSideProps(context) {
     }
 
     // Update click count (fire and forget - don't wait for completion)
-    updateUrlClicks(shortId, urlData).catch(err =>
-      console.error('Failed to update click count:', err)
-    );
+    // updateUrlClicks(shortId, urlData).catch(err =>
+    //   console.error('Failed to update click count:', err)
+    // );
 
     // Redirect to the original URL
     return {
