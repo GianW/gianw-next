@@ -1,5 +1,5 @@
 // pages/s/[shortId].js
-import { getUrl, updateUrlClicks } from '../../lib/blobStore';
+import { getUrl } from '../../lib/blobStore';
 
 // eslint-disable-next-line react/prop-types
 export default function ShortUrlRedirect({ error }) {
@@ -45,9 +45,9 @@ export async function getServerSideProps(context) {
     }
 
     // Update click count (fire and forget - don't wait for completion)
-    updateUrlClicks(shortId, urlData).catch(err =>
-      console.error('Failed to update click count:', err)
-    );
+    // updateUrlClicks(shortId, urlData).catch(err =>
+    //   console.error('Failed to update click count:', err)
+    // );
 
     // Redirect to the original URL
     return {
