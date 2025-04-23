@@ -44,7 +44,7 @@ export const AppHeader = ({ title = '' }) => {
   return mobile ? (
     <HeaderMobile colorMode={colorMode} title={title} theme={theme} />
   ) : (
-    <Header colorMode={colorMode} theme={theme} />
+    <HeaderDesk colorMode={colorMode} theme={theme} />
   )
 }
 
@@ -84,7 +84,7 @@ MenuItens.propTypes = {
   toggleDrawer: PropTypes.func,
 }
 
-const Header = ({ colorMode, theme }) => {
+const HeaderDesk = ({ colorMode, theme }) => {
   const classes = useStyles()
   const router = useRouter()
   const path = router.pathname.replace('/', '')
@@ -128,7 +128,7 @@ const Header = ({ colorMode, theme }) => {
   )
 }
 
-Header.propTypes = {
+HeaderDesk.propTypes = {
   colorMode: PropTypes.func,
   theme: PropTypes.object,
 }

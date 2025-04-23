@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import remark from 'remark'
+import {remark} from 'remark'
 import html from 'remark-html'
 import prism from 'remark-prism'
 
@@ -22,6 +22,7 @@ export async function getAllPostSlugs() {
 export async function getPostData(slug) {
   const fullPath = path.join(postsDirectory, `${slug}.md`)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
+
 
   // Use gray-matter to parse the post metadata section
   const matterResult = matter(fileContents)
@@ -91,7 +92,7 @@ export async function getAllCompletesData() {
 
 export async function getBrainData(slug) {
   const matterResult = resolveMatterResult(`${slug}.md`)
-
+  
   // Use remark to convert markdown into HTML string
   const processedContent = await remark()
     .use(html)
