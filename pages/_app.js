@@ -1,10 +1,16 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
+import dynamic from 'next/dynamic'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeContext } from 'ThemeContext'
-import Header from 'Header'
 import NextNprogress from 'nextjs-progressbar'
 import '../public/prism-dracula.css'
+
+// Importa o Header dinamicamente, sem SSR
+const Header = dynamic(() => import('Header'), {
+  ssr: false,
+  loading: () => <div style={{ height: '64px' }} /> // Placeholder com altura similar ao AppBar
+})
 
 function MyApp({ Component, pageProps }) {
   React.useEffect(() => {
@@ -17,8 +23,8 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeContext>
-      <Header title={'Gian Winckler'} />
       <CssBaseline />
+      <Header title={'Gian Winckler'} />
       <NextNprogress
         color='#fa1e1e'
         startPosition={0.3}

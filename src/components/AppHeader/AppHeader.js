@@ -28,18 +28,42 @@ import { useStyles } from './style'
 export const AppHeader = ({ title = '' }) => {
   const theme = useTheme()
   const changeTheme = useChangeTheme()
+
   const [mobile, setMobile] = React.useState(true)
+  const [mounted, setMounted] = React.useState(false)
 
   const colorMode = () => {
     changeTheme.toggleColorMode()
   }
 
-  React.useEffect(() => {
-    setMobile(isMobile)
-    window.addEventListener('resize', handleResize)
+  const checkIsMobile = React.useCallback(() => {
+    return window.innerWidth < 700
   }, [])
 
-  const handleResize = () => setMobile(isMobile)
+  React.useEffect(() => {
+    setMounted(true)
+    
+    // Só define o mobile após o mount para evitar hidratação
+    const handleResize = () => {
+      setMobile(checkIsMobile())
+    }
+    
+    // Define o estado inicial
+    handleResize()
+    
+    // Adiciona listener
+    window.addEventListener('resize', handleResize)
+    
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [checkIsMobile])
+
+
+  // Enquanto não montou, renderiza a versão mobile para evitar flash
+  if (!mounted) {
+    return <HeaderMobile colorMode={colorMode} title={title} theme={theme} />
+  }
 
   return mobile ? (
     <HeaderMobile colorMode={colorMode} title={title} theme={theme} />
@@ -182,8 +206,6 @@ HeaderMobile.propTypes = {
   theme: PropTypes.object,
   title: PropTypes.string,
 }
-
-const isMobile = () => (window?.outerWidth < 700 ? true : false)
 
 const ChangeColorButton = ({ colorMode, theme }) => (
   <IconButton sx={{ ml: 1 }} onClick={colorMode} color='inherit'>

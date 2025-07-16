@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { Card, Typography, Grid, Chip } from '@mui/material'
+import { Card, Typography, Grid, Chip, Stack } from '@mui/material'
 import { useStyles } from './style'
 import { CardContainer } from './CardContainer'
 import Router from 'next/router'
@@ -20,7 +20,7 @@ export const MainLastProjects = ({ projects }) => {
                 {proj.descricao}
               </Typography>
               <br />
-              <p>
+              <Stack direction="row" spacing={1} flexWrap="wrap" style={{ marginBottom: '6px', padding: '14px'}}>
                 {proj.tags.map(tag => (
                   <Chip
                     label={tag}
@@ -30,7 +30,7 @@ export const MainLastProjects = ({ projects }) => {
                     variant='outlined'
                   />
                 ))}
-              </p>
+              </Stack>
             </Card>
           </Grid>
         ))}
