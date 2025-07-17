@@ -21,7 +21,7 @@ export const useStyles = makeStyles(theme => {
     cardProj: {
       border:
         theme.palette.mode == 'dark'
-          ? '0.5px solid rgb(238 238 238 / 21%)'
+          ? '1.5px solid rgb(238 238 238 / 21%)'
           : '0.5px solid #000',
       borderRadius: 6,
       padding: 20,
@@ -35,6 +35,7 @@ export const useStyles = makeStyles(theme => {
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-between',
+      textDecoration: 'none',
     },
     chip: {
       padding: 2,

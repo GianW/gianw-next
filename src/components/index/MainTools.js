@@ -23,7 +23,7 @@ export const MainTools = () => {
   return (
     <CardContainer title='Tools'>
       {tools.map(tool => (
-        <Grid item sm={9} md={3} key={tool.name}>
+        <Grid item sm={9} md={2} key={tool.name}>
           <Card
             className={classes.cardProj}
             component='a'
