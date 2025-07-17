@@ -6,6 +6,7 @@ import { getProjectsForMain } from 'lib/contentFullApi'
 import { MainLastPosts } from 'components/index/MainLastPosts'
 import { MainLastProjects } from 'components/index/MainLastProjects'
 import { MainLastBrains } from 'components/index/MainLastBrains'
+import { MainTools } from 'components/index/MainTools'
 import { SocialLinks } from 'components/SocialLinks'
 import { AppHeader } from 'components/AppHeader/AppHeader'
 import { Fade } from 'components/Animation/Fade'
@@ -51,6 +52,25 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
       <Fade delay={0}>
         <hr className={classes.divider} />
       </Fade>
+
+      <Fade delay={0.1}>
+        <Grid
+          container
+          spacing={2}
+          direction='row'
+          justify='flex-start'
+          alignItems='flex-start'
+          justifyContent='center'
+          className={classes.root}>
+          <Grid item xs={9}>
+            <MainTools blogPosts={blogPosts} />
+          </Grid>
+        </Grid>
+      </Fade>
+
+      <Fade delay={0.2}>
+        <hr className={classes.divider} />
+      </Fade>
       <Fade delay={0.3}>
         <Grid
           container
@@ -61,14 +81,14 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
           justifyContent='center'
           className={classes.root}>
           <Grid item xs={9}>
-            <MainLastPosts blogPosts={blogPosts} />            
+            <MainLastPosts blogPosts={blogPosts} />
           </Grid>
           <Grid item xs={9}>
             <MainLastProjects projects={projPosts} />
           </Grid>
           <Grid item xs={9}>
             <MainLastBrains brains={brainPosts} />
-          </Grid>   
+          </Grid>
         </Grid>
       </Fade>
     </>
@@ -86,10 +106,11 @@ const SelfPresentation = () => {
   return (
     <>
       <Typography variant='h3' className={classes.presentTitle}>
-        Hi there! 
+        Hi there!
       </Typography>
       <Typography variant='h5'>
-        This website is my digital lab, where I run experiments and write down random stuff.
+        This website is my digital lab, where I run experiments and write down
+        random stuff.
       </Typography>
       <Typography variant='h5'>
         Feel free to look around and make contact with the links below.
