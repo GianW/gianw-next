@@ -30,7 +30,7 @@ export const useStyles = makeStyles(theme => {
             ? '#fefefe'
             : theme.palette.colors.primary,
         borderBottom: `1px solid ${theme.palette.colors.primary}`,
-        cursor: 'pointer',
+        cursor: 'pointer',        
       },
     },
     selectedLinkText: {
@@ -39,5 +39,8 @@ export const useStyles = makeStyles(theme => {
       borderBottom: `1px solid ${theme.palette.colors.primary}`,
       cursor: 'pointer',
     },
+    linkStyle: {
+      textDecoration: 'none'
+    }
   }
 })

@@ -134,7 +134,7 @@ const HeaderDesk = ({ colorMode, theme }) => {
         {itens.map(item => (
           <Grid key={item.name} item xs={2}>
             <Typography>
-              <Link key={item.name} href={`/${item.page}`}>
+              <Link key={item.name} href={`/${item.page}`} className={classes.linkStyle} >
                 <span
                   className={
                     path == item.page
