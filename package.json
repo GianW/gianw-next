@@ -20,7 +20,7 @@
     "framer-motion": "^6.2.8",
     "gray-matter": "^4.0.3",
     "nanoid": "^5.1.5",
-    "next": "13",
+    "next": "14",
     "nextjs-progressbar": "^0.0.13",
     "prismjs": "^1.29.0",
     "react": "18.3.1",
