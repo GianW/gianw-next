@@ -18,6 +18,10 @@ export const MainTools = () => {
       name: 'URL Shortener',
       link: `${origin}/s`,
     },
+    {
+      name: 'PDF Edit',
+      link: 'https://pdf.gianw.com/',
+    },
   ]
 
   return (
