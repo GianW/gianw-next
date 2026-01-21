@@ -159,3 +159,32 @@ end
 teste(1,2,3)
 ```
 
+<a name="Benchmark"></a>
+
+## Benchmark  
+
+```Ruby
+require 'benchmark'
+
+time = Benchmark.measure do
+  # código que você quer testar
+  User.where(active: true).to_a
+end
+
+puts time
+```
+
+```Ruby
+Benchmark.bm do |x|
+  x.report("where") do
+    User.where(active: true).to_a
+  end
+
+  x.report("select") do
+    User.select { |u| u.active }
+  end
+end
+```
+
+
+
