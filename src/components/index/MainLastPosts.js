@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { Card, Grid, Typography } from '@mui/material'
+import { Card, Grid, Typography, Chip } from '@mui/material'
 import { useStyles } from './style'
 import { CardContainer } from './CardContainer'
 import Router from 'next/router'
@@ -17,9 +17,14 @@ export const MainLastPosts = ({ blogPosts }) => {
             className={classes.cardProj}
             onClick={() => Router.push(`/posts/${post.slug}`)}>
             <Typography className={classes.text}>{post.title}</Typography>
-            <Typography className={classes.textDesc} variant='caption'>
-              {dateFormatter(post.date)}
-            </Typography>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', minHeight: '24px' }}>
+              <Typography className={classes.textDesc} variant='caption'>
+                {dateFormatter(post.date)}
+              </Typography>
+              {post.hasTranslation && (
+                <Chip label='PT' size='small' variant='outlined' sx={{ fontSize: '0.65rem', color: 'success.main', borderColor: 'success.main' }} />
+              )}
+            </div>
           </Card>
         </Grid>
       ))}

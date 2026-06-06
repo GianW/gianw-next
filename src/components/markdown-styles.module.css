@@ -1,29 +1,106 @@
 .markdown {
-  @apply text-lg leading-relaxed;
+  font-size: 0.95rem;
+  line-height: 1.7;
 }
 
 .markdown p,
 .markdown ul,
 .markdown ol,
 .markdown blockquote {
-  @apply my-6;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
 }
 
 .markdown h2 {
-  @apply text-3xl mt-12 mb-4 leading-snug;
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
 }
 
 .markdown h3 {
-  @apply text-2xl mt-8 mb-4 leading-snug;
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.35;
+}
+
+.markdown h4 {
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.markdown img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  margin: 1.5rem auto;
 }
 
 .markdown a {
-  color: rgb(207, 41, 207);
+  color: #7b45b5;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
-/*Table*/
-.markdown > .content {
-  border: 1px solid gray;
+.markdown a:hover {
+  opacity: 0.8;
+}
+
+.markdown code:not([class]) {
+  background: rgba(123, 69, 181, 0.15);
+  color: #b07ae0;
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+.markdown blockquote {
+  border-left: 3px solid #7b45b5;
+  padding-left: 1rem;
+  margin-left: 0;
+  color: #888;
+  font-style: italic;
+}
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid rgba(128, 128, 128, 0.3);
+  margin: 2rem 0;
+}
+
+.markdown ul {
+  padding-left: 1.5rem;
+  list-style: disc;
+}
+
+.markdown ol {
+  padding-left: 1.5rem;
+  list-style: decimal;
+}
+
+.markdown li {
+  margin-bottom: 0.25rem;
+}
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.markdown th,
+.markdown td {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.markdown th {
+  background: rgba(123, 69, 181, 0.1);
+  font-weight: 600;
 }
 
 /* The list style
@@ -72,14 +149,12 @@
   width: 20px;
   background-repeat: no-repeat;
   display: inline-block;
-  /* file icon by default */
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='lightgrey' d='M85.714,42.857V87.5c0,1.487-0.521,2.752-1.562,3.794c-1.042,1.041-2.308,1.562-3.795,1.562H19.643 c-1.488,0-2.753-0.521-3.794-1.562c-1.042-1.042-1.562-2.307-1.562-3.794v-75c0-1.487,0.521-2.752,1.562-3.794 c1.041-1.041,2.306-1.562,3.794-1.562H50V37.5c0,1.488,0.521,2.753,1.562,3.795s2.307,1.562,3.795,1.562H85.714z M85.546,35.714 H57.143V7.311c3.05,0.558,5.505,1.767,7.366,3.627l17.41,17.411C83.78,30.209,84.989,32.665,85.546,35.714z' /></svg>");
   background-position: center 2px;
   background-size: 60% auto;
 }
 
 .directory-list li.folder:before {
-  /* folder icon if folder class is specified */
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><path fill='lightblue' d='M96.429,37.5v39.286c0,3.423-1.228,6.361-3.684,8.817c-2.455,2.455-5.395,3.683-8.816,3.683H16.071 c-3.423,0-6.362-1.228-8.817-3.683c-2.456-2.456-3.683-5.395-3.683-8.817V23.214c0-3.422,1.228-6.362,3.683-8.817 c2.455-2.456,5.394-3.683,8.817-3.683h17.857c3.422,0,6.362,1.228,8.817,3.683c2.455,2.455,3.683,5.395,3.683,8.817V25h37.5 c3.422,0,6.361,1.228,8.816,3.683C95.201,31.138,96.429,34.078,96.429,37.5z' /></svg>");
   background-position: center top;
   background-size: 75% auto;

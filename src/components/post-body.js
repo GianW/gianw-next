@@ -17,7 +17,7 @@ export const PostBody = ({ content }) => {
 
   return (
     <>
-     <div className='max-w-2xl mx-auto' style={{ maxWidth: '900px' }}>
+     <div style={{ maxWidth: '900px' }}>
         <div
           className={markdownStyles['markdown']}
           dangerouslySetInnerHTML={{ __html: content }}

@@ -3,8 +3,14 @@ import { makeStyles } from '@mui/styles'
 export const useStyles = makeStyles(theme => {
   return {
     root: {
-      marginTop: theme.spacing(4),
-      marginBottom: theme.spacing(8),
+      position: 'sticky',
+      top: 0,
+      zIndex: 100,
+      backgroundColor: theme.palette.background.default,
+      borderBottom: `1px solid ${theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.1)'}`,
+      paddingTop: theme.spacing(2),
+      paddingBottom: theme.spacing(2),
+      marginBottom: theme.spacing(4),
     },
     toolBar: {
       display: 'flex',
@@ -21,7 +27,6 @@ export const useStyles = makeStyles(theme => {
       cursor: 'pointer',
     },
     linkText: {
-      // color: theme.palette.getContrastText(theme.palette.background.default),
       color: theme.palette.mode == 'dark' ? '#8a8a8a' : '#626161',
       transition: '0.5s ease',
       '&:hover': {
@@ -29,14 +34,12 @@ export const useStyles = makeStyles(theme => {
           theme.palette.mode == 'dark'
             ? '#fefefe'
             : theme.palette.colors.primary,
-        borderBottom: `1px solid ${theme.palette.colors.primary}`,
-        cursor: 'pointer',        
+        cursor: 'pointer',
       },
     },
     selectedLinkText: {
       color:
         theme.palette.mode == 'dark' ? '#fefefe' : theme.palette.colors.primary,
-      borderBottom: `1px solid ${theme.palette.colors.primary}`,
       cursor: 'pointer',
     },
     linkStyle: {

@@ -50,7 +50,7 @@ export const useStyles = makeStyles(theme => {
     },
     textDesc: {
       marginTop: 5,
-      color: '#919191',
+      color: theme.palette.text.secondary,
     },
     cardGrid: {
       marginTop: 10,

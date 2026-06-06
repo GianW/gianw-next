@@ -8,6 +8,7 @@ import Head from 'next/head'
 import { AppHeader } from 'components/AppHeader/AppHeader'
 import { Seo } from 'components/Seo'
 import { Fade } from 'components/Animation/Fade'
+import Link from 'next/link'
 
 export default function Brain({ brain }) {
   const router = useRouter()
@@ -35,8 +36,13 @@ export default function Brain({ brain }) {
                 <title>{brain.title}</title>
                 <Seo keywords={[brain.seo]} />
               </Head>
+              <Fade delay={0}>
+                <Link href='/brain' style={{ color: '#8a8a8a', fontSize: '0.9rem', textDecoration: 'none', display: 'inline-block', marginTop: '24px', marginBottom: '8px' }}>
+                  ← Brain
+                </Link>
+              </Fade>
               <Fade delay={0.1}>
-                <Typography variant='h3' style={{ marginTop: '2%' }}>
+                <Typography variant='h3' style={{ marginTop: '8px', marginBottom: '8px', textTransform: 'capitalize' }}>
                   {brain?.title}
                 </Typography>
               </Fade>
