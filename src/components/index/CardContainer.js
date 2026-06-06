@@ -8,7 +8,7 @@ export const CardContainer = ({ children, title, subtitle }) => {
     <>
       <Typography variant='h5'>{title}</Typography>
       {subtitle && (
-        <Typography variant='caption'>
+        <Typography variant='caption' display='block'>
           <i>{subtitle}</i>
         </Typography>
       )}

@@ -28,9 +28,14 @@ export const PostsList = ({ posts }) => {
             <CardActionArea href={`/posts/${post.slug}`}>
               <CardHeader subheader={post.title} />
               <CardContent>
-                <Typography variant='caption'>
-                  {dateFormatter(post.date)}
-                </Typography>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', minHeight: '24px' }}>
+                  <Typography variant='caption'>
+                    {dateFormatter(post.date)}
+                  </Typography>
+                  {post.hasTranslation && (
+                    <Chip label='PT' size='small' variant='outlined' sx={{ fontSize: '0.65rem', color: 'success.main', borderColor: 'success.main' }} />
+                  )}
+                </div>
                 <Typography variant='body2'>{post.description}</Typography>
                 <p>
                   {post.tags.map(tag => (
@@ -67,7 +72,7 @@ const useStyles = makeStyles(theme => {
       marginLeft: '5%',
     },
     card: {
-      height: '190px',
+      height: '100%',
     },
   }
 })

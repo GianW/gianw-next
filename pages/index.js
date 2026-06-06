@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { makeStyles } from '@mui/styles'
-import { Typography, Grid } from '@mui/material'
+import { Typography, Grid, Divider } from '@mui/material'
 import { getSortedPostsData, getAllBrainSlugs } from 'lib/dataSource'
 import { getProjectsForMain } from 'lib/contentFullApi'
 import { MainLastPosts } from 'components/index/MainLastPosts'
@@ -22,8 +22,6 @@ const useStyles = makeStyles(theme => {
     },
     divider: {
       width: '70%',
-      marginTop: '5%',
-      marginBotton: '4%',
     },
   }
 })
@@ -50,7 +48,7 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
         </Grid>
       </Grid>
       <Fade delay={0}>
-        <hr className={classes.divider} />
+        <Divider sx={{ width: '70%', mx: 'auto', my: 4 }} />
       </Fade>
 
       <Fade delay={0.1}>
@@ -69,7 +67,7 @@ export default function Home({ blogPosts, brainPosts, projPosts }) {
       </Fade>
 
       <Fade delay={0.2}>
-        <hr className={classes.divider} />
+        <Divider sx={{ width: '70%', mx: 'auto', my: 4 }} />
       </Fade>
       <Fade delay={0.3}>
         <Grid
